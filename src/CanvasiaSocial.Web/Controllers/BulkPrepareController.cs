@@ -50,8 +50,11 @@ public sealed class BulkPrepareController(IProductCacheService products, ICampai
 
     private async Task<IReadOnlyList<SocialAccountOption>> GetAllSocialAccountsAsync(CancellationToken cancellationToken)
     {
-        var groups = await Task.WhenAll(Enum.GetValues<CanvasiaSocial.Domain.Enums.Platform>()
-            .Select(platform => campaigns.GetSocialAccountsAsync(platform, cancellationToken)));
-        return groups.SelectMany(x => x).ToArray();
+        var accounts = new List<SocialAccountOption>();
+        foreach (var platform in Enum.GetValues<CanvasiaSocial.Domain.Enums.Platform>())
+        {
+            accounts.AddRange(await campaigns.GetSocialAccountsAsync(platform, cancellationToken));
+        }
+        return accounts;
     }
 }

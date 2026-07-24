@@ -6,6 +6,10 @@
 # dotenv files
 .env
 
+# Local database exports
+backups/
+*.backup
+
 # User-specific files
 *.rsuser
 *.suo
@@ -480,3 +484,6 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+# Nested repo copy
+/canvasia-sosyal/
