@@ -1,0 +1,54 @@
+- generic [active] [ref=f1e1]:
+  - banner [ref=f1e2]:
+    - link "CS CanvasiaSocial" [ref=f1e3] [cursor=pointer]:
+      - /url: /Dashboard
+      - generic [ref=f1e4]: CS
+      - generic [ref=f1e5]: CanvasiaSocial
+    - navigation "Ana menü" [ref=f1e6]:
+      - link "Dashboard" [ref=f1e7] [cursor=pointer]:
+        - /url: /Dashboard
+      - link "Ürünler" [ref=f1e8] [cursor=pointer]:
+        - /url: /Products
+      - link "Kampanyalar" [ref=f1e9] [cursor=pointer]:
+        - /url: /Campaigns
+      - link "Taslaklar" [ref=f1e10] [cursor=pointer]:
+        - /url: /Drafts
+      - link "Takvim" [ref=f1e11] [cursor=pointer]:
+        - /url: /Calendar
+      - link "Canvasia" [ref=f1e12] [cursor=pointer]:
+        - /url: /Settings/Canvasia
+      - link "Sosyal hesaplar" [ref=f1e13] [cursor=pointer]:
+        - /url: /SocialAccounts
+    - generic [ref=f1e14]:
+      - generic [ref=f1e15]: admin@example.com
+      - link "Parola değiştir" [ref=f1e16] [cursor=pointer]:
+        - /url: /parola-degistir
+      - button "Çıkış" [ref=f1e18] [cursor=pointer]
+  - main [ref=f1e19]:
+    - generic [ref=f1e20]:
+      - paragraph [ref=f1e21]: YÖNETİM
+      - heading "Gösterge Paneli" [level=1] [ref=f1e22]
+      - paragraph [ref=f1e23]: Canvasia ürünleri ve sosyal medya çalışmalarınız için başlangıç görünümü.
+    - region "Sistem özeti" [ref=f1e24]:
+      - article [ref=f1e25]:
+        - generic [ref=f1e26]: Sosyal hesap
+        - strong [ref=f1e27]: "0"
+      - article [ref=f1e28]:
+        - generic [ref=f1e29]: Cache ürün
+        - strong [ref=f1e30]: "12262"
+      - article [ref=f1e31]:
+        - generic [ref=f1e32]: Taslak içerik
+        - strong [ref=f1e33]: "3"
+      - article [ref=f1e34]:
+        - generic [ref=f1e35]: Planlı gönderi
+        - strong [ref=f1e36]: "3"
+      - article [ref=f1e37]:
+        - generic [ref=f1e38]: Aktif kampanya
+        - strong [ref=f1e39]: "1"
+    - generic [ref=f1e40]:
+      - generic [ref=f1e41]:
+        - generic [ref=f1e42]: Son Canvasia senkronizasyonu
+        - strong [ref=f1e43]: 24.07.2026 11:33
+      - generic [ref=f1e44]:
+        - generic [ref=f1e45]: Canvasia API
+        - strong [ref=f1e46]: Sağlıklı

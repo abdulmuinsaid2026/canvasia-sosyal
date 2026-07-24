@@ -1,0 +1,720 @@
+- generic [ref=f69e10]:
+  - navigation "Main" [ref=f69e12]:
+    - generic [ref=f69e19]:
+      - link "Meta home" [ref=f69e22] [cursor=pointer]:
+        - /url: https://developers.facebook.com/
+        - img "Nav Logo" [ref=f69e23]
+      - list [ref=f69e27]:
+        - listitem [ref=f69e28]:
+          - button "Build with us" [ref=f69e31] [cursor=pointer]
+        - listitem [ref=f69e33]:
+          - link "Docs" [ref=f69e36] [cursor=pointer]:
+            - /url: /docs/
+        - listitem [ref=f69e38]:
+          - link "Blog" [ref=f69e41] [cursor=pointer]:
+            - /url: /blog/
+        - listitem [ref=f69e43]:
+          - button "Resources" [ref=f69e46] [cursor=pointer]
+        - listitem [ref=f69e48]:
+          - button "Developer centers" [ref=f69e51] [cursor=pointer]
+      - generic [ref=f69e56]:
+        - link "Login" [ref=f69e57] [cursor=pointer]:
+          - /url: https://business.facebook.com/business/loginpage/?next=https%3A%2F%2Fdevelopers.facebook.com%2Fdocumentation%2Finstagram-platform%2Finstagram-api-with-instagram-login%2Fbusiness-login
+        - button [ref=f69e58] [cursor=pointer]:
+          - img "Search" [ref=f69e59]
+  - generic [ref=f69e66]:
+    - navigation [ref=f69e67]:
+      - generic [ref=f69e68]:
+        - generic [ref=f69e69]:
+          - generic [ref=f69e70]: Instagram Platform
+          - textbox "Filter" [ref=f69e73]
+        - generic [ref=f69e75]:
+          - generic "Instagram Platform" [ref=f69e76]:
+            - link "Instagram Platform" [ref=f69e77] [cursor=pointer]:
+              - /url: /documentation/instagram-platform
+          - generic "Overview" [ref=f69e81]:
+            - link "Overview" [ref=f69e82] [cursor=pointer]:
+              - /url: /documentation/instagram-platform/overview
+          - generic "Webhooks" [ref=f69e87]:
+            - link "Webhooks" [ref=f69e88] [cursor=pointer]:
+              - /url: "#"
+          - generic "Create an App" [ref=f69e95]:
+            - link "Create an App" [ref=f69e96] [cursor=pointer]:
+              - /url: /documentation/instagram-platform/create-an-instagram-app
+          - generic [ref=f69e100]:
+            - generic "Instagram API with Instagram Login" [ref=f69e101]:
+              - link "Instagram API with Instagram Login" [ref=f69e102] [cursor=pointer]:
+                - /url: "#"
+            - generic [ref=f69e110]:
+              - generic "Instagram API with Instagram Login" [ref=f69e111]:
+                - link "Instagram API with Instagram Login" [ref=f69e112] [cursor=pointer]:
+                  - /url: /documentation/instagram-platform/instagram-api-with-instagram-login
+              - generic "Migration Guide" [ref=f69e116]:
+                - link "Migration Guide" [ref=f69e117] [cursor=pointer]:
+                  - /url: /documentation/instagram-platform/instagram-api-with-instagram-login/migration-guide
+              - generic "Business Login for Instagram" [ref=f69e121]:
+                - link "Business Login for Instagram" [ref=f69e122] [cursor=pointer]:
+                  - /url: /documentation/instagram-platform/instagram-api-with-instagram-login/business-login
+              - generic "Get started" [ref=f69e126]:
+                - link "Get started" [ref=f69e127] [cursor=pointer]:
+                  - /url: /documentation/instagram-platform/instagram-api-with-instagram-login/get-started
+              - generic "Messaging" [ref=f69e132]:
+                - link "Messaging" [ref=f69e133] [cursor=pointer]:
+                  - /url: "#"
+              - generic "Welcome message ads" [ref=f69e140]:
+                - link "Welcome message ads" [ref=f69e141] [cursor=pointer]:
+                  - /url: /documentation/instagram-platform/instagram-api-with-instagram-login/welcome-message-ads
+              - generic "Conversations API" [ref=f69e145]:
+                - link "Conversations API" [ref=f69e146] [cursor=pointer]:
+                  - /url: /documentation/instagram-platform/instagram-api-with-instagram-login/conversations-api
+              - generic "Mentions" [ref=f69e150]:
+                - link "Mentions" [ref=f69e151] [cursor=pointer]:
+                  - /url: /documentation/instagram-platform/instagram-api-with-instagram-login/mentions
+          - generic "Instagram API with Facebook Login" [ref=f69e156]:
+            - link "Instagram API with Facebook Login" [ref=f69e157] [cursor=pointer]:
+              - /url: "#"
+          - generic "Publish Content" [ref=f69e165]:
+            - link "Publish Content" [ref=f69e166] [cursor=pointer]:
+              - /url: "#"
+          - generic "Comment Moderation" [ref=f69e173]:
+            - link "Comment Moderation" [ref=f69e174] [cursor=pointer]:
+              - /url: /documentation/instagram-platform/comment-moderation
+          - generic "Private Replies" [ref=f69e178]:
+            - link "Private Replies" [ref=f69e179] [cursor=pointer]:
+              - /url: /documentation/instagram-platform/private-replies
+          - generic "Insights" [ref=f69e183]:
+            - link "Insights" [ref=f69e184] [cursor=pointer]:
+              - /url: /documentation/instagram-platform/insights
+          - generic "Sharing to Feed" [ref=f69e188]:
+            - link "Sharing to Feed" [ref=f69e189] [cursor=pointer]:
+              - /url: /documentation/instagram-platform/sharing-to-feed
+          - generic "Sharing to Stories" [ref=f69e193]:
+            - link "Sharing to Stories" [ref=f69e194] [cursor=pointer]:
+              - /url: /documentation/instagram-platform/sharing-to-stories
+          - generic "oEmbed" [ref=f69e198]:
+            - link "oEmbed" [ref=f69e199] [cursor=pointer]:
+              - /url: /documentation/instagram-platform/oembed
+          - generic "Embed Button" [ref=f69e203]:
+            - link "Embed Button" [ref=f69e204] [cursor=pointer]:
+              - /url: /documentation/instagram-platform/embed-button
+          - generic "Self Messaging" [ref=f69e208]:
+            - link "Self Messaging" [ref=f69e209] [cursor=pointer]:
+              - /url: /documentation/instagram-platform/self-messaging
+          - generic "API Reference" [ref=f69e214]:
+            - link "API Reference" [ref=f69e215] [cursor=pointer]:
+              - /url: "#"
+          - generic "App Review" [ref=f69e222]:
+            - link "App Review" [ref=f69e223] [cursor=pointer]:
+              - /url: /documentation/instagram-platform/app-review
+          - generic "Support" [ref=f69e227]:
+            - link "Support" [ref=f69e228] [cursor=pointer]:
+              - /url: /documentation/instagram-platform/support
+          - generic "Changelog" [ref=f69e232]:
+            - link "Changelog" [ref=f69e233] [cursor=pointer]:
+              - /url: /documentation/instagram-platform/changelog
+    - generic [ref=f69e238]:
+      - main [ref=f69e239]:
+        - generic [ref=f69e240]:
+          - navigation "Breadcrumbs" [ref=f69e242]:
+            - list [ref=f69e243]:
+              - listitem [ref=f69e244]:
+                - link "Docs" [ref=f69e246] [cursor=pointer]:
+                  - /url: /docs
+              - listitem [ref=f69e251]:
+                - link "Overview" [ref=f69e253] [cursor=pointer]:
+                  - /url: /documentation/instagram-platform
+              - listitem [ref=f69e258]:
+                - generic [ref=f69e259]: Business Login for Instagram
+          - article [ref=f69e262]:
+            - heading "Business Login for Instagram" [level=1] [ref=f69e263]
+            - generic [ref=f69e264]: "Updated: Mar 13, 2026"
+            - generic [ref=f69e268]:
+              - button "Copy for LLM" [ref=f69e270] [cursor=pointer]
+              - link "View as Markdown" [ref=f69e277] [cursor=pointer]:
+                - /url: /documentation/instagram-platform/instagram-api-with-instagram-login/business-login.md
+            - generic [ref=f69e283]: Business Login is a custom login flow that allows your app to ask for permissions to access your app user’s Instagram professional account data and to get an access token to use in your app’s API requests.
+            - generic [ref=f69e285]:
+              - generic [ref=f69e286]:
+                - text: To ensure consistency between scope values and permission names, we are introducing new
+                - code [ref=f69e287]: scope
+                - text: values for the Instagram API with Instagram login. The new
+                - code [ref=f69e288]: scope
+                - text: "values are:"
+              - list [ref=f69e289]:
+                - listitem [ref=f69e291]:
+                  - code [ref=f69e292]: instagram_business_basic
+                - listitem [ref=f69e294]:
+                  - code [ref=f69e295]: instagram_business_content_publish
+                - listitem [ref=f69e297]:
+                  - code [ref=f69e298]: instagram_business_manage_messages
+                - listitem [ref=f69e300]:
+                  - code [ref=f69e301]: instagram_business_manage_comments
+              - generic [ref=f69e302]:
+                - text: These will replace the existing
+                - code [ref=f69e303]: business_basic
+                - text: ","
+                - code [ref=f69e304]: business_content_publish
+                - text: ","
+                - code [ref=f69e305]: business_manage_comments
+                - text: and
+                - code [ref=f69e306]: business_manage_messages
+                - code [ref=f69e307]: scope
+                - text: values, respectively.
+              - generic [ref=f69e308]:
+                - text: Please note that the old scope values will be deprecated on
+                - strong [ref=f69e309]: January 27, 2025
+                - text: . It is essential to update your code before this date to avoid any disruption in your app’s functionality. Failure to do so will result in your app being unable to call the Instagram endpoints.
+            - generic [ref=f69e312]:
+              - heading "How it works" [level=3] [ref=f69e313]
+              - button [ref=f69e314] [cursor=pointer]
+            - generic [ref=f69e318]: Your app user launches the login flow on your app or website by clicking your embed URL link or button. This embed URL, that you set up in the App Dashboard with the permissions you are requesting from your app users, opens an authorization window. Your app user uses this window to grant your app permissions. When the user submits the login flow, Meta redirects your app user to your redirect URI and sends an authorization code. Your app can then exchange this authorization code for a short-lived Instagram User access token, an Instagram-scoped user ID for your app user, and a list of permissions the app user granted your app. Your app can exchanged this short-lived access token for a long-lived Instagram user access token that is valid for 60 days.
+            - generic [ref=f69e321]:
+              - heading "Before you start" [level=2] [ref=f69e322]
+              - button [ref=f69e323] [cursor=pointer]
+            - generic [ref=f69e327]:
+              - text: If you haven’t already,
+              - link "add the Instagram product" [ref=f69e328] [cursor=pointer]:
+                - /url: /documentation/instagram-platform/create-an-instagram-app
+              - text: to your app and configure your
+              - link [ref=f69e329] [cursor=pointer]:
+                - /url: /documentation/instagram-platform/create-an-instagram-app#step-9--set-up-business-login
+                - strong [ref=f69e330]: Business login settings
+              - text: in the Meta App Dashboard.
+            - generic [ref=f69e333]:
+              - heading "Embed the business login URL" [level=3] [ref=f69e334]
+              - button [ref=f69e335] [cursor=pointer]
+            - generic [ref=f69e339]: You should have completed this step during Instagram app setup in the App Dashboard, but if not, complete the following steps.
+            - list [ref=f69e340]:
+              - listitem [ref=f69e342]:
+                - text: Copy the
+                - strong [ref=f69e343]: Embed URL
+                - text: from the
+                - strong [ref=f69e344]: Set up business login
+                - text: in the App Dashboard.
+              - listitem [ref=f69e346]: Paste the URL in an anchor tag or button on your app or website to launch the login flow.
+            - generic [ref=f69e349]:
+              - heading "Requirements" [level=2] [ref=f69e350]
+              - button [ref=f69e351] [cursor=pointer]
+            - generic [ref=f69e356]:
+              - text: This guide assumes you have read the
+              - link "Instagram Platform Overview" [ref=f69e357] [cursor=pointer]:
+                - /url: /documentation/instagram-platform/overview
+              - text: and implemented the needed components for using this API, such as a Meta login flow and a webhooks server to receive notifications.
+            - generic [ref=f69e358]: "You will need the following:"
+            - generic [ref=f69e361]:
+              - heading "Access Level" [level=4] [ref=f69e362]
+              - button [ref=f69e363] [cursor=pointer]
+            - list [ref=f69e367]:
+              - listitem [ref=f69e369]: Advanced Access if your app serves Instagram professional accounts you don’t own or manage
+              - listitem [ref=f69e371]: Standard Access if your app serves Instagram professional accounts you own or manage and have added to your app in the App Dashboard
+            - generic [ref=f69e374]:
+              - heading "Endpoints" [level=4] [ref=f69e375]
+              - button [ref=f69e376] [cursor=pointer]
+            - list [ref=f69e380]:
+              - listitem [ref=f69e382]:
+                - code [ref=f69e383]: https://www.instagram.com/oauth/authorize
+                - text: – To get an authorization code from your app user
+              - listitem [ref=f69e385]:
+                - code [ref=f69e386]: https://api.instagram.com/oauth/access_token
+                - text: – To exchange an authorization code for a short-lived access token
+              - listitem [ref=f69e388]:
+                - code [ref=f69e389]: https://graph.instagram.com/access_token
+                - text: – To exchange a valid short-lived access token for a long-lived access token
+              - listitem [ref=f69e391]:
+                - code [ref=f69e392]: https://graph.instagram.com/refresh_access_token
+                - text: – To refresh a valid long-lived access token for another 60 days
+            - generic [ref=f69e395]:
+              - heading "IDs from the Meta App Dashboard" [level=4] [ref=f69e396]
+              - button [ref=f69e397] [cursor=pointer]
+            - generic [ref=f69e401]:
+              - text: In the
+              - strong [ref=f69e402]: App Dashboard > Instagram > API setup with Instagram login > 3. Set up Instagram business login > Business login settings
+              - text: ", you will need:"
+            - list [ref=f69e403]:
+              - listitem [ref=f69e405]: Your app’s Instagram App ID
+              - listitem [ref=f69e407]: Your app’s Instagram App Secret
+            - generic [ref=f69e410]:
+              - heading "Step 1. Get authorization" [level=2] [ref=f69e411]
+              - button [ref=f69e412] [cursor=pointer]
+            - generic [ref=f69e416]: When a person clicks your embed URL link or button to log in to your app, they are directed to an authorization window. This window allows your app users to grant your app permissions and short-lived Instagram User access tokens.
+            - generic [ref=f69e419]:
+              - heading "Example embed URL" [level=4] [ref=f69e420]
+              - button [ref=f69e421] [cursor=pointer]
+            - emphasis [ref=f69e426]: Formatted for readability.
+            - generic [ref=f69e427]:
+              - generic [ref=f69e428]: https://www.instagram.com/oauth/authorize ?client_id=990602627938098 &redirect_uri=https://my.m.redirect.net/ &response_type=code &scope= instagram_business_basic, instagram_business_manage_messages, instagram_business_manage_comments, instagram_business_content_publish
+              - button [ref=f69e431] [cursor=pointer]
+            - generic [ref=f69e436]:
+              - heading "Query string parameters" [level=3] [ref=f69e437]
+              - button [ref=f69e438] [cursor=pointer]
+            - table [ref=f69e443]:
+              - rowgroup [ref=f69e444]:
+                - row [ref=f69e445]:
+                  - columnheader "Parameter" [ref=f69e446]
+                  - columnheader "Description" [ref=f69e447]
+              - rowgroup [ref=f69e448]:
+                - row [ref=f69e449]:
+                  - cell [ref=f69e450]:
+                    - generic [ref=f69e452]:
+                      - code [ref=f69e453]: client_id
+                      - strong [ref=f69e454]: Required
+                      - emphasis [ref=f69e455]: Numeric string
+                  - cell [ref=f69e456]:
+                    - generic [ref=f69e458]:
+                      - text: Your app’s Instagram App ID displayed in
+                      - strong [ref=f69e459]: App Dashboard > Instagram > API setup with Instagram login > 3. Set up Instagram business login > Business login settings > Instagram App ID
+                      - text: .
+                - row [ref=f69e460]:
+                  - cell [ref=f69e461]:
+                    - generic [ref=f69e463]:
+                      - code [ref=f69e464]: enable_fb_login
+                      - emphasis [ref=f69e465]: Boolean
+                  - cell [ref=f69e466]:
+                    - generic [ref=f69e467]:
+                      - generic [ref=f69e468]:
+                        - text: Controls whether the Facebook Login option is displayed on the Instagram login page during OAuth authorization (the login page is only shown if the user is not logged in prior to beginning authorization flow or if the
+                        - code [ref=f69e469]: force_reauth
+                        - text: parameter field is passed in).
+                      - generic [ref=f69e470]:
+                        - text: If set to
+                        - code [ref=f69e471]: "true"
+                        - text: (default), users will see the option to log in with Facebook when redirected to the Instagram login page. If set to
+                        - code [ref=f69e472]: "false"
+                        - text: ", the Facebook Login option will be hidden."
+                - row [ref=f69e473]:
+                  - cell [ref=f69e474]:
+                    - generic [ref=f69e476]:
+                      - code [ref=f69e477]: force_reauth
+                      - emphasis [ref=f69e478]: Boolean
+                  - cell [ref=f69e479]:
+                    - generic [ref=f69e481]:
+                      - text: Value can be
+                      - code [ref=f69e482]: "true"
+                      - text: or
+                      - code [ref=f69e483]: "false"
+                      - text: . When set to
+                      - code [ref=f69e484]: "true"
+                      - text: it forces an app user to use their Instagram professional account credentials to log into your app even if the user is logged into Instagram.
+                - row [ref=f69e485]:
+                  - cell [ref=f69e486]:
+                    - generic [ref=f69e488]:
+                      - code [ref=f69e489]: redirect_uri
+                      - strong [ref=f69e490]: Required
+                      - emphasis [ref=f69e491]: String
+                  - cell "A URI where we will redirect users after they allow or deny permission request. Make sure this exactly matches one of the base URIs in your list of valid OAuth URIs you set during API setup in the App Dashboard. Keep in mind that the App Dashboard might have added a trailing slash to your URIs, so we recommend that you verify by checking the list. App Dashboard > Instagram > API setup with Instagram login > 3. Set up Instagram business login > Business login settings> OAuth redirect URIs." [ref=f69e492]:
+                    - generic [ref=f69e493]:
+                      - generic [ref=f69e494]: A URI where we will redirect users after they allow or deny permission request. Make sure this exactly matches one of the base URIs in your list of valid OAuth URIs you set during API setup in the App Dashboard. Keep in mind that the App Dashboard might have added a trailing slash to your URIs, so we recommend that you verify by checking the list.
+                      - generic [ref=f69e495]:
+                        - strong [ref=f69e496]: App Dashboard > Instagram > API setup with Instagram login > 3. Set up Instagram business login > Business login settings> OAuth redirect URIs
+                        - text: .
+                - row [ref=f69e497]:
+                  - cell [ref=f69e498]:
+                    - generic [ref=f69e500]:
+                      - code [ref=f69e501]: response_type
+                      - strong [ref=f69e502]: Required
+                      - emphasis [ref=f69e503]: String
+                  - cell [ref=f69e504]:
+                    - generic [ref=f69e506]:
+                      - text: Set this value to
+                      - code [ref=f69e507]: code
+                      - text: .
+                - row [ref=f69e508]:
+                  - cell [ref=f69e509]:
+                    - generic [ref=f69e511]:
+                      - code [ref=f69e512]: scope
+                      - strong [ref=f69e513]: Required
+                      - emphasis [ref=f69e514]: List
+                  - cell [ref=f69e515]:
+                    - generic [ref=f69e517]:
+                      - text: A comma-separated or URL-encoded space-separated list of
+                      - link "permissions" [ref=f69e518] [cursor=pointer]:
+                        - /url: /documentation/instagram-platform/overview#authorization
+                      - text: to request from the app user.
+                - row [ref=f69e519]:
+                  - cell [ref=f69e520]:
+                    - generic [ref=f69e522]:
+                      - code [ref=f69e523]: state
+                      - emphasis [ref=f69e524]: String
+                  - cell "An optional value indicating a server-specific state. For example, you can use this to protect against CSRF issues. We will include this parameter and value when redirecting the user back to you." [ref=f69e525]
+            - generic [ref=f69e530]:
+              - heading "Successful authorization" [level=3] [ref=f69e531]
+              - button [ref=f69e532] [cursor=pointer]
+            - generic [ref=f69e536]:
+              - text: If authorization is successful, we will redirect your app user to your
+              - code [ref=f69e537]: redirect_uri
+              - text: and pass you an
+              - strong [ref=f69e538]: Authorization Code
+              - text: through the
+              - code [ref=f69e539]: code
+              - text: query string parameter. This code is valid for
+              - strong [ref=f69e540]: 1 hour
+              - text: and can only be used once.
+            - generic [ref=f69e541]: Capture the code so your app can exchange it for a short-lived Instagram User access token.
+            - generic [ref=f69e544]:
+              - heading "Example redirect URI response" [level=4] [ref=f69e545]
+              - button [ref=f69e546] [cursor=pointer]
+            - generic [ref=f69e550]:
+              - code [ref=f69e552]: https://my.m.redirect.net/?code=abcdefghijklmnopqrstuvwxyz#_
+              - button [ref=f69e553] [cursor=pointer]
+            - generic [ref=f69e556]:
+              - strong [ref=f69e557]: "NOTE:"
+              - text: The
+              - code [ref=f69e558]: "#_"
+              - text: appended to the end of the redirect URI is not part of the code itself, so strip it out.
+            - generic [ref=f69e561]:
+              - heading "Canceled authorization" [level=3] [ref=f69e562]
+              - button [ref=f69e563] [cursor=pointer]
+            - generic [ref=f69e567]:
+              - text: If the user cancels the authorization flow, we will redirect the user to your
+              - code [ref=f69e568]: redirect_uri
+              - text: and attach the following error parameters.
+              - emphasis [ref=f69e569]: It is your responsibility to fail gracefully in these situations and display an appropriate message to your app users
+              - text: .
+            - table [ref=f69e571]:
+              - rowgroup [ref=f69e572]:
+                - row [ref=f69e573]:
+                  - columnheader "Parameter" [ref=f69e574]
+                  - columnheader "Value" [ref=f69e575]
+              - rowgroup [ref=f69e576]:
+                - row [ref=f69e577]:
+                  - cell [ref=f69e578]:
+                    - code [ref=f69e581]: error
+                  - cell [ref=f69e582]:
+                    - code [ref=f69e585]: access_denied
+                - row [ref=f69e586]:
+                  - cell [ref=f69e587]:
+                    - code [ref=f69e590]: error_reason
+                  - cell [ref=f69e591]:
+                    - code [ref=f69e594]: user_denied
+                - row [ref=f69e595]:
+                  - cell [ref=f69e596]:
+                    - code [ref=f69e599]: error_description
+                  - cell [ref=f69e600]:
+                    - code [ref=f69e603]: The+user+denied+your+request
+            - generic [ref=f69e606]:
+              - heading "Sample Canceled Authorization Redirect" [level=4] [ref=f69e607]
+              - button [ref=f69e608] [cursor=pointer]
+            - emphasis [ref=f69e613]: Formatted for readability.
+            - generic [ref=f69e614]:
+              - generic [ref=f69e615]: https://my.m.redirect.net/auth/ ?error=access_denied &error_reason=user_denied &error_description=The+user+denied+your+request
+              - button [ref=f69e618] [cursor=pointer]
+            - generic [ref=f69e623]:
+              - heading "Step 2. Exchange the Code For a Token" [level=2] [ref=f69e624]
+              - button [ref=f69e625] [cursor=pointer]
+            - generic [ref=f69e629]:
+              - text: To get the access token, send a
+              - code [ref=f69e630]: POST
+              - text: request to the
+              - code [ref=f69e631]: https://api.instagram.com/oauth/access_token
+              - text: "endpoint with the following parameters:"
+            - list [ref=f69e632]:
+              - listitem [ref=f69e634]:
+                - code [ref=f69e635]: client_id
+                - text: set to your app’s Instagram app ID from the App Dashboard
+              - listitem [ref=f69e637]:
+                - code [ref=f69e638]: client_secret
+                - text: set to your app’s Instagram App Secret from the App Dashboard
+              - listitem [ref=f69e640]:
+                - code [ref=f69e641]: grant_type
+                - text: set to
+                - code [ref=f69e642]: authorization_code
+              - listitem [ref=f69e644]:
+                - code [ref=f69e645]: redirect_uri
+                - text: set to your redirect URI
+              - listitem [ref=f69e647]:
+                - code [ref=f69e648]: code
+                - text: set to the
+                - code [ref=f69e649]: code
+                - text: value from the redirect URI response
+            - generic [ref=f69e652]:
+              - heading "Sample request" [level=4] [ref=f69e653]
+              - button [ref=f69e654] [cursor=pointer]
+            - emphasis [ref=f69e659]: Formatted for readability.
+            - generic [ref=f69e660]:
+              - code [ref=f69e662]: curl -X POST https://api.instagram.com/oauth/access_token \ -F 'client_id=990602627938098' \ -F 'client_secret=a1b2C3D4' \ -F 'grant_type=authorization_code' \ -F 'redirect_uri=https://my.m.redirect.net/' \ -F 'code=AQBx-hBsH3...'
+              - button [ref=f69e663] [cursor=pointer]
+            - generic [ref=f69e666]: On success, your app receives a JSON response containing the app user’s short-lived access token, their Instagram App-scoped User ID, and a list of the permissions granted by the app user.
+            - generic [ref=f69e667]:
+              - generic [ref=f69e668]: "{ \"data\": [ { \"access_token\": \"EAACEdEose0...\", \"user_id\": \"1020...\", // Your app user's Instagram-scoped user ID \"permissions\": \"instagram_business_basic,instagram_business_manage_messages,instagram_business_manage_comments,instagram_business_content_publish\" } ] }"
+              - button [ref=f69e671] [cursor=pointer]
+            - generic [ref=f69e674]:
+              - text: Capture the
+              - code [ref=f69e675]: access_token
+              - text: value. This is the user’s short-lived Instagram User access token which your app can use to access Instagram API with Instagram Login
+              - link "endpoints" [ref=f69e676] [cursor=pointer]:
+                - /url: /documentation/instagram-platform/instagram-api-with-instagram-login/get-started
+              - text: .
+            - generic [ref=f69e679]:
+              - heading "Parameter reference" [level=3] [ref=f69e680]
+              - button [ref=f69e681] [cursor=pointer]
+            - table [ref=f69e686]:
+              - rowgroup [ref=f69e687]:
+                - row [ref=f69e688]:
+                  - columnheader "Parameter" [ref=f69e689]
+                  - columnheader "Sample Value" [ref=f69e690]
+                  - columnheader "Description" [ref=f69e691]
+              - rowgroup [ref=f69e692]:
+                - row [ref=f69e693]:
+                  - cell [ref=f69e694]:
+                    - generic [ref=f69e696]:
+                      - code [ref=f69e697]: client_id
+                      - strong [ref=f69e698]: Required
+                      - emphasis [ref=f69e699]: Numeric string
+                  - cell [ref=f69e700]:
+                    - code [ref=f69e703]: "990602627938098"
+                  - cell [ref=f69e704]:
+                    - generic [ref=f69e706]:
+                      - text: Your app’s Instagram App ID displayed in
+                      - strong [ref=f69e707]: App Dashboard > Instagram > API setup with Instagram login > 3. Set up Instagram business login > Business login settings > Instagram App ID
+                      - text: .
+                - row [ref=f69e708]:
+                  - cell [ref=f69e709]:
+                    - generic [ref=f69e711]:
+                      - code [ref=f69e712]: client_secret
+                      - strong [ref=f69e713]: Required
+                      - emphasis [ref=f69e714]: String
+                  - cell [ref=f69e715]:
+                    - code [ref=f69e718]: a1b2C3D4
+                  - cell [ref=f69e719]:
+                    - generic [ref=f69e721]:
+                      - text: Your Instagram App Secret displayed in
+                      - strong [ref=f69e722]: App Dashboard > Instagram > API setup with Instagram login > 3. Set up Instagram business login > Business login settings > Instagram app secret
+                      - text: .
+                - row [ref=f69e723]:
+                  - cell [ref=f69e724]:
+                    - generic [ref=f69e726]:
+                      - code [ref=f69e727]: code
+                      - strong [ref=f69e728]: Required
+                      - emphasis [ref=f69e729]: String
+                  - cell [ref=f69e730]:
+                    - code [ref=f69e733]: AQBx-hBsH3...
+                  - cell [ref=f69e734]:
+                    - generic [ref=f69e736]:
+                      - text: The authorization code we passed you in the
+                      - code [ref=f69e737]: code
+                      - text: parameter when redirecting the user to your
+                      - code [ref=f69e738]: redirect_uri
+                      - text: .
+                - row [ref=f69e739]:
+                  - cell [ref=f69e740]:
+                    - generic [ref=f69e742]:
+                      - code [ref=f69e743]: grant_type
+                      - strong [ref=f69e744]: Required
+                      - emphasis [ref=f69e745]: String
+                  - cell [ref=f69e746]:
+                    - code [ref=f69e749]: authorization_code
+                  - cell [ref=f69e750]:
+                    - generic [ref=f69e752]:
+                      - text: Set this value to
+                      - code [ref=f69e753]: authorization_code
+                      - text: .
+                - row [ref=f69e754]:
+                  - cell [ref=f69e755]:
+                    - generic [ref=f69e757]:
+                      - code [ref=f69e758]: redirect_uri
+                      - strong [ref=f69e759]: Required
+                      - emphasis [ref=f69e760]: String
+                  - cell [ref=f69e761]:
+                    - code [ref=f69e764]: https://my.m.redirect.net/
+                  - cell [ref=f69e765]:
+                    - generic [ref=f69e767]:
+                      - text: The redirect URI you passed us when you directed the user to our Authorization Window. This must be the same URI or we will reject the request.
+                      - strong [ref=f69e768]: App Dashboard > Instagram > API setup with Instagram login > 3. Set up Instagram business login > Business login settings> OAuth redirect URIs
+                      - text: .
+            - generic [ref=f69e771]:
+              - heading "Sample Rejected Response" [level=3] [ref=f69e772]
+              - button [ref=f69e773] [cursor=pointer]
+            - generic [ref=f69e777]: If the request is malformed in some way, the API will return an error.
+            - generic [ref=f69e778]:
+              - generic [ref=f69e779]: "{ \"error_type\": \"OAuthException\", \"code\": 400, \"error_message\": \"Matching code was not found or was already used\" }"
+              - button [ref=f69e782] [cursor=pointer]
+            - generic [ref=f69e787]:
+              - heading "Step 3. Get a long-lived access token" [level=2] [ref=f69e788]
+              - button [ref=f69e789] [cursor=pointer]
+            - generic [ref=f69e793]: You can exchange your app user’s short-lived access token for a long-lived access token that is valid for 60 days.
+            - generic [ref=f69e796]:
+              - heading "Requirements" [level=3] [ref=f69e797]
+              - button [ref=f69e798] [cursor=pointer]
+            - list [ref=f69e802]:
+              - listitem [ref=f69e804]: The short-lived access token must be valid (not expired)
+              - listitem [ref=f69e806]:
+                - text: Requests for long-lived tokens
+                - strong [ref=f69e807]: must be made in server-side code
+                - text: . These requesting include your app secret which you never want to expose in client-side code or in an app binary that could be decompiled. Do not share your app secret with anyone, expose it in code, send it to a client, or store it in a device.
+            - generic [ref=f69e808]:
+              - text: To get a long-lived access token, send a
+              - code [ref=f69e809]: GET
+              - text: request to the
+              - code [ref=f69e810]: /access_token
+              - text: "endpoint with the following parameters:"
+            - list [ref=f69e811]:
+              - listitem [ref=f69e813]:
+                - code [ref=f69e814]: grant_type
+                - text: set to
+                - code [ref=f69e815]: ig_exchange_token
+              - listitem [ref=f69e817]:
+                - code [ref=f69e818]: client_secret
+                - text: set to your Instagram app secret
+              - listitem [ref=f69e820]: Your app user’s valid (unexpired) short-lived Instagram user access token
+            - generic [ref=f69e823]:
+              - heading "Sample Requests" [level=4] [ref=f69e824]
+              - button [ref=f69e825] [cursor=pointer]
+            - emphasis [ref=f69e830]: Formatted for readability.
+            - generic [ref=f69e831]:
+              - generic [ref=f69e832]: curl -i -X GET "https://graph.instagram.com/access_token ?grant_type=ig_exchange_token &client_secret=a1b2C3D4 &access_token=EAACEdEose0..."
+              - button [ref=f69e835] [cursor=pointer]
+            - generic [ref=f69e838]: On success, your app receives a JSON response with your app user’s long-lived access token, the token type, and the expiration.
+            - generic [ref=f69e839]:
+              - generic [ref=f69e840]: "{ \"access_token\":\"EAACEdEose0...\", \"token_type\": \"bearer\", \"expires_in\": 5183944 // Number of seconds until token expires }"
+              - button [ref=f69e843] [cursor=pointer]
+            - generic [ref=f69e848]:
+              - heading "Refresh a long-lived token" [level=3] [ref=f69e849]
+              - button [ref=f69e850] [cursor=pointer]
+            - generic [ref=f69e854]: "Your app user’s long-lived access token can be refreshed for another 60 days as long as the existing conditions are true:"
+            - list [ref=f69e855]:
+              - listitem [ref=f69e857]: The existing long-lived access token is at least 24 hours old
+              - listitem [ref=f69e859]: The existing long-lived access token is valide (not expired)
+              - listitem [ref=f69e861]:
+                - text: The app user has granted your app the
+                - code [ref=f69e862]: instagram_business_basic
+                - text: permission
+            - generic [ref=f69e863]: Tokens that have not been refreshed in 60 days will expire and can no longer be refreshed.
+            - generic [ref=f69e864]:
+              - text: To exchange your app user’s long-lived token that is set to expire, send a
+              - code [ref=f69e865]: GET
+              - text: request to the
+              - code [ref=f69e866]: /refresh_access_token
+              - text: "endpoint with the following parameters:"
+            - list [ref=f69e867]:
+              - listitem [ref=f69e869]:
+                - code [ref=f69e870]: grant_type
+                - text: set to
+                - code [ref=f69e871]: ig_refresh_token
+              - listitem [ref=f69e873]:
+                - code [ref=f69e874]: access_token
+                - text: set to the long-lived access token that is about to expire
+            - generic [ref=f69e877]:
+              - heading "Sample Requests" [level=3] [ref=f69e878]
+              - button [ref=f69e879] [cursor=pointer]
+            - emphasis [ref=f69e884]: Formatted for readability.
+            - generic [ref=f69e885]:
+              - generic [ref=f69e886]: curl -i -X GET "https://graph.instagram.com/refresh_access_token ?grant_type=ig_refresh_token &access_token=EAACEdEose0..."
+              - button [ref=f69e889] [cursor=pointer]
+            - generic [ref=f69e892]: On success, your app receives a JSON response with your app user’s long-lived access token, the token type, and the expiration.
+            - generic [ref=f69e893]:
+              - generic [ref=f69e894]: "{ \"access_token\":\"EAACEdEose0...\", \"token_type\": \"bearer\", \"expires_in\": 5183944 // Number of seconds until token expires }"
+              - button [ref=f69e897] [cursor=pointer]
+            - generic [ref=f69e902]:
+              - heading "Next Steps" [level=2] [ref=f69e903]
+              - button [ref=f69e904] [cursor=pointer]
+            - generic [ref=f69e908]:
+              - text: Now that you have an access token,
+              - link "learn how to get information about your app user’s Instagram professional accounts in our Get Started guide." [ref=f69e909] [cursor=pointer]:
+                - /url: /documentation/instagram-platform/instagram-api-with-instagram-login/get-started
+              - text: .
+      - complementary [ref=f69e910]
+  - generic [ref=f69e912]:
+    - separator [ref=f69e913]
+    - contentinfo [ref=f69e914]:
+      - generic [ref=f69e915]:
+        - separator [ref=f69e916]
+        - generic [ref=f69e918]:
+          - generic [ref=f69e920]:
+            - generic [ref=f69e922]:
+              - img "Meta" [ref=f69e924]
+              - list [ref=f69e926]:
+                - listitem:
+                  - link "Facebook":
+                    - /url: https://www.facebook.com/MetaforDevelopers
+                    - img "Facebook"
+                - listitem:
+                  - link "Instagram":
+                    - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.instagram.com%2Fmetafordevelopers%2F&h=AUDnvE0mMs-icbrUKthUsQDBt3zC6R8IhjvSHEfVb9ctoqX6BXAy1cg9RD45euTrYI4YzV2wFE4QOcDKTCz0HOsKM9O4HQ-JZVKtn7XXcru7IyvTfwHWps2JpRekaRvPQ_kMI5sI27rnW62Tu1B6fA
+                    - img "Instagram"
+                - listitem:
+                  - link "X":
+                    - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Ftwitter.com%2Fmetafordevs&h=AUDnvE0mMs-icbrUKthUsQDBt3zC6R8IhjvSHEfVb9ctoqX6BXAy1cg9RD45euTrYI4YzV2wFE4QOcDKTCz0HOsKM9O4HQ-JZVKtn7XXcru7IyvTfwHWps2JpRekaRvPQ_kMI5sI27rnW62Tu1B6fA
+                    - img "X"
+                - listitem:
+                  - link "LinkedIn":
+                    - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.linkedin.com%2Fshowcase%2Fmeta-for-developers%2F&h=AUDnvE0mMs-icbrUKthUsQDBt3zC6R8IhjvSHEfVb9ctoqX6BXAy1cg9RD45euTrYI4YzV2wFE4QOcDKTCz0HOsKM9O4HQ-JZVKtn7XXcru7IyvTfwHWps2JpRekaRvPQ_kMI5sI27rnW62Tu1B6fA
+                    - img "LinkedIn"
+                - listitem:
+                  - link "YouTube":
+                    - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.youtube.com%2FMetaDevelopers%2F&h=AUDnvE0mMs-icbrUKthUsQDBt3zC6R8IhjvSHEfVb9ctoqX6BXAy1cg9RD45euTrYI4YzV2wFE4QOcDKTCz0HOsKM9O4HQ-JZVKtn7XXcru7IyvTfwHWps2JpRekaRvPQ_kMI5sI27rnW62Tu1B6fA
+                    - img "YouTube"
+            - generic [ref=f69e928]:
+              - generic [ref=f69e931]:
+                - heading "Build with Meta" [level=2] [ref=f69e932]
+                - list [ref=f69e934]:
+                  - listitem [ref=f69e935]:
+                    - link "AI" [ref=f69e937] [cursor=pointer]:
+                      - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.llama.com%2F&h=AUDnvE0mMs-icbrUKthUsQDBt3zC6R8IhjvSHEfVb9ctoqX6BXAy1cg9RD45euTrYI4YzV2wFE4QOcDKTCz0HOsKM9O4HQ-JZVKtn7XXcru7IyvTfwHWps2JpRekaRvPQ_kMI5sI27rnW62Tu1B6fA
+                  - listitem [ref=f69e938]:
+                    - link "Meta Horizon" [ref=f69e940] [cursor=pointer]:
+                      - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fdevelopers.meta.com%2Fhorizon%2F&h=AUDnvE0mMs-icbrUKthUsQDBt3zC6R8IhjvSHEfVb9ctoqX6BXAy1cg9RD45euTrYI4YzV2wFE4QOcDKTCz0HOsKM9O4HQ-JZVKtn7XXcru7IyvTfwHWps2JpRekaRvPQ_kMI5sI27rnW62Tu1B6fA
+                  - listitem [ref=f69e941]:
+                    - link "Social technologies" [ref=f69e943] [cursor=pointer]:
+                      - /url: /social-technologies/
+                  - listitem [ref=f69e944]:
+                    - link "Wearables" [ref=f69e946] [cursor=pointer]:
+                      - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fdevelopers.meta.com%2Fwearables%2F&h=AUDnvE0mMs-icbrUKthUsQDBt3zC6R8IhjvSHEfVb9ctoqX6BXAy1cg9RD45euTrYI4YzV2wFE4QOcDKTCz0HOsKM9O4HQ-JZVKtn7XXcru7IyvTfwHWps2JpRekaRvPQ_kMI5sI27rnW62Tu1B6fA
+              - generic [ref=f69e949]:
+                - heading "News" [level=2] [ref=f69e950]
+                - list [ref=f69e952]:
+                  - listitem [ref=f69e953]:
+                    - link "Meta for Developers" [ref=f69e955] [cursor=pointer]:
+                      - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fdevelopers.meta.com%2Fblog%2F&h=AUDnvE0mMs-icbrUKthUsQDBt3zC6R8IhjvSHEfVb9ctoqX6BXAy1cg9RD45euTrYI4YzV2wFE4QOcDKTCz0HOsKM9O4HQ-JZVKtn7XXcru7IyvTfwHWps2JpRekaRvPQ_kMI5sI27rnW62Tu1B6fA
+                  - listitem [ref=f69e956]:
+                    - link "Blog" [ref=f69e958] [cursor=pointer]:
+                      - /url: /blog/
+                  - listitem [ref=f69e959]:
+                    - link "Success stories" [ref=f69e961] [cursor=pointer]:
+                      - /url: /success-stories/
+              - generic [ref=f69e964]:
+                - heading "Support" [level=2] [ref=f69e965]
+                - list [ref=f69e967]:
+                  - listitem [ref=f69e968]:
+                    - link "Developer Support" [ref=f69e970] [cursor=pointer]:
+                      - /url: /support/
+                  - listitem [ref=f69e971]:
+                    - link "Bug tool" [ref=f69e973] [cursor=pointer]:
+                      - /url: /support/bugs/
+                  - listitem [ref=f69e974]:
+                    - link "Platform status" [ref=f69e976] [cursor=pointer]:
+                      - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fmetastatus.com%2F&h=AUDnvE0mMs-icbrUKthUsQDBt3zC6R8IhjvSHEfVb9ctoqX6BXAy1cg9RD45euTrYI4YzV2wFE4QOcDKTCz0HOsKM9O4HQ-JZVKtn7XXcru7IyvTfwHWps2JpRekaRvPQ_kMI5sI27rnW62Tu1B6fA
+                  - listitem [ref=f69e977]:
+                    - link "Developer community forum" [ref=f69e979] [cursor=pointer]:
+                      - /url: https://www.facebook.com/groups/fbdevelopers/
+                  - listitem [ref=f69e980]:
+                    - link "Report an incident" [ref=f69e982] [cursor=pointer]:
+                      - /url: /incident/report/
+              - generic [ref=f69e985]:
+                - heading "About us" [level=2] [ref=f69e986]
+                - list [ref=f69e988]:
+                  - listitem [ref=f69e989]:
+                    - link "About" [ref=f69e991] [cursor=pointer]:
+                      - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fabout.fb.com%2F&h=AUDnvE0mMs-icbrUKthUsQDBt3zC6R8IhjvSHEfVb9ctoqX6BXAy1cg9RD45euTrYI4YzV2wFE4QOcDKTCz0HOsKM9O4HQ-JZVKtn7XXcru7IyvTfwHWps2JpRekaRvPQ_kMI5sI27rnW62Tu1B6fA
+                  - listitem [ref=f69e992]:
+                    - link "Careers" [ref=f69e994] [cursor=pointer]:
+                      - /url: https://www.facebook.com/careers
+              - generic [ref=f69e997]:
+                - heading "Terms and policies" [level=2] [ref=f69e998]
+                - list [ref=f69e1000]:
+                  - listitem [ref=f69e1001]:
+                    - link "Responsible platform initiatives" [ref=f69e1003] [cursor=pointer]:
+                      - /url: /products/responsible-platform-initiatives/
+                  - listitem [ref=f69e1004]:
+                    - link "Platform terms" [ref=f69e1006] [cursor=pointer]:
+                      - /url: /terms/dfc_platform_terms/
+                  - listitem [ref=f69e1007]:
+                    - link "Developer policies" [ref=f69e1009] [cursor=pointer]:
+                      - /url: /devpolicy/
+                  - listitem [ref=f69e1010]:
+                    - link "Privacy policy" [ref=f69e1012] [cursor=pointer]:
+                      - /url: https://www.facebook.com/about/privacy
+                  - listitem [ref=f69e1013]:
+                    - link "Cookies" [ref=f69e1015] [cursor=pointer]:
+                      - /url: https://www.facebook.com/help/cookies
+          - button "Change language" [ref=f69e1020] [cursor=pointer]:
+            - generic [ref=f69e1021]: English (US)

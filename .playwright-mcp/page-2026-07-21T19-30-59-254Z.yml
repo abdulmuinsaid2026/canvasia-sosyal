@@ -1,0 +1,652 @@
+- generic [ref=e10]:
+  - navigation "Main" [ref=e12]:
+    - generic [ref=e19]:
+      - link "Meta home" [ref=e22] [cursor=pointer]:
+        - /url: https://developers.facebook.com/
+        - img "Nav Logo" [ref=e23]
+      - list [ref=e27]:
+        - listitem [ref=e28]:
+          - button "Build with us" [ref=e31] [cursor=pointer]
+        - listitem [ref=e33]:
+          - link "Docs" [ref=e36] [cursor=pointer]:
+            - /url: /docs/
+        - listitem [ref=e38]:
+          - link "Blog" [ref=e41] [cursor=pointer]:
+            - /url: /blog/
+        - listitem [ref=e43]:
+          - button "Resources" [ref=e46] [cursor=pointer]
+        - listitem [ref=e48]:
+          - button "Developer centers" [ref=e51] [cursor=pointer]
+      - generic [ref=e56]:
+        - link "Login" [ref=e57] [cursor=pointer]:
+          - /url: https://business.facebook.com/business/loginpage/?next=https%3A%2F%2Fdevelopers.facebook.com%2Fdocumentation%2Ffacebook-login%2Fguides%2Fadvanced%2Fmanual-flow
+        - button [ref=e58] [cursor=pointer]:
+          - img "Search" [ref=e59]
+  - generic [ref=e66]:
+    - navigation [ref=e67]:
+      - generic [ref=e68]:
+        - generic [ref=e69]:
+          - generic [ref=e70]: Facebook Login
+          - textbox "Filter" [ref=e73]
+        - generic [ref=e75]:
+          - generic "Facebook Login" [ref=e76]:
+            - link "Facebook Login" [ref=e77] [cursor=pointer]:
+              - /url: /documentation/facebook-login
+          - generic "Overview" [ref=e82]:
+            - link "Overview" [ref=e83] [cursor=pointer]:
+              - /url: "#"
+          - generic "Create an app" [ref=e90]:
+            - link "Create an app" [ref=e91] [cursor=pointer]:
+              - /url: /documentation/facebook-login/create-an-app
+          - generic "Facebook Login for Business" [ref=e96]:
+            - link "Facebook Login for Business" [ref=e97] [cursor=pointer]:
+              - /url: "#"
+          - generic "Managed Meta Accounts & Third-party Integrations" [ref=e105]:
+            - link "Managed Meta Accounts & Third-party Integrations" [ref=e106] [cursor=pointer]:
+              - /url: "#"
+          - generic "For Devices" [ref=e113]:
+            - link "For Devices" [ref=e114] [cursor=pointer]:
+              - /url: /documentation/facebook-login/for-devices
+          - generic "Re-Authentication" [ref=e118]:
+            - link "Re-Authentication" [ref=e119] [cursor=pointer]:
+              - /url: /documentation/facebook-login/guides/advanced/re-authentication
+          - generic "Map Users Across Apps and Pages" [ref=e123]:
+            - link "Map Users Across Apps and Pages" [ref=e124] [cursor=pointer]:
+              - /url: /documentation/facebook-login/guides/map-users
+          - generic "Test Login Flow" [ref=e129]:
+            - link "Test Login Flow" [ref=e130] [cursor=pointer]:
+              - /url: "#"
+          - generic "Manually Build a Login Flow" [ref=e137]:
+            - link "Manually Build a Login Flow" [ref=e138] [cursor=pointer]:
+              - /url: /documentation/facebook-login/guides/advanced/manual-flow
+          - generic "iOS" [ref=e143]:
+            - link "iOS" [ref=e144] [cursor=pointer]:
+              - /url: "#"
+          - generic "Android" [ref=e152]:
+            - link "Android" [ref=e153] [cursor=pointer]:
+              - /url: "#"
+          - generic "Web" [ref=e161]:
+            - link "Web" [ref=e162] [cursor=pointer]:
+              - /url: "#"
+          - generic "Best Practices" [ref=e169]:
+            - link "Best Practices" [ref=e170] [cursor=pointer]:
+              - /url: /documentation/facebook-login/best-practices
+          - generic "User Experience Design" [ref=e174]:
+            - link "User Experience Design" [ref=e175] [cursor=pointer]:
+              - /url: /documentation/facebook-login/userexperience
+          - generic "Login Connect with Messenger" [ref=e180]:
+            - link "Login Connect with Messenger" [ref=e181] [cursor=pointer]:
+              - /url: "#"
+    - generic [ref=e189]:
+      - main [ref=e190]:
+        - generic [ref=e191]:
+          - navigation "Breadcrumbs" [ref=e193]:
+            - list [ref=e194]:
+              - listitem [ref=e195]:
+                - link "Docs" [ref=e197] [cursor=pointer]:
+                  - /url: /docs
+              - listitem [ref=e202]:
+                - link "Overview" [ref=e204] [cursor=pointer]:
+                  - /url: /documentation/facebook-login
+              - listitem [ref=e209]:
+                - generic [ref=e210]: Manually Build a Login Flow
+          - article [ref=e213]:
+            - heading "Manually Build a Login Flow" [level=1] [ref=e214]
+            - generic [ref=e215]: "Updated: Jun 30, 2026"
+            - generic [ref=e219]:
+              - button "Copy for LLM" [ref=e221] [cursor=pointer]
+              - link "View as Markdown" [ref=e228] [cursor=pointer]:
+                - /url: /documentation/facebook-login/guides/advanced/manual-flow.md
+            - generic [ref=e234]: "For browser-based login for a web or desktop app without using our SDKs, such as in a webview for a native desktop app (for example Windows 8), or a login flow using entirely server-side code, you can build a Login flow for yourself by using browser redirects. This guide will take you through each step of the login flow and show you how to implement each one without using our SDKs:"
+            - list [ref=e235]:
+              - listitem [ref=e237]:
+                - link "Checking login status" [ref=e238] [cursor=pointer]:
+                  - /url: "#checklogin"
+              - listitem [ref=e240]:
+                - link "Logging people in" [ref=e241] [cursor=pointer]:
+                  - /url: "#login"
+              - listitem [ref=e243]:
+                - link "Confirming identity" [ref=e244] [cursor=pointer]:
+                  - /url: "#confirm"
+              - listitem [ref=e246]:
+                - link "Storing access tokens and login status" [ref=e247] [cursor=pointer]:
+                  - /url: "#token"
+              - listitem [ref=e249]:
+                - link "Logging people out" [ref=e250] [cursor=pointer]:
+                  - /url: "#logout"
+              - listitem [ref=e252]:
+                - link "Detecting When People Uninstall Apps" [ref=e253] [cursor=pointer]:
+                  - /url: "#deauth-callback"
+              - listitem [ref=e255]:
+                - link "Responding to Requests to Delete User Data" [ref=e256] [cursor=pointer]:
+                  - /url: "#data-deletion"
+            - generic [ref=e257]: To use Facebook Login in a desktop app, you’ll need to be able to embed a web browser (sometimes called a webview) within the app to perform the login process.
+            - generic [ref=e262]:
+              - heading "Checking Login Status" [level=2] [ref=e263]
+              - button [ref=e264] [cursor=pointer]
+            - generic [ref=e268]:
+              - text: Apps using our SDKs can check whether someone has already logged in using built-in functions. All other apps must
+              - link "create their own way of storing when a person has logged in" [ref=e269] [cursor=pointer]:
+                - /url: "#token"
+              - text: ", and when that indicator is not there, proceed on the assumption that they are logged out. If someone is logged out, then your app should redirect them to the Login dialog at an appropriate time — for example if they click a login button."
+            - generic [ref=e272]:
+              - heading "Logging People In" [level=2] [ref=e273]
+              - button [ref=e274] [cursor=pointer]
+            - generic [ref=e278]:
+              - text: Whether someone is not logged into your app or not logged into Facebook, you can use
+              - link "the Login dialog" [ref=e279] [cursor=pointer]:
+                - /url: /documentation/facebook-login/overview#logindialog
+              - text: to prompt them to do both. If they aren’t logged into Facebook, they’ll be prompted to login and then move onto logging into your app. This is automatically detected, so you don’t need to do anything extra to enable this behavior.
+            - generic [ref=e280]:
+              - img "Facebook Login dialog consent screen with a Continue as Billy button, showing the app requesting public profile access" [ref=e283] [cursor=pointer]
+              - img "Login dialog Info You Provide screen detailing the required public profile data the app will receive" [ref=e286] [cursor=pointer]
+            - generic [ref=e290]:
+              - heading "Invoking the Login Dialog and Setting the Redirect URL" [level=4] [ref=e291]
+              - button [ref=e292] [cursor=pointer]
+            - generic [ref=e296]: "Your app must initiate a redirect to an endpoint which will display the login dialog:"
+            - generic [ref=e297]:
+              - code [ref=e299]: "https://www.facebook.com/v25.0/dialog/oauth?client_id={app-id} &redirect_uri={redirect-uri} &state={state-param}"
+              - button [ref=e300] [cursor=pointer]
+            - generic [ref=e303]: "This endpoint has the following required parameters:"
+            - list [ref=e304]:
+              - listitem [ref=e306]:
+                - code [ref=e307]: client_id
+                - text: . The ID of your app, found in your app’s dashboard.
+              - listitem [ref=e309]:
+                - code [ref=e310]: redirect_uri
+                - text: . The URL that you want to redirect the person logging in back to. This URL will capture the response from the Login Dialog. If you are using this in a webview within a desktop app, this must be set to
+                - code [ref=e311]: https://www.facebook.com/connect/login_success.html
+                - text: . You can confirm that this URL is set for your app in the App Dashboard. Under
+                - strong [ref=e312]: Products
+                - text: in the App Dashboard’s left side navigation menu, click
+                - strong [ref=e313]: Facebook Login
+                - text: ", then click"
+                - strong [ref=e314]: Settings
+                - text: . Verify the
+                - strong [ref=e315]: Valid OAuth redirect URIs
+                - text: in the
+                - strong [ref=e316]: Client OAuth Settings
+                - text: section.
+              - listitem [ref=e318]:
+                - code [ref=e319]: state
+                - text: . A string value created by your app to maintain state between the request and callback. This parameter should be used for preventing
+                - link [ref=e320] [cursor=pointer]:
+                  - /url: https://l.facebook.com/l.php?u=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FCross-site_request_forgery&h=AUAIxF4d5aeo_IUQQz5OhQN3CFVRbElLmjSwa-HSvW7jVXygyBaKaI-nMsM2RKo5vVr-68k7GTtE61xS0AvD4gfNB3eUhBY7ZYJEXNhtocdRHhkxllh0bhR7flXicoY9Lj8QD-LeK1ejB1x8JaG1Dg
+                  - text: Cross-site Request Forgery
+                  - generic [ref=e321]:
+                    - text: ⁠
+                    - img "This link opens in a new tab or window" [ref=e322]
+                - text: and will be passed back to you, unchanged, in your redirect URI.
+            - generic [ref=e325]: "For example, if your login request looks like:"
+            - generic [ref=e326]:
+              - code [ref=e328]: "https://www.facebook.com/v25.0/dialog/oauth?client_id={app-id} &redirect_uri={\"https://www.domain.com/login\"} &state={\"{st=state123abc,ds=123456789}\"}"
+              - button [ref=e329] [cursor=pointer]
+            - generic [ref=e332]: "then your redirect URI would be called with this:"
+            - generic [ref=e333]:
+              - code [ref=e335]: "https://www.domain.com/login?state=\"{st=state123abc,ds=123456789}\""
+              - button [ref=e336] [cursor=pointer]
+            - generic [ref=e339]: "It also has the following optional parameters:"
+            - list [ref=e340]:
+              - listitem [ref=e342]:
+                - code [ref=e343]: response_type
+                - text: . Determines whether the response data included when the redirect back to the app occurs is in URL parameters or fragments. See the
+                - link "Confirming Identity" [ref=e344] [cursor=pointer]:
+                  - /url: "#confirm"
+                - text: "section to choose which type your app should use. This can be one of:"
+              - listitem [ref=e346]:
+                - code [ref=e347]: code
+                - text: . Response data is included as URL parameters and contains
+                - code [ref=e348]: code
+                - text: parameter (an encrypted string unique to each login request). This is the default behavior if this parameter is not specified. It’s most useful when your server will be handling the token.
+              - listitem [ref=e350]:
+                - code [ref=e351]: token
+                - text: . Response data is included as a URL fragment and contains an access token. Desktop apps must use this setting for
+                - code [ref=e352]: response_type
+                - text: . This is most useful when the client will be handling the token.
+              - listitem [ref=e354]:
+                - code [ref=e355]: code%20token
+                - text: . Response data is included as a URL fragment and contains both an access token and the
+                - code [ref=e356]: code
+                - text: parameter.
+              - listitem [ref=e358]:
+                - code [ref=e359]: granted_scopes
+                - text: . Returns a comma-separated list of all
+                - link "Permissions" [ref=e360] [cursor=pointer]:
+                  - /url: /docs/facebook-login/permissions
+                - text: granted to the app by the user at the time of login. Can be combined with other
+                - code [ref=e361]: response_type
+                - text: values. When combined with
+                - code [ref=e362]: token
+                - text: ", response data is included as a URL fragment, otherwise included as a URL parameter."
+              - listitem [ref=e364]:
+                - code [ref=e365]: scope
+                - text: . A comma or space separated list of
+                - link "Permissions" [ref=e366] [cursor=pointer]:
+                  - /url: /docs/facebook-login/permissions
+                - text: to request from the person using your app.
+            - heading "For Windows 8 Apps" [level=5] [ref=e367]
+            - generic [ref=e368]:
+              - text: If you are building Login for a Windows app you can use the
+              - link [ref=e369] [cursor=pointer]:
+                - /url: https://l.facebook.com/l.php?u=http%3A%2F%2Fmsdn.microsoft.com%2Fen-us%2Flibrary%2Fwindows%2Fapps%2Fhh465407.aspx&h=AUAIxF4d5aeo_IUQQz5OhQN3CFVRbElLmjSwa-HSvW7jVXygyBaKaI-nMsM2RKo5vVr-68k7GTtE61xS0AvD4gfNB3eUhBY7ZYJEXNhtocdRHhkxllh0bhR7flXicoY9Lj8QD-LeK1ejB1x8JaG1Dg
+                - text: Package Security Identifier
+                - generic [ref=e370]:
+                  - text: ⁠
+                  - img "This link opens in a new tab or window" [ref=e371]
+              - text: as your
+              - code [ref=e374]: redirect_uri
+              - text: . Trigger the Login Dialog by calling
+              - link [ref=e375] [cursor=pointer]:
+                - /url: https://l.facebook.com/l.php?u=http%3A%2F%2Fmsdn.microsoft.com%2Fen-us%2Flibrary%2Fwindows%2Fapps%2Fbr212068.aspx&h=AUAIxF4d5aeo_IUQQz5OhQN3CFVRbElLmjSwa-HSvW7jVXygyBaKaI-nMsM2RKo5vVr-68k7GTtE61xS0AvD4gfNB3eUhBY7ZYJEXNhtocdRHhkxllh0bhR7flXicoY9Lj8QD-LeK1ejB1x8JaG1Dg
+                - code [ref=e376]: WebAuthenticationBroker.AuthenticateAsync
+                - generic [ref=e377]:
+                  - text: ⁠
+                  - img "This link opens in a new tab or window" [ref=e378]
+              - text: "and use the Login Dialog endpoint as the requestUri. Here is an example in JavaScript:"
+            - generic [ref=e381]:
+              - code [ref=e383]: "var requestUri = new Windows.Foundation.Uri( \"https://www.facebook.com/v25.0/dialog/oauth? client_id={app-id} &display=popup &response_type=token &redirect_uri=ms-app://{package-security-identifier}\"); Windows.Security.Authentication.Web.WebAuthenticationBroker.authenticateAsync( options, requestUri) .done(function (result) { // Handle the response from the Login Dialog } );"
+              - button [ref=e384] [cursor=pointer]
+            - generic [ref=e387]: This will return control flow back to your app with an access token on success, or error on failure.
+            - generic [ref=e388]: We recommend using the default browser for Windows 8 apps.
+            - generic [ref=e391]:
+              - heading "Handling Login Dialog Response" [level=4] [ref=e392]
+              - button [ref=e393] [cursor=pointer]
+            - generic [ref=e397]: At this point in the login flow, the person will see the Login dialog and will have a choice of whether to cancel or to let the app access their data.
+            - generic [ref=e398]:
+              - text: If the person using the app chooses OK on the Login dialog, they grant access to their public profile, friend list and any additional
+              - link "Permissions" [ref=e399] [cursor=pointer]:
+                - /url: /docs/facebook-login/permissions
+              - text: your app requested.
+            - generic [ref=e400]:
+              - text: In all cases, the browser returns to the app, and response data indicating whether someone connected or cancelled is included. When your app uses the redirect method as above, the
+              - code [ref=e401]: redirect_uri
+              - text: your app returns to will be appended with URL parameters or fragments (as per the chosen
+              - code [ref=e402]: response_type
+              - text: ), which must be captured.
+            - generic [ref=e403]: "Because of the various combinations of code languages that could be used in web apps, our guide doesn’t show specific examples. However most modern languages will be capable of URL parsing, as follows:"
+            - generic [ref=e404]:
+              - text: Client-side JavaScript can capture URL fragments (for example
+              - link [ref=e405] [cursor=pointer]:
+                - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fgithub.com%2Fcowboy%2Fjquery-bbq%2F&h=AUAIxF4d5aeo_IUQQz5OhQN3CFVRbElLmjSwa-HSvW7jVXygyBaKaI-nMsM2RKo5vVr-68k7GTtE61xS0AvD4gfNB3eUhBY7ZYJEXNhtocdRHhkxllh0bhR7flXicoY9Lj8QD-LeK1ejB1x8JaG1Dg
+                - text: jQuery BBQ
+                - generic [ref=e406]:
+                  - text: ⁠
+                  - img "This link opens in a new tab or window" [ref=e407]
+              - text: ), whereas URL parameters can be captured by both client-side and server-side code (for example
+              - link [ref=e410] [cursor=pointer]:
+                - /url: https://l.facebook.com/l.php?u=http%3A%2F%2Fphp.net%2Fmanual%2Fen%2Freserved.variables.get.php&h=AUAIxF4d5aeo_IUQQz5OhQN3CFVRbElLmjSwa-HSvW7jVXygyBaKaI-nMsM2RKo5vVr-68k7GTtE61xS0AvD4gfNB3eUhBY7ZYJEXNhtocdRHhkxllh0bhR7flXicoY9Lj8QD-LeK1ejB1x8JaG1Dg
+                - code [ref=e411]: $_GET
+                - text: in PHP
+                - generic [ref=e412]:
+                  - text: ⁠
+                  - img "This link opens in a new tab or window" [ref=e413]
+              - text: ","
+              - link [ref=e416] [cursor=pointer]:
+                - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fgithub.com%2Fcowboy%2Fjquery-bbq%2F&h=AUAIxF4d5aeo_IUQQz5OhQN3CFVRbElLmjSwa-HSvW7jVXygyBaKaI-nMsM2RKo5vVr-68k7GTtE61xS0AvD4gfNB3eUhBY7ZYJEXNhtocdRHhkxllh0bhR7flXicoY9Lj8QD-LeK1ejB1x8JaG1Dg
+                - code [ref=e417]: jQuery.deparam
+                - text: in jQuery BBQ
+                - generic [ref=e418]:
+                  - text: ⁠
+                  - img "This link opens in a new tab or window" [ref=e419]
+              - text: ","
+              - link [ref=e422] [cursor=pointer]:
+                - /url: https://l.facebook.com/l.php?u=http%3A%2F%2Fnodejs.org%2Fapi%2Fquerystring.html&h=AUAIxF4d5aeo_IUQQz5OhQN3CFVRbElLmjSwa-HSvW7jVXygyBaKaI-nMsM2RKo5vVr-68k7GTtE61xS0AvD4gfNB3eUhBY7ZYJEXNhtocdRHhkxllh0bhR7flXicoY9Lj8QD-LeK1ejB1x8JaG1Dg
+                - code [ref=e423]: querystring.parse
+                - text: in Node.js
+                - generic [ref=e424]:
+                  - text: ⁠
+                  - img "This link opens in a new tab or window" [ref=e425]
+              - text: or
+              - link [ref=e428] [cursor=pointer]:
+                - /url: https://l.facebook.com/l.php?u=http%3A%2F%2Fdocs.python.org%2F2%2Flibrary%2Furlparse.html&h=AUAIxF4d5aeo_IUQQz5OhQN3CFVRbElLmjSwa-HSvW7jVXygyBaKaI-nMsM2RKo5vVr-68k7GTtE61xS0AvD4gfNB3eUhBY7ZYJEXNhtocdRHhkxllh0bhR7flXicoY9Lj8QD-LeK1ejB1x8JaG1Dg
+                - code [ref=e429]: urlparse
+                - text: in Python
+                - generic [ref=e430]:
+                  - text: ⁠
+                  - img "This link opens in a new tab or window" [ref=e431]
+              - text: ). Microsoft provides
+              - link [ref=e434] [cursor=pointer]:
+                - /url: https://l.facebook.com/l.php?u=http%3A%2F%2Fmsdn.microsoft.com%2Fen-us%2Flibrary%2Fwindows%2Fapps%2Fjj856915.aspx&h=AUAIxF4d5aeo_IUQQz5OhQN3CFVRbElLmjSwa-HSvW7jVXygyBaKaI-nMsM2RKo5vVr-68k7GTtE61xS0AvD4gfNB3eUhBY7ZYJEXNhtocdRHhkxllh0bhR7flXicoY9Lj8QD-LeK1ejB1x8JaG1Dg
+                - text: a guide and sample code for Windows 8 apps
+                - generic [ref=e435]:
+                  - text: ⁠
+                  - img "This link opens in a new tab or window" [ref=e436]
+              - text: connecting to an “online provider” - in this case, Facebook.
+            - generic [ref=e440]:
+              - generic [ref=e441]:
+                - text: When using a desktop app and logging in, Facebook redirects people to the
+                - code [ref=e442]: redirect_uri
+                - text: "mentioned above and places an access token along with some other metadata (such as token expiry time) in the URI fragment:"
+              - generic [ref=e443]:
+                - code [ref=e445]: https://www.facebook.com/connect/login_success.html# access_token=ACCESS_TOKEN...
+                - button [ref=e446] [cursor=pointer]
+              - generic [ref=e449]:
+                - text: Your app needs to detect this redirect and then read the access token out of the URI using the mechanisms provided by the OS and development framework you are using. You can then skip straight to the
+                - link "Inspecting access tokens" [ref=e450] [cursor=pointer]:
+                  - /url: "#checktoken"
+                - text: step.
+            - generic [ref=e454]:
+              - heading "Canceled Login" [level=4] [ref=e455]
+              - button [ref=e456] [cursor=pointer]
+            - generic [ref=e460]: "If people using your app don’t accept the Login dialog and clicks Cancel, they’ll be redirected to the following:"
+            - generic [ref=e461]:
+              - code [ref=e463]: YOUR_REDIRECT_URI? error_reason=user_denied &error=access_denied &error_description=Permissions+error.
+              - button [ref=e464] [cursor=pointer]
+            - generic [ref=e467]:
+              - text: See
+              - link "Handling Missing Permissions" [ref=e468] [cursor=pointer]:
+                - /url: /docs/facebook-login/permissions#missingperms
+              - text: for more about what apps should do when people refuse to login.
+            - generic [ref=e471]:
+              - heading "Confirming Identity" [level=2] [ref=e472]
+              - button [ref=e473] [cursor=pointer]
+            - generic [ref=e477]:
+              - text: Because this redirect flow involves browsers being redirected to URLs in your app from the Login dialog, traffic could directly access this URL with made-up fragments or parameters. If your app assumed these were valid parameters, the made-up data would be used by your app for potentially malicious purposes. As a result, your app should confirm that the person using the app is the same person that you have response data for before generating an access token for them. Confirming identity is accomplished in different ways depending on the
+              - code [ref=e478]: response_type
+              - text: "received above:"
+            - list [ref=e479]:
+              - listitem [ref=e481]:
+                - text: When
+                - code [ref=e482]: code
+                - text: is received, it has to be
+                - link "exchanged for an access token using an endpoint" [ref=e483] [cursor=pointer]:
+                  - /url: "#exchangecode"
+                - text: . The call will need to be server-to-server, since it involves your app secret. (Your app secret should never end up in client code.)
+              - listitem [ref=e485]:
+                - text: When
+                - code [ref=e486]: token
+                - text: is received, it needs to be verified. You should
+                - link "make an API call to an inspection endpoint" [ref=e487] [cursor=pointer]:
+                  - /url: "#checktoken"
+                - text: that will indicate who the token was generated for and by which app. As this API call requires using an app access token, never make this call from a client. Instead make this call from a server where you can securely store your app secret.
+              - listitem [ref=e489]:
+                - text: When
+                - code [ref=e490]: code
+                - text: and
+                - code [ref=e491]: token
+                - text: are both received, both steps should be performed.
+            - generic [ref=e492]:
+              - text: Note that you can also generate your own
+              - link [ref=e493] [cursor=pointer]:
+                - /url: "#logindialog"
+                - code [ref=e494]: state
+                - text: parameter
+              - text: and use it with your login request to provide CSRF protection.
+            - generic [ref=e497]:
+              - heading "Exchanging Code for an Access Token" [level=4] [ref=e498]
+              - button [ref=e499] [cursor=pointer]
+            - generic [ref=e503]: "To get an access token, make an HTTP GET request to the following OAuth endpoint:"
+            - generic [ref=e504]:
+              - code [ref=e506]: "GET https://graph.facebook.com/v25.0/oauth/access_token?client_id={app-id} &redirect_uri={redirect-uri} &client_secret={app-secret} &code={code-parameter}"
+              - button [ref=e507] [cursor=pointer]
+            - generic [ref=e510]: "This endpoint has some required parameters:"
+            - list [ref=e511]:
+              - listitem [ref=e513]:
+                - code [ref=e514]: client_id
+                - text: . Your app’s IDs
+              - listitem [ref=e516]:
+                - code [ref=e517]: redirect_uri
+                - text: . This argument is required and must be the same as the original
+                - code [ref=e518]: request_uri
+                - text: that you used when starting the OAuth login process.
+              - listitem [ref=e520]:
+                - code [ref=e521]: client_secret
+                - text: . Your unique app secret, shown on the
+                - link "App Dashboard" [ref=e522] [cursor=pointer]:
+                  - /url: /apps
+                - text: . Never include this app secret in client-side code or in binaries that could be decompiled. It is extremely important that it remains completely secret as it is the core of the security of your app and all the people using it.
+              - listitem [ref=e524]:
+                - code [ref=e525]: code
+                - text: . The parameter received from the Login Dialog redirect above.
+            - strong [ref=e527]: Response
+            - generic [ref=e528]: "The response you will receive from this endpoint will be returned in JSON format and, if successful, is:"
+            - generic [ref=e529]:
+              - code [ref=e531]: "{ \"access_token\": {access-token}, \"token_type\": {type}, \"expires_in\": {seconds-til-expiration} }"
+              - button [ref=e532] [cursor=pointer]
+            - generic [ref=e535]: If it is not successful, you will receive an explanatory error message.
+            - generic [ref=e538]:
+              - heading "Inspecting Access Tokens" [level=2] [ref=e539]
+              - button [ref=e540] [cursor=pointer]
+            - generic [ref=e544]:
+              - text: Whether or not your app uses
+              - code [ref=e545]: code
+              - text: or
+              - code [ref=e546]: token
+              - text: as your
+              - code [ref=e547]: response_type
+              - text: "from the Login dialog, it will have received an access token. You can perform automated checks on these tokens using a Graph API endpoint:"
+            - generic [ref=e548]:
+              - code [ref=e550]: "GET graph.facebook.com/debug_token? input_token={token-to-inspect} &access_token={app-token-or-admin-token}"
+              - button [ref=e551] [cursor=pointer]
+            - generic [ref=e554]: "This endpoint takes the following parameters:"
+            - list [ref=e555]:
+              - listitem [ref=e557]:
+                - code [ref=e558]: input_token
+                - text: . The token you need to inspect.
+              - listitem [ref=e560]:
+                - code [ref=e561]: access_token
+                - text: An
+                - link "app access token" [ref=e562] [cursor=pointer]:
+                  - /url: /documentation/facebook-login/guides/access-tokens
+                - text: or an access token for a developer of the app.
+            - generic [ref=e563]: "The response of the API call is a JSON array containing data about the inspected token. For example:"
+            - generic [ref=e564]:
+              - code [ref=e566]: "{ \"data\": { \"app_id\": 138483919580948, \"type\": \"USER\", \"application\": \"Social Cafe\", \"expires_at\": 1352419328, \"is_valid\": true, \"issued_at\": 1347235328, \"metadata\": { \"sso\": \"iphone-safari\" }, \"scopes\": [ \"email\", \"publish_actions\" ], \"user_id\": \"1207059\" } }"
+              - button [ref=e567] [cursor=pointer]
+            - generic [ref=e570]:
+              - text: The
+              - code [ref=e571]: app_id
+              - text: and
+              - code [ref=e572]: user_id
+              - text: fields help your app verify that the access token is valid for the person and for your app. For a full description of the other fields, see the
+              - link "Getting Info about Access Tokens guide" [ref=e573] [cursor=pointer]:
+                - /url: /documentation/facebook-login/guides/access-tokens
+              - text: .
+            - generic [ref=e576]:
+              - heading "Checking Permissions" [level=3] [ref=e577]
+              - button [ref=e578] [cursor=pointer]
+            - generic [ref=e582]:
+              - text: The
+              - link [ref=e583] [cursor=pointer]:
+                - /url: /docs/graph-api/reference/user/permissions
+                - code [ref=e584]: /me/permissions
+                - text: edge
+              - text: can be called in order to retrieve a list of permissions that have been granted or declined by a particular user. Your app can use this to check which of the requested permissions it cannot use for any particular user.
+            - generic [ref=e587]:
+              - heading "Re-asking for Declined Permissions" [level=2] [ref=e588]
+              - button [ref=e589] [cursor=pointer]
+            - generic [ref=e593]: "Facebook Login lets people decline sharing some permissions with your app. The Login Dialog contains a screen that looks like this:"
+            - img "Login dialog Info You Provide screen where users can toggle optional permissions like Email and Likes while public profile stays required" [ref=e595] [cursor=pointer]
+            - generic [ref=e596]:
+              - text: The
+              - code [ref=e597]: public_profile
+              - text: permission is always required and greyed out because it can’t be disabled.
+            - generic [ref=e598]:
+              - text: However, if someone were to uncheck
+              - code [ref=e599]: user_likes
+              - text: (Likes) in this example, checking
+              - link [ref=e600] [cursor=pointer]:
+                - /url: /docs/graph-api/reference/user/permissions
+                - code [ref=e601]: /me/permissions
+              - text: "for which permissions have been granted results in:"
+            - generic [ref=e602]:
+              - code [ref=e604]: "{ \"data\": [ { \"permission\":\"public_profile\", \"status\":\"granted\" }, { \"permission\":\"user_likes\", \"status\":\"declined\" } ] }"
+              - button [ref=e605] [cursor=pointer]
+            - generic [ref=e608]:
+              - text: Note that
+              - code [ref=e609]: user_likes
+              - text: has been declined instead of granted.
+            - generic [ref=e610]:
+              - text: It’s OK to ask a person again to grant your app permissions that they’ve declined. You should have a screen of education on why you think they should grant the permission to you and then re-ask. But if you invoke the Login Dialog
+              - link "as before" [ref=e611] [cursor=pointer]:
+                - /url: "#logindialog"
+              - text: ", it won’t ask for that permission."
+            - strong [ref=e613]: This is because once someone has declined a permission, the Login Dialog will not re-ask them for it unless you explicitly tell the dialog you’re re-asking for a declined permission.
+            - generic [ref=e614]:
+              - text: You do this by adding the
+              - code [ref=e615]: auth_type=rerequest
+              - text: "parameter to your Login Dialog URL:"
+            - generic [ref=e616]:
+              - code [ref=e618]: "https://www.facebook.com/v25.0/dialog/oauth?client_id={app-id} &redirect_uri={redirect-uri} &auth_type=rerequest scope=email"
+              - button [ref=e619] [cursor=pointer]
+            - generic [ref=e622]: Using this, the Login Dialog will re-ask for the declined permission.
+            - generic [ref=e625]:
+              - heading "Storing Access Tokens and Login Status" [level=2] [ref=e626]
+              - button [ref=e627] [cursor=pointer]
+            - generic [ref=e631]: At this point in the flow, you have someone authenticated and logged in. Your app is ready to make API calls on their behalf. Before doing so, it should store the access token and the login status of the person using the app.
+            - generic [ref=e634]:
+              - heading "Storing Access Tokens" [level=4] [ref=e635]
+              - button [ref=e636] [cursor=pointer]
+            - generic [ref=e640]:
+              - text: After your app receives the access token from the previous step, the token should be stored so it’s available to all parts of the app when it makes API calls. There is no specific process here, however in general if you’re building a web app, it is best to add the token as a session variable to identify that browser session with a particular person, if you’re building a native desktop or mobile app, then you should use the datastore available to your app. Also, the app should store the token in a database along with the
+              - code [ref=e641]: user_id
+              - text: to identify it.
+            - generic [ref=e642]:
+              - text: Please see our note about the
+              - link "size of access tokens in the access token document" [ref=e643] [cursor=pointer]:
+                - /url: /docs/facebook-login/access-tokens/debugging-and-error-handling#sizes
+              - text: .
+            - generic [ref=e646]:
+              - heading "Tracking login status" [level=4] [ref=e647]
+              - button [ref=e648] [cursor=pointer]
+            - generic [ref=e652]:
+              - text: Again, your app should store a person’s login status, which helps avoid having to make additional calls to the Login dialog. Whatever procedure you chose, modify your
+              - link "login status checking" [ref=e653] [cursor=pointer]:
+                - /url: "#checklogin"
+              - text: to account for it.
+            - generic [ref=e656]:
+              - heading "Logging People Out" [level=2] [ref=e657]
+              - button [ref=e658] [cursor=pointer]
+            - generic [ref=e662]:
+              - text: You can log people out of your app by undoing
+              - link "whatever login status indicator you added" [ref=e663] [cursor=pointer]:
+                - /url: "#token"
+              - text: ", for example deleting the session that indicates a person is logged in. You should also remove the stored access token."
+            - generic [ref=e664]:
+              - text: Logging someone out is not the same as revoking login permission (removing previously granted authentication),
+              - link "which can be performed separately" [ref=e665] [cursor=pointer]:
+                - /url: /documentation/facebook-login/guides/permissions/request-revoke#revokelogin
+              - text: . Because of this, build your app so it doesn’t automatically force people who have logged out back to the Login dialog.
+            - generic [ref=e668]:
+              - heading "Detecting When People Uninstall Apps" [level=2] [ref=e669]
+              - button [ref=e670] [cursor=pointer]
+            - generic [ref=e674]: People are able to uninstall apps via Facebook.com without interacting with the app itself. To help apps detect when this has happened, we allow them to provide a de-authorize callback URL which will be pinged whenever this occurs.
+            - generic [ref=e675]:
+              - text: You can enable a deauthorize callback through the
+              - link "App Dashboard" [ref=e676] [cursor=pointer]:
+                - /url: /docs/development/create-an-app/app-dashboard/data-deletion-callback
+              - text: .
+            - generic [ref=e679]:
+              - heading "Responding to Requests to Delete User Data" [level=2] [ref=e680]
+              - button [ref=e681] [cursor=pointer]
+            - generic [ref=e685]:
+              - text: People can request an app to delete all information about them received from Facebook. For responding to these requests, see
+              - link "Data Deletion Request Callback" [ref=e686] [cursor=pointer]:
+                - /url: /docs/apps/delete-data
+              - text: .
+      - complementary [ref=e687]
+  - generic [ref=e689]:
+    - separator [ref=e690]
+    - contentinfo [ref=e691]:
+      - generic [ref=e692]:
+        - separator [ref=e693]
+        - generic [ref=e695]:
+          - generic [ref=e697]:
+            - generic [ref=e699]:
+              - img "Meta" [ref=e701]
+              - list [ref=e703]:
+                - listitem:
+                  - link "Facebook":
+                    - /url: https://www.facebook.com/MetaforDevelopers
+                    - img "Facebook"
+                - listitem:
+                  - link "Instagram":
+                    - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.instagram.com%2Fmetafordevelopers%2F&h=AUAIxF4d5aeo_IUQQz5OhQN3CFVRbElLmjSwa-HSvW7jVXygyBaKaI-nMsM2RKo5vVr-68k7GTtE61xS0AvD4gfNB3eUhBY7ZYJEXNhtocdRHhkxllh0bhR7flXicoY9Lj8QD-LeK1ejB1x8JaG1Dg
+                    - img "Instagram"
+                - listitem:
+                  - link "X":
+                    - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Ftwitter.com%2Fmetafordevs&h=AUAIxF4d5aeo_IUQQz5OhQN3CFVRbElLmjSwa-HSvW7jVXygyBaKaI-nMsM2RKo5vVr-68k7GTtE61xS0AvD4gfNB3eUhBY7ZYJEXNhtocdRHhkxllh0bhR7flXicoY9Lj8QD-LeK1ejB1x8JaG1Dg
+                    - img "X"
+                - listitem:
+                  - link "LinkedIn":
+                    - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.linkedin.com%2Fshowcase%2Fmeta-for-developers%2F&h=AUAIxF4d5aeo_IUQQz5OhQN3CFVRbElLmjSwa-HSvW7jVXygyBaKaI-nMsM2RKo5vVr-68k7GTtE61xS0AvD4gfNB3eUhBY7ZYJEXNhtocdRHhkxllh0bhR7flXicoY9Lj8QD-LeK1ejB1x8JaG1Dg
+                    - img "LinkedIn"
+                - listitem:
+                  - link "YouTube":
+                    - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.youtube.com%2FMetaDevelopers%2F&h=AUAIxF4d5aeo_IUQQz5OhQN3CFVRbElLmjSwa-HSvW7jVXygyBaKaI-nMsM2RKo5vVr-68k7GTtE61xS0AvD4gfNB3eUhBY7ZYJEXNhtocdRHhkxllh0bhR7flXicoY9Lj8QD-LeK1ejB1x8JaG1Dg
+                    - img "YouTube"
+            - generic [ref=e705]:
+              - generic [ref=e708]:
+                - heading "Build with Meta" [level=2] [ref=e709]
+                - list [ref=e711]:
+                  - listitem [ref=e712]:
+                    - link "AI" [ref=e714] [cursor=pointer]:
+                      - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.llama.com%2F&h=AUAIxF4d5aeo_IUQQz5OhQN3CFVRbElLmjSwa-HSvW7jVXygyBaKaI-nMsM2RKo5vVr-68k7GTtE61xS0AvD4gfNB3eUhBY7ZYJEXNhtocdRHhkxllh0bhR7flXicoY9Lj8QD-LeK1ejB1x8JaG1Dg
+                  - listitem [ref=e715]:
+                    - link "Meta Horizon" [ref=e717] [cursor=pointer]:
+                      - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fdevelopers.meta.com%2Fhorizon%2F&h=AUAIxF4d5aeo_IUQQz5OhQN3CFVRbElLmjSwa-HSvW7jVXygyBaKaI-nMsM2RKo5vVr-68k7GTtE61xS0AvD4gfNB3eUhBY7ZYJEXNhtocdRHhkxllh0bhR7flXicoY9Lj8QD-LeK1ejB1x8JaG1Dg
+                  - listitem [ref=e718]:
+                    - link "Social technologies" [ref=e720] [cursor=pointer]:
+                      - /url: /social-technologies/
+                  - listitem [ref=e721]:
+                    - link "Wearables" [ref=e723] [cursor=pointer]:
+                      - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fdevelopers.meta.com%2Fwearables%2F&h=AUAIxF4d5aeo_IUQQz5OhQN3CFVRbElLmjSwa-HSvW7jVXygyBaKaI-nMsM2RKo5vVr-68k7GTtE61xS0AvD4gfNB3eUhBY7ZYJEXNhtocdRHhkxllh0bhR7flXicoY9Lj8QD-LeK1ejB1x8JaG1Dg
+              - generic [ref=e726]:
+                - heading "News" [level=2] [ref=e727]
+                - list [ref=e729]:
+                  - listitem [ref=e730]:
+                    - link "Meta for Developers" [ref=e732] [cursor=pointer]:
+                      - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fdevelopers.meta.com%2Fblog%2F&h=AUAIxF4d5aeo_IUQQz5OhQN3CFVRbElLmjSwa-HSvW7jVXygyBaKaI-nMsM2RKo5vVr-68k7GTtE61xS0AvD4gfNB3eUhBY7ZYJEXNhtocdRHhkxllh0bhR7flXicoY9Lj8QD-LeK1ejB1x8JaG1Dg
+                  - listitem [ref=e733]:
+                    - link "Blog" [ref=e735] [cursor=pointer]:
+                      - /url: /blog/
+                  - listitem [ref=e736]:
+                    - link "Success stories" [ref=e738] [cursor=pointer]:
+                      - /url: /success-stories/
+              - generic [ref=e741]:
+                - heading "Support" [level=2] [ref=e742]
+                - list [ref=e744]:
+                  - listitem [ref=e745]:
+                    - link "Developer Support" [ref=e747] [cursor=pointer]:
+                      - /url: /support/
+                  - listitem [ref=e748]:
+                    - link "Bug tool" [ref=e750] [cursor=pointer]:
+                      - /url: /support/bugs/
+                  - listitem [ref=e751]:
+                    - link "Platform status" [ref=e753] [cursor=pointer]:
+                      - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fmetastatus.com%2F&h=AUAIxF4d5aeo_IUQQz5OhQN3CFVRbElLmjSwa-HSvW7jVXygyBaKaI-nMsM2RKo5vVr-68k7GTtE61xS0AvD4gfNB3eUhBY7ZYJEXNhtocdRHhkxllh0bhR7flXicoY9Lj8QD-LeK1ejB1x8JaG1Dg
+                  - listitem [ref=e754]:
+                    - link "Developer community forum" [ref=e756] [cursor=pointer]:
+                      - /url: https://www.facebook.com/groups/fbdevelopers/
+                  - listitem [ref=e757]:
+                    - link "Report an incident" [ref=e759] [cursor=pointer]:
+                      - /url: /incident/report/
+              - generic [ref=e762]:
+                - heading "About us" [level=2] [ref=e763]
+                - list [ref=e765]:
+                  - listitem [ref=e766]:
+                    - link "About" [ref=e768] [cursor=pointer]:
+                      - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fabout.fb.com%2F&h=AUAIxF4d5aeo_IUQQz5OhQN3CFVRbElLmjSwa-HSvW7jVXygyBaKaI-nMsM2RKo5vVr-68k7GTtE61xS0AvD4gfNB3eUhBY7ZYJEXNhtocdRHhkxllh0bhR7flXicoY9Lj8QD-LeK1ejB1x8JaG1Dg
+                  - listitem [ref=e769]:
+                    - link "Careers" [ref=e771] [cursor=pointer]:
+                      - /url: https://www.facebook.com/careers
+              - generic [ref=e774]:
+                - heading "Terms and policies" [level=2] [ref=e775]
+                - list [ref=e777]:
+                  - listitem [ref=e778]:
+                    - link "Responsible platform initiatives" [ref=e780] [cursor=pointer]:
+                      - /url: /products/responsible-platform-initiatives/
+                  - listitem [ref=e781]:
+                    - link "Platform terms" [ref=e783] [cursor=pointer]:
+                      - /url: /terms/dfc_platform_terms/
+                  - listitem [ref=e784]:
+                    - link "Developer policies" [ref=e786] [cursor=pointer]:
+                      - /url: /devpolicy/
+                  - listitem [ref=e787]:
+                    - link "Privacy policy" [ref=e789] [cursor=pointer]:
+                      - /url: https://www.facebook.com/about/privacy
+                  - listitem [ref=e790]:
+                    - link "Cookies" [ref=e792] [cursor=pointer]:
+                      - /url: https://www.facebook.com/help/cookies
+          - button "Change language" [ref=e797] [cursor=pointer]:
+            - generic [ref=e798]: English (US)

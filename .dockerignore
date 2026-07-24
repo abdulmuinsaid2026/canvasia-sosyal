@@ -1,0 +1,11 @@
+**/bin/
+**/obj/
+.git/
+.gitignore
+.env*
+.idea/
+.vs/
+.vscode/
+TestResults/
+keys/
+logs/

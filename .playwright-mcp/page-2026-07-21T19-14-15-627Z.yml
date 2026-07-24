@@ -1,0 +1,97 @@
+- generic [active] [ref=f14e1]:
+  - banner [ref=f14e2]:
+    - link "CS CanvasiaSocial" [ref=f14e3] [cursor=pointer]:
+      - /url: /Dashboard
+      - generic [ref=f14e4]: CS
+      - generic [ref=f14e5]: CanvasiaSocial
+    - navigation "Ana menü" [ref=f14e6]:
+      - link "Dashboard" [ref=f14e7] [cursor=pointer]:
+        - /url: /Dashboard
+      - link "Ürünler" [ref=f14e8] [cursor=pointer]:
+        - /url: /Products
+      - link "Kampanyalar" [ref=f14e9] [cursor=pointer]:
+        - /url: /Campaigns
+      - link "Taslaklar" [ref=f14e10] [cursor=pointer]:
+        - /url: /Drafts
+      - link "Takvim" [ref=f14e11] [cursor=pointer]:
+        - /url: /Calendar
+      - link "Canvasia" [ref=f14e12] [cursor=pointer]:
+        - /url: /Settings/Canvasia
+    - generic [ref=f14e13]:
+      - generic [ref=f14e14]: admin@example.com
+      - button "Çıkış" [ref=f14e16] [cursor=pointer]
+  - main [ref=f14e17]:
+    - generic [ref=f14e18]:
+      - paragraph [ref=f14e19]: EUROPE/ISTANBUL
+      - heading "İçerik takvimi" [level=1] [ref=f14e20]
+      - paragraph [ref=f14e21]: Planlar UTC saklanır, burada İstanbul saatiyle gösterilir.
+    - generic [ref=f14e22]:
+      - generic [ref=f14e23]:
+        - text: Görünüm
+        - combobox "Görünüm" [ref=f14e24]:
+          - option "Gün"
+          - option "Hafta"
+          - option "Ay" [selected]
+      - generic [ref=f14e25]:
+        - text: Tarih
+        - textbox "Tarih" [ref=f14e26]: 2026-07-21
+      - generic [ref=f14e27]:
+        - text: Platform
+        - combobox "Platform" [ref=f14e28]:
+          - option "Tümü" [selected]
+          - option "Instagram"
+          - option "Facebook"
+          - option "TikTok"
+          - option "Pinterest"
+      - generic [ref=f14e29]:
+        - text: Durum
+        - combobox "Durum" [ref=f14e30]:
+          - option "Tümü" [selected]
+          - option "Generating"
+          - option "Draft"
+          - option "AwaitingApproval"
+          - option "Approved"
+          - option "Rejected"
+          - option "Scheduled"
+          - option "Publishing"
+          - option "Published"
+          - option "Failed"
+          - option "Cancelled"
+      - button "Göster" [ref=f14e31] [cursor=pointer]
+    - generic [ref=f14e32]:
+      - article [ref=f14e33]:
+        - time [ref=f14e34]:
+          - strong [ref=f14e35]: "22"
+          - generic [ref=f14e36]: Jul 09:00
+        - generic [ref=f14e37]:
+          - paragraph [ref=f14e38]: Instagram · Scheduled
+          - heading "Test Ürün 1" [level=2] [ref=f14e39]
+          - text: Aşama 4 - 3 Ürün Testi
+        - generic [ref=f14e40]:
+          - textbox [ref=f14e41]: 2026-07-22T09:00
+          - button "Değiştir" [ref=f14e42] [cursor=pointer]
+        - button "İptal" [ref=f14e44] [cursor=pointer]
+      - article [ref=f14e45]:
+        - time [ref=f14e46]:
+          - strong [ref=f14e47]: "22"
+          - generic [ref=f14e48]: Jul 10:00
+        - generic [ref=f14e49]:
+          - paragraph [ref=f14e50]: Instagram · Scheduled
+          - heading "Test Ürün 2" [level=2] [ref=f14e51]
+          - text: Aşama 4 - 3 Ürün Testi
+        - generic [ref=f14e52]:
+          - textbox [ref=f14e53]: 2026-07-22T10:00
+          - button "Değiştir" [ref=f14e54] [cursor=pointer]
+        - button "İptal" [ref=f14e56] [cursor=pointer]
+      - article [ref=f14e57]:
+        - time [ref=f14e58]:
+          - strong [ref=f14e59]: "22"
+          - generic [ref=f14e60]: Jul 11:00
+        - generic [ref=f14e61]:
+          - paragraph [ref=f14e62]: Instagram · Scheduled
+          - heading "Test Ürün 3" [level=2] [ref=f14e63]
+          - text: Aşama 4 - 3 Ürün Testi
+        - generic [ref=f14e64]:
+          - textbox [ref=f14e65]: 2026-07-22T11:00
+          - button "Değiştir" [ref=f14e66] [cursor=pointer]
+        - button "İptal" [ref=f14e68] [cursor=pointer]

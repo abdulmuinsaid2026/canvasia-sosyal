@@ -1,0 +1,54 @@
+- generic [active] [ref=f6e1]:
+  - banner [ref=f6e2]:
+    - link "CS CanvasiaSocial" [ref=f6e3] [cursor=pointer]:
+      - /url: /Dashboard
+      - generic [ref=f6e4]: CS
+      - generic [ref=f6e5]: CanvasiaSocial
+    - navigation "Ana menü" [ref=f6e6]:
+      - link "Dashboard" [ref=f6e7] [cursor=pointer]:
+        - /url: /Dashboard
+      - link "Ürünler" [ref=f6e8] [cursor=pointer]:
+        - /url: /Products
+      - link "Canvasia" [ref=f6e9] [cursor=pointer]:
+        - /url: /Settings/Canvasia
+    - generic [ref=f6e10]:
+      - generic [ref=f6e11]: admin@example.com
+      - button "Çıkış" [ref=f6e13] [cursor=pointer]
+  - main [ref=f6e14]:
+    - generic [ref=f6e15]:
+      - paragraph [ref=f6e16]: ENTEGRASYON
+      - heading "Canvasia ayarları" [level=1] [ref=f6e17]
+      - paragraph [ref=f6e18]: Bağlantı durumunu doğrulayın ve ürün cache senkronizasyonunu yönetin.
+    - generic [ref=f6e19]:
+      - article [ref=f6e20]:
+        - heading "Bağlantı" [level=2] [ref=f6e21]
+        - generic [ref=f6e22]:
+          - term [ref=f6e23]: Base URL
+          - definition [ref=f6e24]: https://www.canvasia.com.tr
+          - term [ref=f6e25]: API anahtarı
+          - definition [ref=f6e26]: Tanımlı
+          - term [ref=f6e27]: İstek timeout
+          - definition [ref=f6e28]: 30 saniye
+        - generic [ref=f6e29]:
+          - button "Bağlantıyı test et" [ref=f6e31] [cursor=pointer]
+          - button "Örnek ürünü test et" [ref=f6e33] [cursor=pointer]
+      - article [ref=f6e34]:
+        - heading "Senkronizasyon" [level=2] [ref=f6e35]
+        - generic [ref=f6e36]:
+          - term [ref=f6e37]: Durum
+          - definition [ref=f6e38]: Failed
+          - term [ref=f6e39]: Son başarılı çalışma
+          - definition [ref=f6e40]: Henüz yok
+          - term [ref=f6e41]: İşlenen ürün
+          - definition [ref=f6e42]: "0"
+          - term [ref=f6e43]: Cache toplamı
+          - definition [ref=f6e44]: "0"
+          - term [ref=f6e45]: Sayfa boyutu
+          - definition [ref=f6e46]: "100"
+          - term [ref=f6e47]: Periyodik cron
+          - definition [ref=f6e48]:
+            - code [ref=f6e49]: 0 */6 * * *
+        - button "Manuel senkronizasyonu başlat" [ref=f6e51] [cursor=pointer]
+    - generic [ref=f6e52]:
+      - heading "Son hata" [level=2] [ref=f6e53]
+      - paragraph [ref=f6e54]: "Response status code does not indicate success: 401 (Unauthorized)."

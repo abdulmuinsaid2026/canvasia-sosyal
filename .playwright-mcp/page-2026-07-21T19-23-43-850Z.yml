@@ -1,0 +1,57 @@
+- generic [active] [ref=f64e1]:
+  - banner [ref=f64e2]:
+    - link "CS CanvasiaSocial" [ref=f64e3] [cursor=pointer]:
+      - /url: /Dashboard
+      - generic [ref=f64e4]: CS
+      - generic [ref=f64e5]: CanvasiaSocial
+    - navigation "Ana menü" [ref=f64e6]:
+      - link "Dashboard" [ref=f64e7] [cursor=pointer]:
+        - /url: /Dashboard
+      - link "Ürünler" [ref=f64e8] [cursor=pointer]:
+        - /url: /Products
+      - link "Kampanyalar" [ref=f64e9] [cursor=pointer]:
+        - /url: /Campaigns
+      - link "Taslaklar" [ref=f64e10] [cursor=pointer]:
+        - /url: /Drafts
+      - link "Takvim" [ref=f64e11] [cursor=pointer]:
+        - /url: /Calendar
+      - link "Canvasia" [ref=f64e12] [cursor=pointer]:
+        - /url: /Settings/Canvasia
+    - generic [ref=f64e13]:
+      - generic [ref=f64e14]: admin@example.com
+      - button "Çıkış" [ref=f64e16] [cursor=pointer]
+  - main [ref=f64e17]:
+    - generic [ref=f64e18]:
+      - paragraph [ref=f64e19]: ENTEGRASYON
+      - heading "Canvasia ayarları" [level=1] [ref=f64e20]
+      - paragraph [ref=f64e21]: Bağlantı durumunu doğrulayın ve ürün cache senkronizasyonunu yönetin.
+    - generic [ref=f64e22]:
+      - article [ref=f64e23]:
+        - heading "Bağlantı" [level=2] [ref=f64e24]
+        - generic [ref=f64e25]:
+          - term [ref=f64e26]: Base URL
+          - definition [ref=f64e27]: https://www.canvasia.com.tr
+          - term [ref=f64e28]: API anahtarı
+          - definition [ref=f64e29]: Tanımlı
+          - term [ref=f64e30]: İstek timeout
+          - definition [ref=f64e31]: 30 saniye
+        - generic [ref=f64e32]:
+          - button "Bağlantıyı test et" [ref=f64e34] [cursor=pointer]
+          - button "Örnek ürünü test et" [ref=f64e36] [cursor=pointer]
+      - article [ref=f64e37]:
+        - heading "Senkronizasyon" [level=2] [ref=f64e38]
+        - generic [ref=f64e39]:
+          - term [ref=f64e40]: Durum
+          - definition [ref=f64e41]: Succeeded
+          - term [ref=f64e42]: Son başarılı çalışma
+          - definition [ref=f64e43]: 21.07.2026 19:23
+          - term [ref=f64e44]: İşlenen ürün
+          - definition [ref=f64e45]: 12,259
+          - term [ref=f64e46]: Cache toplamı
+          - definition [ref=f64e47]: 12,262
+          - term [ref=f64e48]: Sayfa boyutu
+          - definition [ref=f64e49]: "100"
+          - term [ref=f64e50]: Periyodik cron
+          - definition [ref=f64e51]:
+            - code [ref=f64e52]: 0 */6 * * *
+        - button "Manuel senkronizasyonu başlat" [ref=f64e54] [cursor=pointer]

@@ -1,0 +1,52 @@
+- generic [active] [ref=f12e1]:
+  - banner [ref=f12e2]:
+    - link "CS CanvasiaSocial" [ref=f12e3] [cursor=pointer]:
+      - /url: /Dashboard
+      - generic [ref=f12e4]: CS
+      - generic [ref=f12e5]: CanvasiaSocial
+    - navigation "Ana menü" [ref=f12e6]:
+      - link "Dashboard" [ref=f12e7] [cursor=pointer]:
+        - /url: /Dashboard
+      - link "Ürünler" [ref=f12e8] [cursor=pointer]:
+        - /url: /Products
+      - link "Kampanyalar" [ref=f12e9] [cursor=pointer]:
+        - /url: /Campaigns
+      - link "Taslaklar" [ref=f12e10] [cursor=pointer]:
+        - /url: /Drafts
+      - link "Takvim" [ref=f12e11] [cursor=pointer]:
+        - /url: /Calendar
+      - link "Canvasia" [ref=f12e12] [cursor=pointer]:
+        - /url: /Settings/Canvasia
+    - generic [ref=f12e13]:
+      - generic [ref=f12e14]: admin@example.com
+      - button "Çıkış" [ref=f12e16] [cursor=pointer]
+  - main [ref=f12e17]:
+    - generic [ref=f12e18]:
+      - generic [ref=f12e19]:
+        - paragraph [ref=f12e20]: Instagram · AutoSchedule
+        - heading "Aşama 4 - 3 Ürün Testi" [level=1] [ref=f12e21]
+        - paragraph [ref=f12e22]:
+          - text: "Durum:"
+          - strong [ref=f12e23]: Preparing
+          - text: · 0/3 hazır · 0 başarısız
+      - link "İlerlemeyi yenile" [ref=f12e24] [cursor=pointer]:
+        - /url: /Campaigns/Details/8a37a9ed-1992-402a-8d56-4909062512c4
+    - generic [ref=f12e25]:
+      - button "Duraklat" [ref=f12e27] [cursor=pointer]
+      - button "Devam ettir" [ref=f12e29] [cursor=pointer]
+      - button "Tümünü onayla" [ref=f12e31] [cursor=pointer]
+      - button "Takvime aktar" [ref=f12e33] [cursor=pointer]
+      - button "İptal et" [ref=f12e35] [cursor=pointer]
+    - generic [ref=f12e36]:
+      - article [ref=f12e37]:
+        - generic [ref=f12e38]:
+          - strong [ref=f12e39]: Test Ürün 1
+          - generic [ref=f12e40]: Generating
+      - article [ref=f12e41]:
+        - generic [ref=f12e42]:
+          - strong [ref=f12e43]: Test Ürün 2
+          - generic [ref=f12e44]: Generating
+      - article [ref=f12e45]:
+        - generic [ref=f12e46]:
+          - strong [ref=f12e47]: Test Ürün 3
+          - generic [ref=f12e48]: Generating

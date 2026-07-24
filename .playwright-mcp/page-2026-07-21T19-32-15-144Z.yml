@@ -1,0 +1,381 @@
+- generic [ref=f6e10]:
+  - navigation "Main" [ref=f6e12]:
+    - generic [ref=f6e19]:
+      - link "Meta home" [ref=f6e22] [cursor=pointer]:
+        - /url: https://developers.facebook.com/
+        - img "Nav Logo" [ref=f6e23]
+      - list [ref=f6e27]:
+        - listitem [ref=f6e28]:
+          - button "Build with us" [ref=f6e31] [cursor=pointer]
+        - listitem [ref=f6e33]:
+          - link "Docs" [ref=f6e36] [cursor=pointer]:
+            - /url: /docs/
+        - listitem [ref=f6e38]:
+          - link "Blog" [ref=f6e41] [cursor=pointer]:
+            - /url: /blog/
+        - listitem [ref=f6e43]:
+          - button "Resources" [ref=f6e46] [cursor=pointer]
+        - listitem [ref=f6e48]:
+          - button "Developer centers" [ref=f6e51] [cursor=pointer]
+      - generic [ref=f6e56]:
+        - link "Login" [ref=f6e57] [cursor=pointer]:
+          - /url: https://business.facebook.com/business/loginpage/?next=https%3A%2F%2Fdevelopers.facebook.com%2Fdocumentation%2Ffacebook-login%2Fguides%2Faccess-tokens%2Fget-long-lived
+        - button [ref=f6e58] [cursor=pointer]:
+          - img "Search" [ref=f6e59]
+  - generic [ref=f6e66]:
+    - navigation [ref=f6e67]:
+      - generic [ref=f6e68]:
+        - generic [ref=f6e69]:
+          - generic [ref=f6e70]: Facebook Login
+          - textbox "Filter" [ref=f6e73]
+        - generic [ref=f6e75]:
+          - generic "Facebook Login" [ref=f6e76]:
+            - link "Facebook Login" [ref=f6e77] [cursor=pointer]:
+              - /url: /documentation/facebook-login
+          - generic [ref=f6e81]:
+            - generic "Overview" [ref=f6e82]:
+              - link "Overview" [ref=f6e83] [cursor=pointer]:
+                - /url: "#"
+            - generic [ref=f6e91]:
+              - generic "Overview" [ref=f6e92]:
+                - link "Overview" [ref=f6e93] [cursor=pointer]:
+                  - /url: /documentation/facebook-login/overview
+              - generic "Authentication Versus Data Access" [ref=f6e97]:
+                - link "Authentication Versus Data Access" [ref=f6e98] [cursor=pointer]:
+                  - /url: /documentation/facebook-login/auth-vs-data
+              - generic "Login Security" [ref=f6e102]:
+                - link "Login Security" [ref=f6e103] [cursor=pointer]:
+                  - /url: /documentation/facebook-login/security
+              - generic [ref=f6e107]:
+                - generic "Access Token Guide" [ref=f6e108]:
+                  - link "Access Token Guide" [ref=f6e109] [cursor=pointer]:
+                    - /url: "#"
+                - generic [ref=f6e117]:
+                  - generic "Access Token Guide" [ref=f6e118]:
+                    - link "Access Token Guide" [ref=f6e119] [cursor=pointer]:
+                      - /url: /documentation/facebook-login/guides/access-tokens
+                  - generic "Get Long-Lived Tokens" [ref=f6e123]:
+                    - link "Get Long-Lived Tokens" [ref=f6e124] [cursor=pointer]:
+                      - /url: /documentation/facebook-login/guides/access-tokens/get-long-lived
+                  - generic "OIDC Token with Manual Flow" [ref=f6e128]:
+                    - link "OIDC Token with Manual Flow" [ref=f6e129] [cursor=pointer]:
+                      - /url: /documentation/facebook-login/guides/advanced/oidc-token
+                  - generic "Get an OIDC Token" [ref=f6e133]:
+                    - link "Get an OIDC Token" [ref=f6e134] [cursor=pointer]:
+                      - /url: /documentation/facebook-login/guides/access-tokens/get-oidc
+                  - generic "Get Session Info Tokens" [ref=f6e138]:
+                    - link "Get Session Info Tokens" [ref=f6e139] [cursor=pointer]:
+                      - /url: /documentation/facebook-login/guides/access-tokens/get-session-info
+                  - generic "Security" [ref=f6e143]:
+                    - link "Security" [ref=f6e144] [cursor=pointer]:
+                      - /url: /documentation/facebook-login/access-tokens/security
+                  - generic "Portability" [ref=f6e148]:
+                    - link "Portability" [ref=f6e149] [cursor=pointer]:
+                      - /url: /documentation/facebook-login/access-tokens/portability
+              - generic "Permissions Guide" [ref=f6e154]:
+                - link "Permissions Guide" [ref=f6e155] [cursor=pointer]:
+                  - /url: "#"
+          - generic "Create an app" [ref=f6e162]:
+            - link "Create an app" [ref=f6e163] [cursor=pointer]:
+              - /url: /documentation/facebook-login/create-an-app
+          - generic "Facebook Login for Business" [ref=f6e168]:
+            - link "Facebook Login for Business" [ref=f6e169] [cursor=pointer]:
+              - /url: "#"
+          - generic "Managed Meta Accounts & Third-party Integrations" [ref=f6e177]:
+            - link "Managed Meta Accounts & Third-party Integrations" [ref=f6e178] [cursor=pointer]:
+              - /url: "#"
+          - generic "For Devices" [ref=f6e185]:
+            - link "For Devices" [ref=f6e186] [cursor=pointer]:
+              - /url: /documentation/facebook-login/for-devices
+          - generic "Re-Authentication" [ref=f6e190]:
+            - link "Re-Authentication" [ref=f6e191] [cursor=pointer]:
+              - /url: /documentation/facebook-login/guides/advanced/re-authentication
+          - generic "Map Users Across Apps and Pages" [ref=f6e195]:
+            - link "Map Users Across Apps and Pages" [ref=f6e196] [cursor=pointer]:
+              - /url: /documentation/facebook-login/guides/map-users
+          - generic "Test Login Flow" [ref=f6e201]:
+            - link "Test Login Flow" [ref=f6e202] [cursor=pointer]:
+              - /url: "#"
+          - generic "Manually Build a Login Flow" [ref=f6e209]:
+            - link "Manually Build a Login Flow" [ref=f6e210] [cursor=pointer]:
+              - /url: /documentation/facebook-login/guides/advanced/manual-flow
+          - generic "iOS" [ref=f6e215]:
+            - link "iOS" [ref=f6e216] [cursor=pointer]:
+              - /url: "#"
+          - generic "Android" [ref=f6e224]:
+            - link "Android" [ref=f6e225] [cursor=pointer]:
+              - /url: "#"
+          - generic "Web" [ref=f6e233]:
+            - link "Web" [ref=f6e234] [cursor=pointer]:
+              - /url: "#"
+          - generic "Best Practices" [ref=f6e241]:
+            - link "Best Practices" [ref=f6e242] [cursor=pointer]:
+              - /url: /documentation/facebook-login/best-practices
+          - generic "User Experience Design" [ref=f6e246]:
+            - link "User Experience Design" [ref=f6e247] [cursor=pointer]:
+              - /url: /documentation/facebook-login/userexperience
+          - generic "Login Connect with Messenger" [ref=f6e252]:
+            - link "Login Connect with Messenger" [ref=f6e253] [cursor=pointer]:
+              - /url: "#"
+    - generic [ref=f6e261]:
+      - main [ref=f6e262]:
+        - generic [ref=f6e263]:
+          - navigation "Breadcrumbs" [ref=f6e265]:
+            - list [ref=f6e266]:
+              - listitem [ref=f6e267]:
+                - link "Docs" [ref=f6e269] [cursor=pointer]:
+                  - /url: /docs
+              - listitem [ref=f6e274]:
+                - link "Overview" [ref=f6e276] [cursor=pointer]:
+                  - /url: /documentation/facebook-login
+              - listitem [ref=f6e281]:
+                - generic [ref=f6e282]: Long-Lived Access Tokens
+          - article [ref=f6e285]:
+            - heading "Long-Lived Access Tokens" [level=1] [ref=f6e286]
+            - generic [ref=f6e287]: "Updated: Jun 30, 2026"
+            - generic [ref=f6e291]:
+              - button "Copy for LLM" [ref=f6e293] [cursor=pointer]
+              - link "View as Markdown" [ref=f6e300] [cursor=pointer]:
+                - /url: /documentation/facebook-login/guides/access-tokens/get-long-lived.md
+            - generic [ref=f6e306]: Default User and Page access tokens are short-lived, expiring in hours, however, you can exchange a short-lived token for a long-lived token.
+            - generic [ref=f6e307]: When you use the iOS, Android, or JavaScript SDK, the SDK will automatically refresh tokens if the person has used your app within the last 90 days. Native mobile apps using Facebook’s SDKs get long-lived User access tokens, good for about 60 days. These tokens are refreshed once per day, when the person using your app makes a request to Facebook’s servers. If no requests are made, the token will expire after about 60 days and the person will have to go through the login flow again to get a new token.
+            - generic [ref=f6e308]: "Latest Graph API Version: v25.0"
+            - generic [ref=f6e311]:
+              - heading "Get a Long-Lived User Access Token" [level=2] [ref=f6e312]
+              - button [ref=f6e313] [cursor=pointer]
+            - generic [ref=f6e317]: If you need a long-lived User access token you can generate one from a short-lived User access token. A long-lived token generally lasts about 60 days.
+            - generic [ref=f6e318]: "You will need the following:"
+            - list [ref=f6e319]:
+              - listitem [ref=f6e321]: A valid User Access Token
+              - listitem [ref=f6e323]: Your App ID
+              - listitem [ref=f6e325]: Your App Secret
+            - generic [ref=f6e326]:
+              - text: Query the
+              - code [ref=f6e327]: GET oauth/access_token
+              - text: endpoint.
+            - generic [ref=f6e328]:
+              - code [ref=f6e330]: "curl -i -X GET \"https://graph.facebook.com/{graph-api-version}/oauth/access_token? grant_type=fb_exchange_token& client_id={app-id}& client_secret={app-secret}& fb_exchange_token={your-access-token}\""
+              - button [ref=f6e331] [cursor=pointer]
+            - generic [ref=f6e336]:
+              - heading "Sample Response" [level=4] [ref=f6e337]
+              - button [ref=f6e338] [cursor=pointer]
+            - generic [ref=f6e342]:
+              - generic [ref=f6e343]: "{ \"access_token\":\"{long-lived-user-access-token}\", \"token_type\": \"bearer\", \"expires_in\": 5183944 //The number of seconds until the token expires }"
+              - button [ref=f6e346] [cursor=pointer]
+            - generic [ref=f6e349]: "The workflow for generating a long-lived User access token is as follows:"
+            - img "Swimlane diagram of the long-lived User access token flow across Client, Your Server, and Facebook" [ref=f6e351] [cursor=pointer]
+            - generic [ref=f6e352]: Once you have retrieved the long-lived token, you can use it from your server or send it back to the client to use there.
+            - generic [ref=f6e355]:
+              - heading "Caveats" [level=4] [ref=f6e356]
+              - button [ref=f6e357] [cursor=pointer]
+            - list [ref=f6e361]:
+              - listitem [ref=f6e363]:
+                - generic [ref=f6e364]:
+                  - strong [ref=f6e365]: You can not use an expired token to request a long-lived token.
+                  - text: If the token has expired, your app must send the user through the login flow again to regenerate a new short-lived access token.
+              - listitem [ref=f6e367]:
+                - generic [ref=f6e368]:
+                  - strong [ref=f6e369]: Make this call from your server, not a client.
+                  - text: Your app secret is included in this API call, so you should never make the request client-side. Instead implement server-side code that makes the request, then pass the response containing the long-lived token back to your client-side code. This will be a different string than the original token, so if you’re storing these tokens, replace the old one.
+              - listitem [ref=f6e371]:
+                - generic [ref=f6e372]:
+                  - strong [ref=f6e373]: Do not use the same long-lived tokens on more than one web client
+                  - text: (i.e. if the person logs in from more than one computer). Instead, you should use the long-lived tokens on your server to generate a code and then use that to get a long-lived token on the client. Please see below for information
+                  - link "Generating long-lived tokens from server-side long-lived tokens" [ref=f6e374] [cursor=pointer]:
+                    - /url: "#long-via-code"
+                  - text: .
+            - generic [ref=f6e377]:
+              - heading "Get a Long-Lived Page Access Token" [level=2] [ref=f6e378]
+              - button [ref=f6e379] [cursor=pointer]
+            - generic [ref=f6e383]:
+              - text: If you need a long-lived Page access token, you can generate one from a long-lived User access token. Long-lived Page access token do not have an expiration date and only
+              - link "expire or are invalidated under certain conditions" [ref=f6e384] [cursor=pointer]:
+                - /url: /docs/facebook-login/access-tokens/debugging-and-error-handling#expiredtokens
+              - text: .
+            - generic [ref=f6e385]: "You will need the following:"
+            - list [ref=f6e386]:
+              - listitem [ref=f6e388]:
+                - text: A valid
+                - link "long-lived User access token" [ref=f6e389] [cursor=pointer]:
+                  - /url: "#get-a-long-lived-user-access-token"
+                - text: . The person requesting the token must have a role on the Page.
+            - generic [ref=f6e390]:
+              - text: Query the
+              - code [ref=f6e391]: "GET {app-scoped-user-id}?accounts"
+              - text: endpoint.
+            - generic [ref=f6e392]:
+              - code [ref=f6e394]: "curl -i -X GET \"https://graph.facebook.com/{graph-api-version}/{app-scoped-user-id}/accounts? access_token={long-lived-user-access-token}\""
+              - button [ref=f6e395] [cursor=pointer]
+            - generic [ref=f6e400]:
+              - heading "Sample Response" [level=4] [ref=f6e401]
+              - button [ref=f6e402] [cursor=pointer]
+            - generic [ref=f6e406]:
+              - generic [ref=f6e407]: "{ \"data\":[ { \"access_token\":\"{long-lived-page-access-token}\", \"category\":\"Brand\", \"category_list\":[ { \"id\":\"1605186416478696\", \"name\":\"Brand\" } ], \"name\":\"Cute Kitten Page\", \"id\":\"{page-id}\", \"tasks\":[ \"ANALYZE\", \"ADVERTISE\", \"MODERATE\", \"CREATE_CONTENT\", \"MANAGE\" ] } ], \"paging\":{ \"cursors\":{ \"before\":\"MTM1MzI2OTg2NDcyODg3OQZDZD\", \"after\":\"MTM1MzI2OTg2NDcyODg3OQZDZD\" } } }"
+              - button [ref=f6e410] [cursor=pointer]
+            - generic [ref=f6e415]:
+              - heading "Get Long_lived Tokens for Clients" [level=2] [ref=f6e416]
+              - button [ref=f6e417] [cursor=pointer]
+            - generic [ref=f6e421]: "Facebook has an option for getting long-lived access tokens for apps to avoid triggering Facebook’s automated spam systems. Apps that:"
+            - list [ref=f6e422]:
+              - listitem [ref=f6e424]: Have their own authentication system (use a username/password for example)
+              - listitem [ref=f6e426]: Store a Facebook access token on their servers for people using different clients (browser or native mobile apps)
+              - listitem [ref=f6e428]: Make API calls from all these different clients
+            - generic [ref=f6e429]: "At a high level, you obtain a long-lived token for the client by:"
+            - list [ref=f6e430]:
+              - listitem [ref=f6e432]: Using a valid, long-lived access token, your server sends a request to get a code from Facebook.
+              - listitem [ref=f6e434]: Facebook sends a code back to your server and you securely send this code to the client.
+              - listitem [ref=f6e436]: The client uses this code to request a long-lived token from Facebook.
+              - listitem [ref=f6e438]: Facebook sends the client a long-lived token which is used to post stories or query data.
+            - generic [ref=f6e441]:
+              - heading "Get a Code" [level=3] [ref=f6e442]
+              - button [ref=f6e443] [cursor=pointer]
+            - generic [ref=f6e447]:
+              - text: Query the
+              - code [ref=f6e448]: GET oauth/client_code
+              - text: endpoint. The redirect URI must be the exact value you set in your
+              - link "app dashboard" [ref=f6e449] [cursor=pointer]:
+                - /url: https://developers.facebook.com/apps
+              - text: under the Facebook Login > Settings Client > OAuth Settings card.
+            - generic [ref=f6e450]:
+              - code [ref=f6e452]: "curl -i -X GET \"https://graph.facebook.com/{graph-api-version}/oauth/client_code? client_id={app-id}& client_secret={app-secret}& redirect_uri={app-redirect-uri}& access_token={long-lived-user-access-token}\""
+              - button [ref=f6e453] [cursor=pointer]
+            - generic [ref=f6e458]:
+              - heading "Sample Response" [level=4] [ref=f6e459]
+              - button [ref=f6e460] [cursor=pointer]
+            - generic [ref=f6e464]:
+              - generic [ref=f6e465]: "{ \"code\":\"{code-for-your-client}\" }"
+              - button [ref=f6e468] [cursor=pointer]
+            - generic [ref=f6e473]:
+              - heading "Redeem the Code for a Long-lived Access Token" [level=3] [ref=f6e474]
+              - button [ref=f6e475] [cursor=pointer]
+            - generic [ref=f6e479]:
+              - text: Once you’ve retrieved the code from Facebook’s server you then need to ship it to the client via a secure channel. Once that’s done, you need to make a request from the client to the
+              - code [ref=f6e480]: /oauth/access_token
+              - text: "endpoint:"
+            - generic [ref=f6e481]:
+              - code [ref=f6e483]: "curl -i -X GET \"https://graph.facebook.com/{graph-api-version}/oauth/access_token? code={code-for-your-client}& client_id={app-id}& redirect_uri={app-redirect-uri}& machine_id= {your-client-machine-id}\""
+              - button [ref=f6e484] [cursor=pointer]
+            - generic [ref=f6e487]:
+              - text: The
+              - code [ref=f6e488]: machine_id
+              - text: is an optional parameter that identifies and tracks clients and is used for security and spam prevention. It is a
+              - strong [ref=f6e489]: per client
+              - text: not
+              - strong [ref=f6e490]: per user
+              - text: value. If you have previously made calls to get a code and been provided a
+              - code [ref=f6e491]: machine_id
+              - text: you should include in your code request.
+            - generic [ref=f6e494]:
+              - heading "Sample Response" [level=4] [ref=f6e495]
+              - button [ref=f6e496] [cursor=pointer]
+            - generic [ref=f6e500]:
+              - code [ref=f6e502]: "{ \"access_token\":\"{long-lived-access-token}\", \"expires_in\":5183944, //The number of seconds until the token expires \"machine_id\":\"{your-client-machine-id}\" }"
+              - button [ref=f6e503] [cursor=pointer]
+            - generic [ref=f6e506]: "The workflow for generating a long-lived token is as follows:"
+            - img "Swimlane diagram of generating a long-lived client token via a server-issued code across Client, Your Server, and Facebook" [ref=f6e508] [cursor=pointer]
+      - complementary [ref=f6e509]
+  - generic [ref=f6e511]:
+    - separator [ref=f6e512]
+    - contentinfo [ref=f6e513]:
+      - generic [ref=f6e514]:
+        - separator [ref=f6e515]
+        - generic [ref=f6e517]:
+          - generic [ref=f6e519]:
+            - generic [ref=f6e521]:
+              - img "Meta" [ref=f6e523]
+              - list [ref=f6e525]:
+                - listitem:
+                  - link "Facebook":
+                    - /url: https://www.facebook.com/MetaforDevelopers
+                    - img "Facebook"
+                - listitem:
+                  - link "Instagram":
+                    - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.instagram.com%2Fmetafordevelopers%2F&h=AUDJC86Lntd4_cMKzNjNvAddEbpLa8DgHiFLxfs0gzB7qswBJFR7kys5hDQ8SbEr7CRRSG0mJ9gz16gPLrGYwxQG54--fIK8bGNXmftUw-Gfo-YK1IOo2vpFGRQd-R0VLhvEhLX22Lsv9w919RkLTQ
+                    - img "Instagram"
+                - listitem:
+                  - link "X":
+                    - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Ftwitter.com%2Fmetafordevs&h=AUDJC86Lntd4_cMKzNjNvAddEbpLa8DgHiFLxfs0gzB7qswBJFR7kys5hDQ8SbEr7CRRSG0mJ9gz16gPLrGYwxQG54--fIK8bGNXmftUw-Gfo-YK1IOo2vpFGRQd-R0VLhvEhLX22Lsv9w919RkLTQ
+                    - img "X"
+                - listitem:
+                  - link "LinkedIn":
+                    - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.linkedin.com%2Fshowcase%2Fmeta-for-developers%2F&h=AUDJC86Lntd4_cMKzNjNvAddEbpLa8DgHiFLxfs0gzB7qswBJFR7kys5hDQ8SbEr7CRRSG0mJ9gz16gPLrGYwxQG54--fIK8bGNXmftUw-Gfo-YK1IOo2vpFGRQd-R0VLhvEhLX22Lsv9w919RkLTQ
+                    - img "LinkedIn"
+                - listitem:
+                  - link "YouTube":
+                    - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.youtube.com%2FMetaDevelopers%2F&h=AUDJC86Lntd4_cMKzNjNvAddEbpLa8DgHiFLxfs0gzB7qswBJFR7kys5hDQ8SbEr7CRRSG0mJ9gz16gPLrGYwxQG54--fIK8bGNXmftUw-Gfo-YK1IOo2vpFGRQd-R0VLhvEhLX22Lsv9w919RkLTQ
+                    - img "YouTube"
+            - generic [ref=f6e527]:
+              - generic [ref=f6e530]:
+                - heading "Build with Meta" [level=2] [ref=f6e531]
+                - list [ref=f6e533]:
+                  - listitem [ref=f6e534]:
+                    - link "AI" [ref=f6e536] [cursor=pointer]:
+                      - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.llama.com%2F&h=AUDJC86Lntd4_cMKzNjNvAddEbpLa8DgHiFLxfs0gzB7qswBJFR7kys5hDQ8SbEr7CRRSG0mJ9gz16gPLrGYwxQG54--fIK8bGNXmftUw-Gfo-YK1IOo2vpFGRQd-R0VLhvEhLX22Lsv9w919RkLTQ
+                  - listitem [ref=f6e537]:
+                    - link "Meta Horizon" [ref=f6e539] [cursor=pointer]:
+                      - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fdevelopers.meta.com%2Fhorizon%2F&h=AUDJC86Lntd4_cMKzNjNvAddEbpLa8DgHiFLxfs0gzB7qswBJFR7kys5hDQ8SbEr7CRRSG0mJ9gz16gPLrGYwxQG54--fIK8bGNXmftUw-Gfo-YK1IOo2vpFGRQd-R0VLhvEhLX22Lsv9w919RkLTQ
+                  - listitem [ref=f6e540]:
+                    - link "Social technologies" [ref=f6e542] [cursor=pointer]:
+                      - /url: /social-technologies/
+                  - listitem [ref=f6e543]:
+                    - link "Wearables" [ref=f6e545] [cursor=pointer]:
+                      - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fdevelopers.meta.com%2Fwearables%2F&h=AUDJC86Lntd4_cMKzNjNvAddEbpLa8DgHiFLxfs0gzB7qswBJFR7kys5hDQ8SbEr7CRRSG0mJ9gz16gPLrGYwxQG54--fIK8bGNXmftUw-Gfo-YK1IOo2vpFGRQd-R0VLhvEhLX22Lsv9w919RkLTQ
+              - generic [ref=f6e548]:
+                - heading "News" [level=2] [ref=f6e549]
+                - list [ref=f6e551]:
+                  - listitem [ref=f6e552]:
+                    - link "Meta for Developers" [ref=f6e554] [cursor=pointer]:
+                      - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fdevelopers.meta.com%2Fblog%2F&h=AUDJC86Lntd4_cMKzNjNvAddEbpLa8DgHiFLxfs0gzB7qswBJFR7kys5hDQ8SbEr7CRRSG0mJ9gz16gPLrGYwxQG54--fIK8bGNXmftUw-Gfo-YK1IOo2vpFGRQd-R0VLhvEhLX22Lsv9w919RkLTQ
+                  - listitem [ref=f6e555]:
+                    - link "Blog" [ref=f6e557] [cursor=pointer]:
+                      - /url: /blog/
+                  - listitem [ref=f6e558]:
+                    - link "Success stories" [ref=f6e560] [cursor=pointer]:
+                      - /url: /success-stories/
+              - generic [ref=f6e563]:
+                - heading "Support" [level=2] [ref=f6e564]
+                - list [ref=f6e566]:
+                  - listitem [ref=f6e567]:
+                    - link "Developer Support" [ref=f6e569] [cursor=pointer]:
+                      - /url: /support/
+                  - listitem [ref=f6e570]:
+                    - link "Bug tool" [ref=f6e572] [cursor=pointer]:
+                      - /url: /support/bugs/
+                  - listitem [ref=f6e573]:
+                    - link "Platform status" [ref=f6e575] [cursor=pointer]:
+                      - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fmetastatus.com%2F&h=AUDJC86Lntd4_cMKzNjNvAddEbpLa8DgHiFLxfs0gzB7qswBJFR7kys5hDQ8SbEr7CRRSG0mJ9gz16gPLrGYwxQG54--fIK8bGNXmftUw-Gfo-YK1IOo2vpFGRQd-R0VLhvEhLX22Lsv9w919RkLTQ
+                  - listitem [ref=f6e576]:
+                    - link "Developer community forum" [ref=f6e578] [cursor=pointer]:
+                      - /url: https://www.facebook.com/groups/fbdevelopers/
+                  - listitem [ref=f6e579]:
+                    - link "Report an incident" [ref=f6e581] [cursor=pointer]:
+                      - /url: /incident/report/
+              - generic [ref=f6e584]:
+                - heading "About us" [level=2] [ref=f6e585]
+                - list [ref=f6e587]:
+                  - listitem [ref=f6e588]:
+                    - link "About" [ref=f6e590] [cursor=pointer]:
+                      - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fabout.fb.com%2F&h=AUDJC86Lntd4_cMKzNjNvAddEbpLa8DgHiFLxfs0gzB7qswBJFR7kys5hDQ8SbEr7CRRSG0mJ9gz16gPLrGYwxQG54--fIK8bGNXmftUw-Gfo-YK1IOo2vpFGRQd-R0VLhvEhLX22Lsv9w919RkLTQ
+                  - listitem [ref=f6e591]:
+                    - link "Careers" [ref=f6e593] [cursor=pointer]:
+                      - /url: https://www.facebook.com/careers
+              - generic [ref=f6e596]:
+                - heading "Terms and policies" [level=2] [ref=f6e597]
+                - list [ref=f6e599]:
+                  - listitem [ref=f6e600]:
+                    - link "Responsible platform initiatives" [ref=f6e602] [cursor=pointer]:
+                      - /url: /products/responsible-platform-initiatives/
+                  - listitem [ref=f6e603]:
+                    - link "Platform terms" [ref=f6e605] [cursor=pointer]:
+                      - /url: /terms/dfc_platform_terms/
+                  - listitem [ref=f6e606]:
+                    - link "Developer policies" [ref=f6e608] [cursor=pointer]:
+                      - /url: /devpolicy/
+                  - listitem [ref=f6e609]:
+                    - link "Privacy policy" [ref=f6e611] [cursor=pointer]:
+                      - /url: https://www.facebook.com/about/privacy
+                  - listitem [ref=f6e612]:
+                    - link "Cookies" [ref=f6e614] [cursor=pointer]:
+                      - /url: https://www.facebook.com/help/cookies
+          - button "Change language" [ref=f6e619] [cursor=pointer]:
+            - generic [ref=f6e620]: English (US)

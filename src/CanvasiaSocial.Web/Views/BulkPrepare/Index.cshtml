@@ -1,0 +1,22 @@
+@using CanvasiaSocial.Domain.Enums
+@model CanvasiaSocial.Web.Models.BulkPrepareViewModel
+@{ ViewData["Title"] = "Toplu Hazırlık"; }
+<section class="page-heading"><p class="eyebrow">KAMPANYA OLUŞTUR</p><h1>Toplu sosyal medya hazırlığı</h1><p>@Model.ProductIds.Count ürün kalıcı AI job kuyruğuna hazırlanacak.</p></section>
+<div class="campaign-builder">
+<form asp-action="Start" method="post" class="settings-card form-grid">
+    @foreach (var id in Model.ProductIds) { <input type="hidden" name="ProductIds" value="@id" /> }
+    <label>Kampanya adı<input asp-for="Name" required maxlength="300" /></label>
+    <label>Platform<select asp-for="Platform" asp-items="Html.GetEnumSelectList<Platform>()"></select></label>
+    <label>Sosyal hesap<select asp-for="SocialAccountId"><option value="">Daha sonra bağlanacak</option>@foreach (var account in Model.SocialAccounts) { <option value="@account.Id">@account.DisplayName</option> }</select></label>
+    <label>Mod<select asp-for="Mode" asp-items="Html.GetEnumSelectList<CampaignMode>()"></select></label>
+    <label>Başlangıç (Europe/Istanbul)<input asp-for="StartLocal" type="datetime-local" required /></label>
+    <label>Gönderiler arası dakika<input asp-for="IntervalMinutes" min="1" max="1440" /></label>
+    <label>Günlük limit<input asp-for="DailyLimit" min="1" max="100" /></label>
+    <label>İzin başlangıcı<input asp-for="AllowedStartTime" type="time" /></label>
+    <label>İzin bitişi<input asp-for="AllowedEndTime" type="time" /></label>
+    <label class="check-field"><input asp-for="IncludePrice" /> Fiyatı içeriğe ekle</label>
+    <label class="check-field"><input asp-for="IncludeProductLink" /> Ürün linkini ekle</label>
+    <button class="primary-button" type="submit">Kampanyayı başlat</button>
+</form>
+<aside class="selected-list"><h2>Seçilen ürünler</h2>@foreach (var p in Model.Products) { <div><strong>@p.Title</strong><span>@p.Price.ToString("N2") TL</span></div> }</aside>
+</div>

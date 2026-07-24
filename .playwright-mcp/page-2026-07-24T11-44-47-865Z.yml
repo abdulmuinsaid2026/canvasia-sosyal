@@ -1,0 +1,42 @@
+- generic [active] [ref=f3e1]:
+  - banner [ref=f3e2]:
+    - link "CS CanvasiaSocial" [ref=f3e3] [cursor=pointer]:
+      - /url: /Dashboard
+      - generic [ref=f3e4]: CS
+      - generic [ref=f3e5]: CanvasiaSocial
+    - navigation "Ana menü" [ref=f3e6]:
+      - link "Dashboard" [ref=f3e7] [cursor=pointer]:
+        - /url: /Dashboard
+      - link "Ürünler" [ref=f3e8] [cursor=pointer]:
+        - /url: /Products
+      - link "Kampanyalar" [ref=f3e9] [cursor=pointer]:
+        - /url: /Campaigns
+      - link "Taslaklar" [ref=f3e10] [cursor=pointer]:
+        - /url: /Drafts
+      - link "Takvim" [ref=f3e11] [cursor=pointer]:
+        - /url: /Calendar
+      - link "Canvasia" [ref=f3e12] [cursor=pointer]:
+        - /url: /Settings/Canvasia
+      - link "Sosyal hesaplar" [ref=f3e13] [cursor=pointer]:
+        - /url: /SocialAccounts
+    - generic [ref=f3e14]:
+      - generic [ref=f3e15]: admin@example.com
+      - link "Parola değiştir" [ref=f3e16] [cursor=pointer]:
+        - /url: /parola-degistir
+      - button "Çıkış" [ref=f3e18] [cursor=pointer]
+  - main [ref=f3e19]:
+    - generic [ref=f3e20]:
+      - paragraph [ref=f3e21]: HESAP GÜVENLİĞİ
+      - heading "Parolanızı değiştirin" [level=1] [ref=f3e22]
+      - paragraph [ref=f3e23]: İlk kurulum parolasını kullandıysanız giriş yaptıktan sonra burada değiştirin.
+      - generic [ref=f3e24]:
+        - generic [ref=f3e25]:
+          - generic [ref=f3e26]: Mevcut parola
+          - textbox "Mevcut parola" [ref=f3e27]
+        - generic [ref=f3e28]:
+          - generic [ref=f3e29]: Yeni parola
+          - textbox "Yeni parola" [ref=f3e30]
+        - generic [ref=f3e31]:
+          - generic [ref=f3e32]: Yeni parola tekrarı
+          - textbox "Yeni parola tekrarı" [ref=f3e33]
+        - button "Parolayı değiştir" [ref=f3e34] [cursor=pointer]

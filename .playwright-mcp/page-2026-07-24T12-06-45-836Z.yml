@@ -1,0 +1,80 @@
+- generic [active] [ref=f4e1]:
+  - banner [ref=f4e2]:
+    - link "CS CanvasiaSocial" [ref=f4e3] [cursor=pointer]:
+      - /url: /Dashboard
+      - generic [ref=f4e4]: CS
+      - generic [ref=f4e5]: CanvasiaSocial
+    - navigation "Ana menü" [ref=f4e6]:
+      - link "Dashboard" [ref=f4e7] [cursor=pointer]:
+        - /url: /Dashboard
+      - link "Ürünler" [ref=f4e8] [cursor=pointer]:
+        - /url: /Products
+      - link "Kampanyalar" [ref=f4e9] [cursor=pointer]:
+        - /url: /Campaigns
+      - link "Taslaklar" [ref=f4e10] [cursor=pointer]:
+        - /url: /Drafts
+      - link "Takvim" [ref=f4e11] [cursor=pointer]:
+        - /url: /Calendar
+      - link "Canvasia" [ref=f4e12] [cursor=pointer]:
+        - /url: /Settings/Canvasia
+      - link "Sosyal hesaplar" [ref=f4e13] [cursor=pointer]:
+        - /url: /SocialAccounts
+    - generic [ref=f4e14]:
+      - generic [ref=f4e15]: admin@example.com
+      - link "Parola değiştir" [ref=f4e16] [cursor=pointer]:
+        - /url: /parola-degistir
+      - button "Çıkış" [ref=f4e18] [cursor=pointer]
+  - main [ref=f4e19]:
+    - generic [ref=f4e20]:
+      - paragraph [ref=f4e21]: RESMİ OAUTH
+      - heading "Sosyal hesaplar" [level=1] [ref=f4e22]
+      - paragraph [ref=f4e23]: Hesaplar yalnızca platformların resmî yetkilendirme ekranlarından bağlanır. Kullanıcı adı veya parola saklanmaz.
+    - generic [ref=f4e24]:
+      - article [ref=f4e25]:
+        - generic [ref=f4e26]:
+          - generic [ref=f4e27]:
+            - paragraph [ref=f4e28]: INSTAGRAM
+            - heading "Instagram" [level=2] [ref=f4e29]
+          - generic [ref=f4e30]: Yapılandırılmadı
+        - generic [ref=f4e31]:
+          - term [ref=f4e32]: Callback
+          - definition [ref=f4e33]: Tanımlı değil
+          - term [ref=f4e34]: Yetkiler
+          - definition [ref=f4e35]: instagram_business_basic, instagram_business_content_publish
+        - button "Bağlantı kullanılamıyor" [disabled] [ref=f4e36]
+      - article [ref=f4e37]:
+        - generic [ref=f4e38]:
+          - generic [ref=f4e39]:
+            - paragraph [ref=f4e40]: FACEBOOK
+            - heading "Facebook" [level=2] [ref=f4e41]
+          - generic [ref=f4e42]: Yapılandırılmadı
+        - generic [ref=f4e43]:
+          - term [ref=f4e44]: Callback
+          - definition [ref=f4e45]: Tanımlı değil
+          - term [ref=f4e46]: Yetkiler
+          - definition [ref=f4e47]: pages_show_list, pages_read_engagement, pages_manage_posts
+        - button "Bağlantı kullanılamıyor" [disabled] [ref=f4e48]
+      - article [ref=f4e49]:
+        - generic [ref=f4e50]:
+          - generic [ref=f4e51]:
+            - paragraph [ref=f4e52]: TIKTOK
+            - heading "TikTok" [level=2] [ref=f4e53]
+          - generic [ref=f4e54]: Yapılandırılmadı
+        - generic [ref=f4e55]:
+          - term [ref=f4e56]: Callback
+          - definition [ref=f4e57]: Tanımlı değil
+          - term [ref=f4e58]: Yetkiler
+          - definition [ref=f4e59]: user.info.basic, video.publish
+        - button "Bağlantı kullanılamıyor" [disabled] [ref=f4e60]
+      - article [ref=f4e61]:
+        - generic [ref=f4e62]:
+          - generic [ref=f4e63]:
+            - paragraph [ref=f4e64]: PINTEREST
+            - heading "Pinterest" [level=2] [ref=f4e65]
+          - generic [ref=f4e66]: Yapılandırılmadı
+        - generic [ref=f4e67]:
+          - term [ref=f4e68]: Callback
+          - definition [ref=f4e69]: Tanımlı değil
+          - term [ref=f4e70]: Yetkiler
+          - definition [ref=f4e71]: user_accounts:read, boards:read, pins:read, pins:write
+        - button "Bağlantı kullanılamıyor" [disabled] [ref=f4e72]

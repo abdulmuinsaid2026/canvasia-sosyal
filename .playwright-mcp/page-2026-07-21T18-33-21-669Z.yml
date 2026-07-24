@@ -1,0 +1,44 @@
+- generic [active] [ref=f1e1]:
+  - banner [ref=f1e2]:
+    - link "CS CanvasiaSocial" [ref=f1e3] [cursor=pointer]:
+      - /url: /Dashboard
+      - generic [ref=f1e4]: CS
+      - generic [ref=f1e5]: CanvasiaSocial
+    - navigation "Ana menü" [ref=f1e6]:
+      - link "Dashboard" [ref=f1e7] [cursor=pointer]:
+        - /url: /Dashboard
+      - link "Ürünler" [ref=f1e8] [cursor=pointer]:
+        - /url: /Products
+      - link "Canvasia" [ref=f1e9] [cursor=pointer]:
+        - /url: /Settings/Canvasia
+    - generic [ref=f1e10]:
+      - generic [ref=f1e11]: admin@example.com
+      - button "Çıkış" [ref=f1e13] [cursor=pointer]
+  - main [ref=f1e14]:
+    - generic [ref=f1e15]:
+      - paragraph [ref=f1e16]: YÖNETİM
+      - heading "Gösterge Paneli" [level=1] [ref=f1e17]
+      - paragraph [ref=f1e18]: Canvasia ürünleri ve sosyal medya çalışmalarınız için başlangıç görünümü.
+    - region "Sistem özeti" [ref=f1e19]:
+      - article [ref=f1e20]:
+        - generic [ref=f1e21]: Sosyal hesap
+        - strong [ref=f1e22]: "0"
+      - article [ref=f1e23]:
+        - generic [ref=f1e24]: Cache ürün
+        - strong [ref=f1e25]: "0"
+      - article [ref=f1e26]:
+        - generic [ref=f1e27]: Taslak içerik
+        - strong [ref=f1e28]: "0"
+      - article [ref=f1e29]:
+        - generic [ref=f1e30]: Planlı gönderi
+        - strong [ref=f1e31]: "0"
+      - article [ref=f1e32]:
+        - generic [ref=f1e33]: Aktif kampanya
+        - strong [ref=f1e34]: "0"
+    - generic [ref=f1e35]:
+      - generic [ref=f1e36]:
+        - generic [ref=f1e37]: Son Canvasia senkronizasyonu
+        - strong [ref=f1e38]: Henüz yok
+      - generic [ref=f1e39]:
+        - generic [ref=f1e40]: Canvasia API
+        - strong [ref=f1e41]: Erişilemiyor

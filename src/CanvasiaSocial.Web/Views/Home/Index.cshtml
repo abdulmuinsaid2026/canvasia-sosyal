@@ -1,0 +1,23 @@
+@model CanvasiaSocial.Application.Dashboard.DashboardSummary
+@{
+    ViewData["Title"] = "Gösterge Paneli";
+}
+
+<section class="page-heading">
+    <p class="eyebrow">YÖNETİM</p>
+    <h1>Gösterge Paneli</h1>
+    <p>Canvasia ürünleri ve sosyal medya çalışmalarınız için başlangıç görünümü.</p>
+</section>
+
+<section class="metric-grid" aria-label="Sistem özeti">
+    <article class="metric-card"><span>Sosyal hesap</span><strong>@Model.SocialAccountCount</strong></article>
+    <article class="metric-card"><span>Cache ürün</span><strong>@Model.ProductCount</strong></article>
+    <article class="metric-card"><span>Taslak içerik</span><strong>@Model.DraftContentCount</strong></article>
+    <article class="metric-card"><span>Planlı gönderi</span><strong>@Model.ScheduledPostCount</strong></article>
+    <article class="metric-card"><span>Aktif kampanya</span><strong>@Model.ActiveCampaignCount</strong></article>
+</section>
+
+<section class="health-strip">
+    <div><span>Son Canvasia senkronizasyonu</span><strong>@(Model.LastCanvasiaSyncAtUtc?.ToLocalTime().ToString("dd.MM.yyyy HH:mm") ?? "Henüz yok")</strong></div>
+    <div><span>Canvasia API</span><strong class="@(Model.IsCanvasiaApiHealthy ? "healthy" : "unhealthy")">@(Model.IsCanvasiaApiHealthy ? "Sağlıklı" : "Erişilemiyor")</strong></div>
+</section>

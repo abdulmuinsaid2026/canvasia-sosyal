@@ -1,0 +1,56 @@
+- generic [active] [ref=f66e1]:
+  - banner [ref=f66e2]:
+    - link "CS CanvasiaSocial" [ref=f66e3] [cursor=pointer]:
+      - /url: /Dashboard
+      - generic [ref=f66e4]: CS
+      - generic [ref=f66e5]: CanvasiaSocial
+    - navigation "Ana menü" [ref=f66e6]:
+      - link "Dashboard" [ref=f66e7] [cursor=pointer]:
+        - /url: /Dashboard
+      - link "Ürünler" [ref=f66e8] [cursor=pointer]:
+        - /url: /Products
+      - link "Kampanyalar" [ref=f66e9] [cursor=pointer]:
+        - /url: /Campaigns
+      - link "Taslaklar" [ref=f66e10] [cursor=pointer]:
+        - /url: /Drafts
+      - link "Takvim" [ref=f66e11] [cursor=pointer]:
+        - /url: /Calendar
+      - link "Canvasia" [ref=f66e12] [cursor=pointer]:
+        - /url: /Settings/Canvasia
+    - generic [ref=f66e13]:
+      - generic [ref=f66e14]: admin@example.com
+      - button "Çıkış" [ref=f66e16] [cursor=pointer]
+  - main [ref=f66e17]:
+    - link "← Ürünlere dön" [ref=f66e18] [cursor=pointer]:
+      - /url: /Products
+    - generic [ref=f66e19]:
+      - generic [ref=f66e20]:
+        - img "Mor Gelincik Çiçek Kanvas Tablo" [ref=f66e22]
+        - generic [ref=f66e23]:
+          - img "Mor Gelincik Çiçek Kanvas Tablo" [ref=f66e24]
+          - img "Mor Gelincik Çiçek Kanvas Tablo" [ref=f66e25]
+          - img "Mor Gelincik Çiçek Kanvas Tablo" [ref=f66e26]
+      - article [ref=f66e27]:
+        - paragraph [ref=f66e28]: Çiçekli ve Dekoratif
+        - heading "Mor Gelincik Çiçek Kanvas Tablo" [level=1] [ref=f66e29]
+        - strong [ref=f66e31]: 681.47 TL
+        - paragraph [ref=f66e32]: Stokta var
+        - generic [ref=f66e33]:
+          - heading "Ürün açıklaması" [level=2] [ref=f66e34]
+          - paragraph [ref=f66e35]: Mor Gelincik Çiçek Kanvas Tablo ürünü, yaşam alanlarında dekoratif kullanım için hazırlanan premium kanvas tablo koleksiyonunun parçasıdır.
+        - generic [ref=f66e36]:
+          - heading "Prompt özeti" [level=2] [ref=f66e37]
+          - paragraph [ref=f66e38]: "Canvasia urun adi: Mor Gelincik Çiçek Kanvas Tablo. Kategori: Çiçekli ve Dekoratif. Urun tipi: Genel. Fiyat: 681,47 TL. Stokta var. Kisa aciklama: Özel ölçü seçenekleriyle hazırlanan dekoratif kanvas tablo. Turkce, samimi, satis odakli ve dekorasyon ilhami veren sosyal medya aciklamasi ile hashtag uret."
+        - generic [ref=f66e39]:
+          - heading "Henüz içerik üretilmedi" [level=2] [ref=f66e40]
+          - paragraph [ref=f66e41]: Bu ürün için sosyal medya içeriği sonraki aşamada üretilebilir.
+        - generic [ref=f66e42]:
+          - combobox [ref=f66e43]:
+            - option "Instagram" [selected]
+            - option "Facebook"
+            - option "TikTok"
+            - option "Pinterest"
+          - button "Tekli AI içerik üret" [ref=f66e44] [cursor=pointer]
+        - link "Canvasia ürününü aç" [ref=f66e45] [cursor=pointer]:
+          - /url: https://www.canvasia.com.tr/Urun/Detay/mor-gelincik-cicek-kanvas-tablo-2
+        - paragraph [ref=f66e46]: "Son cache güncellemesi: 21.07.2026 19:23"

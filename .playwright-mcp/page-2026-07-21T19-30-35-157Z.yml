@@ -1,0 +1,566 @@
+- generic [ref=f77e10]:
+  - navigation "Main" [ref=f77e12]:
+    - generic [ref=f77e19]:
+      - link "Meta home" [ref=f77e22] [cursor=pointer]:
+        - /url: https://developers.facebook.com/
+        - img "Nav Logo" [ref=f77e23]
+      - list [ref=f77e27]:
+        - listitem [ref=f77e28]:
+          - button "Build with us" [ref=f77e31] [cursor=pointer]
+        - listitem [ref=f77e33]:
+          - link "Docs" [ref=f77e36] [cursor=pointer]:
+            - /url: /docs/
+        - listitem [ref=f77e38]:
+          - link "Blog" [ref=f77e41] [cursor=pointer]:
+            - /url: /blog/
+        - listitem [ref=f77e43]:
+          - button "Resources" [ref=f77e46] [cursor=pointer]
+        - listitem [ref=f77e48]:
+          - button "Developer centers" [ref=f77e51] [cursor=pointer]
+      - generic [ref=f77e56]:
+        - link "Login" [ref=f77e57] [cursor=pointer]:
+          - /url: https://business.facebook.com/business/loginpage/?next=https%3A%2F%2Fdevelopers.facebook.com%2Fdocumentation%2Fpages-api%2Fposts
+        - button [ref=f77e58] [cursor=pointer]:
+          - img "Search" [ref=f77e59]
+  - generic [ref=f77e66]:
+    - navigation [ref=f77e67]:
+      - generic [ref=f77e68]:
+        - generic [ref=f77e69]:
+          - generic [ref=f77e70]: Pages API
+          - textbox "Filter" [ref=f77e73]
+        - generic [ref=f77e75]:
+          - generic "Facebook Pages API" [ref=f77e76]:
+            - link "Facebook Pages API" [ref=f77e77] [cursor=pointer]:
+              - /url: /documentation/pages-api
+          - generic "Overview" [ref=f77e81]:
+            - link "Overview" [ref=f77e82] [cursor=pointer]:
+              - /url: /documentation/pages-api/overview
+          - generic "Create an app" [ref=f77e86]:
+            - link "Create an app" [ref=f77e87] [cursor=pointer]:
+              - /url: /documentation/pages-api/create-an-app
+          - generic "Webhooks for Pages" [ref=f77e91]:
+            - link "Webhooks for Pages" [ref=f77e92] [cursor=pointer]:
+              - /url: /documentation/pages-api/webhooks-for-pages
+          - generic "Get Started" [ref=f77e96]:
+            - link "Get Started" [ref=f77e97] [cursor=pointer]:
+              - /url: /documentation/pages-api/getting-started
+          - generic "Manage a Page" [ref=f77e101]:
+            - link "Manage a Page" [ref=f77e102] [cursor=pointer]:
+              - /url: /documentation/pages-api/manage-pages
+          - generic "Upcoming Changes" [ref=f77e106]:
+            - link "Upcoming Changes" [ref=f77e107] [cursor=pointer]:
+              - /url: /documentation/pages-api/pages/upcoming-changes
+          - generic "Comments and @Mentions" [ref=f77e111]:
+            - link "Comments and @Mentions" [ref=f77e112] [cursor=pointer]:
+              - /url: /documentation/pages-api/comments-mentions
+          - generic "Posts" [ref=f77e116]:
+            - link "Posts" [ref=f77e117] [cursor=pointer]:
+              - /url: /documentation/pages-api/posts
+          - generic "Page Integrity API & Webhook" [ref=f77e121]:
+            - link "Page Integrity API & Webhook" [ref=f77e122] [cursor=pointer]:
+              - /url: /documentation/pages-api/integrity-webhook
+          - generic "Insights" [ref=f77e127]:
+            - link "Insights" [ref=f77e128] [cursor=pointer]:
+              - /url: "#"
+          - generic "Search Pages" [ref=f77e135]:
+            - link "Search Pages" [ref=f77e136] [cursor=pointer]:
+              - /url: /documentation/pages-api/search-pages
+          - generic "Error Codes" [ref=f77e140]:
+            - link "Error Codes" [ref=f77e141] [cursor=pointer]:
+              - /url: /documentation/pages-api/error-codes
+          - generic "Changelog" [ref=f77e145]:
+            - link "Changelog" [ref=f77e146] [cursor=pointer]:
+              - /url: /documentation/pages-api/changelog
+    - generic [ref=f77e151]:
+      - main [ref=f77e152]:
+        - generic [ref=f77e153]:
+          - navigation "Breadcrumbs" [ref=f77e155]:
+            - list [ref=f77e156]:
+              - listitem [ref=f77e157]:
+                - link "Docs" [ref=f77e159] [cursor=pointer]:
+                  - /url: /docs
+              - listitem [ref=f77e164]:
+                - link "Overview" [ref=f77e166] [cursor=pointer]:
+                  - /url: /documentation/pages-api
+              - listitem [ref=f77e171]:
+                - generic [ref=f77e172]: Posts
+          - article [ref=f77e175]:
+            - heading "Posts" [level=1] [ref=f77e176]
+            - generic [ref=f77e177]: "Updated: Apr 17, 2026"
+            - generic [ref=f77e181]:
+              - button "Copy for LLM" [ref=f77e183] [cursor=pointer]
+              - link "View as Markdown" [ref=f77e190] [cursor=pointer]:
+                - /url: /documentation/pages-api/posts.md
+            - generic [ref=f77e196]: This guide explains how to create, publish, and update a post, and reply to a post on your Facebook Page as the Page, and delete a post using the Pages API from Meta.
+            - generic [ref=f77e199]:
+              - heading "Before you start" [level=2] [ref=f77e200]
+              - button [ref=f77e201] [cursor=pointer]
+            - generic [ref=f77e205]:
+              - generic [ref=f77e206]:
+                - text: This guide assumes you have read the
+                - link "Overview" [ref=f77e207] [cursor=pointer]:
+                  - /url: /documentation/pages-api/overview
+              - generic [ref=f77e208]: "For a person who can perform tasks on the page, you will need to implement Facebook Login to ask for the following permissions and receive a Page access token:"
+              - list [ref=f77e209]:
+                - listitem [ref=f77e211]:
+                  - code [ref=f77e212]: pages_manage_engagement
+                - listitem [ref=f77e214]:
+                  - code [ref=f77e215]: pages_manage_posts
+                - listitem [ref=f77e217]:
+                  - code [ref=f77e218]: pages_read_engagement
+                - listitem [ref=f77e220]:
+                  - code [ref=f77e221]: pages_read_user_engagement
+                - listitem [ref=f77e223]:
+                  - code [ref=f77e224]: publish_video
+                  - text: permission, if you are publishing a video to the Page
+              - generic [ref=f77e225]:
+                - text: Your app user must be able to perform the
+                - code [ref=f77e226]: CREATE_CONTENT
+                - text: ","
+                - code [ref=f77e227]: MANAGE
+                - text: ", and"
+                - code [ref=f77e228]: MODERATE
+                - text: tasks on the Page in the API requests.
+              - generic [ref=f77e229]: "If your app users do not own or manage the Page in the API requests, your app will need a User access token and the following features:"
+              - list [ref=f77e230]:
+                - listitem [ref=f77e232]: Page Public Content Access
+            - generic [ref=f77e235]:
+              - heading "Best practices" [level=3] [ref=f77e236]
+              - button [ref=f77e237] [cursor=pointer]
+            - generic [ref=f77e241]:
+              - text: When testing an API call, you can include the
+              - code [ref=f77e242]: access_token
+              - text: parameter set to your access token. However, when making secure calls from your app, use the
+              - link "access token class." [ref=f77e243] [cursor=pointer]:
+                - /url: /documentation/facebook-login/guides/access-tokens#portabletokens
+            - generic [ref=f77e246]:
+              - heading "Publish posts" [level=2] [ref=f77e247]
+              - button [ref=f77e248] [cursor=pointer]
+            - generic [ref=f77e252]:
+              - text: To publish a post to a Page, send a
+              - code [ref=f77e253]: POST
+              - text: request to the
+              - code [ref=f77e254]: /page_id/feed
+              - text: endpoint, where
+              - code [ref=f77e255]: page_id
+              - text: "is the ID for your Page, with the following parameters:"
+            - list [ref=f77e256]:
+              - listitem [ref=f77e258]:
+                - code [ref=f77e259]: message
+                - text: set to the text for your post
+              - listitem [ref=f77e261]:
+                - code [ref=f77e262]: link
+                - text: set to your URL if you want to post a link
+              - listitem [ref=f77e264]:
+                - code [ref=f77e265]: published
+                - text: set to
+                - code [ref=f77e266]: "true"
+                - text: to publish the post immediately (default) or
+                - code [ref=f77e267]: "false"
+                - text: to publish later
+                - list [ref=f77e268]:
+                  - listitem [ref=f77e270]:
+                    - text: Include
+                    - code [ref=f77e271]: scheduled_publish_time
+                    - text: if set to
+                    - code [ref=f77e272]: "false"
+                    - text: "with the date in one of the following formats:"
+                    - list [ref=f77e273]:
+                      - listitem [ref=f77e275]:
+                        - text: An integer UNIX timestamp [in seconds] (e.g.
+                        - code [ref=f77e276]: "1530432000"
+                        - text: )
+                      - listitem [ref=f77e278]:
+                        - text: An
+                        - link [ref=f77e279] [cursor=pointer]:
+                          - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FISO_8601&h=AUDWQ1bI7nb6mkkfXHhM0ca0kuORPliFM9rreOVhD1HmgFTYjp9iB6Lk9nuLfc2qjAj22rVM8lqOn1Zmh_IPLYyKkX5b5lvK_H22IYN4Q0-AQO6fE9Mx-aigu_JVyfvJu91a-PDwIgxCZ417SJLMzQ
+                          - text: ISO 8061
+                          - generic [ref=f77e280]:
+                            - text: ⁠
+                            - img "This link opens in a new tab or window" [ref=f77e281]
+                        - text: timestamp string (e.g.
+                        - code [ref=f77e284]: 2018-09-01T10:15:30+01:00
+                        - text: )
+                      - listitem [ref=f77e286]:
+                        - text: Any string otherwise parsable by PHP’s
+                        - link [ref=f77e287] [cursor=pointer]:
+                          - /url: https://l.facebook.com/l.php?u=http%3A%2F%2Fphp.net%2Fmanual%2Fen%2Ffunction.strtotime.php&h=AUDWQ1bI7nb6mkkfXHhM0ca0kuORPliFM9rreOVhD1HmgFTYjp9iB6Lk9nuLfc2qjAj22rVM8lqOn1Zmh_IPLYyKkX5b5lvK_H22IYN4Q0-AQO6fE9Mx-aigu_JVyfvJu91a-PDwIgxCZ417SJLMzQ
+                          - code [ref=f77e288]: strtotime()
+                          - generic [ref=f77e289]:
+                            - text: ⁠
+                            - img "This link opens in a new tab or window" [ref=f77e290]
+                        - text: (e.g.
+                        - code [ref=f77e293]: +2 weeks
+                        - text: ","
+                        - code [ref=f77e294]: tomorrow
+                        - text: )
+            - generic [ref=f77e297]:
+              - heading "Notes about scheduled posts" [level=4] [ref=f77e298]
+              - button [ref=f77e299] [cursor=pointer]
+            - list [ref=f77e303]:
+              - listitem [ref=f77e305]: The publish date must be between 10 minutes and 30 days from the time of the API request.
+              - listitem [ref=f77e307]:
+                - text: If you are relying on
+                - code [ref=f77e308]: strtotime()
+                - text: ’s relative date strings you can
+                - link "read-after-write" [ref=f77e309] [cursor=pointer]:
+                  - /url: /docs/graph-api/advanced#read-after-write
+                - text: the
+                - code [ref=f77e310]: scheduled_publish_time
+                - text: of the created post to make sure it is what is expected.
+            - generic [ref=f77e313]:
+              - heading "Example Request" [level=4] [ref=f77e314]
+              - button [ref=f77e315] [cursor=pointer]
+            - generic [ref=f77e319]: Formatted for readability. Replace bold, italics values, such as page_id, with your values.
+            - generic [ref=f77e321]:
+              - code [ref=f77e323]:
+                - text: curl -X POST "https://graph.facebook.com/
+                - generic [ref=f77e324]: v25.0
+                - text: /
+                - generic [ref=f77e325]: page_id
+                - text: "/feed\" \\ -H \"Content-Type: application/json\" \\ -d '{ \"message\":\""
+                - generic [ref=f77e326]: your_message_text
+                - text: "\", \"link\":\""
+                - generic [ref=f77e327]: your_url
+                - text: "\", \"published\":\""
+                - generic [ref=f77e328]: "false"
+                - text: "\", \"scheduled_publish_time\":\""
+                - generic [ref=f77e329]: unix_time_stamp_of_a_future_date
+                - text: "\", }'"
+              - button [ref=f77e330] [cursor=pointer]
+            - generic [ref=f77e333]: "On success, your app receives the following JSON response with the ID for the post:"
+            - generic [ref=f77e334]:
+              - code [ref=f77e336]:
+                - text: "{ \"id\": \""
+                - generic [ref=f77e337]: page_post_id
+                - text: "\" }"
+              - button [ref=f77e338] [cursor=pointer]
+            - generic [ref=f77e343]:
+              - heading "Add audience targeting" [level=3] [ref=f77e344]
+              - button [ref=f77e345] [cursor=pointer]
+            - generic [ref=f77e349]:
+              - text: To limit who can see a Page post, you can add the
+              - code [ref=f77e350]: targeting.geo_locations
+              - text: object or
+              - code [ref=f77e351]: feed_targeting.geo_locations
+              - text: parameter in your
+              - code [ref=f77e352]: POST
+              - text: request.
+            - generic [ref=f77e353]:
+              - generic [ref=f77e354]: "-d '{ ... \"targeting\": { \"geo_locations\": { \"countries\": [ \"CA\" ], \"cities\": [ { \"key\": \"296875\", \"name\": \"Toronto\" } ] } }, ... }'"
+              - button [ref=f77e357] [cursor=pointer]
+            - generic [ref=f77e362]:
+              - heading "Troubleshooting" [level=4] [ref=f77e363]
+              - button [ref=f77e364] [cursor=pointer]
+            - generic [ref=f77e368]: "In some cases using both a country and a region within that country will result in an error: “Some of your locations overlap. Try removing a location.” In these cases target the region or the country depending on the coverage you want."
+            - generic [ref=f77e371]:
+              - heading "Publish Media Posts" [level=2] [ref=f77e372]
+              - button [ref=f77e373] [cursor=pointer]
+            - generic [ref=f77e377]: You can publish photos and videos to a Page.
+            - generic [ref=f77e380]:
+              - heading "Publish a photo" [level=3] [ref=f77e381]
+              - button [ref=f77e382] [cursor=pointer]
+            - generic [ref=f77e386]:
+              - text: To publish a photo to a Page, send a
+              - code [ref=f77e387]: POST
+              - text: request to the
+              - code [ref=f77e388]: /page_id/photos
+              - text: endpoint, where
+              - code [ref=f77e389]: page_id
+              - text: is the ID for your Page, with the
+              - code [ref=f77e390]: url
+              - text: parameter set to the photo for your post.
+            - generic [ref=f77e393]:
+              - heading "Example Request" [level=4] [ref=f77e394]
+              - button [ref=f77e395] [cursor=pointer]
+            - generic [ref=f77e399]: Formatted for readability. Replace bold, italics values, such as page_id, with your values.
+            - generic [ref=f77e401]:
+              - code [ref=f77e403]:
+                - text: curl -X POST "https://graph.facebook.com/
+                - generic [ref=f77e404]: v25.0
+                - text: /
+                - generic [ref=f77e405]: page_id
+                - text: "/photos\" \\ -H \"Content-Type: application/json\" \\ -d '{ \"url\":\""
+                - generic [ref=f77e406]: path_to_photo
+                - text: "\","
+              - button [ref=f77e407] [cursor=pointer]
+            - generic [ref=f77e410]: "On success, your app receives the following JSON response with the ID for the photo and the ID for the post:"
+            - generic [ref=f77e411]:
+              - code [ref=f77e413]:
+                - text: "{ \"id\":\""
+                - generic [ref=f77e414]: photo_id
+                - text: "\", \"post_id\":\""
+                - generic [ref=f77e415]: page_post_id
+                - text: "\" }"
+              - button [ref=f77e416] [cursor=pointer]
+            - generic [ref=f77e421]:
+              - heading "Publish a video" [level=3] [ref=f77e422]
+              - button [ref=f77e423] [cursor=pointer]
+            - generic [ref=f77e427]:
+              - text: Please visit the
+              - link "Video API documentation to publish a video post to your Page" [ref=f77e428] [cursor=pointer]:
+                - /url: /documentation/video-api/guides/publishing
+              - text: .
+            - generic [ref=f77e431]:
+              - heading "Get Posts" [level=2] [ref=f77e432]
+              - button [ref=f77e433] [cursor=pointer]
+            - generic [ref=f77e437]:
+              - text: To get a list of Page posts, send a
+              - code [ref=f77e438]: GET
+              - text: request to the
+              - code [ref=f77e439]: /page_id/feed
+              - text: endpoint.
+            - generic [ref=f77e442]:
+              - heading "Example Request" [level=4] [ref=f77e443]
+              - button [ref=f77e444] [cursor=pointer]
+            - generic [ref=f77e448]: Formatted for readability. Replace bold, italics values, such as page_id, with your values.
+            - generic [ref=f77e450]:
+              - code [ref=f77e452]:
+                - text: curl -i -X GET "https://graph.facebook.com/
+                - generic [ref=f77e453]: v25.0
+                - text: /
+                - generic [ref=f77e454]: page_id
+                - text: /feed"
+              - button [ref=f77e455] [cursor=pointer]
+            - generic [ref=f77e458]: "On success, your app receives the following JSON response with an array of objects that include the post ID, the time the post was created, and the content for the post, for each post on your Page:"
+            - generic [ref=f77e459]:
+              - generic [ref=f77e460]: "{ \"data\": [ { \"created_time\": \"2019-01-02T18:31:28+0000\", \"message\": \"This is my test post on my Page.\", \"id\": \"page_post_id\" } ], ... }"
+              - button [ref=f77e463] [cursor=pointer]
+            - generic [ref=f77e468]:
+              - heading "Limitations" [level=4] [ref=f77e469]
+              - button [ref=f77e470] [cursor=pointer]
+            - list [ref=f77e475]:
+              - listitem [ref=f77e477]: Live Videos - If a Page post contains a video that has expired, such as a live broadcast, you can get some post fields but not fields related to the video. The video has its own privacy rules. If the video has expired, you must be the page admin to view its information.
+              - listitem [ref=f77e479]:
+                - text: Message CTA - Any access token can be used to request publicly shared Page posts as long as your app has been approved for the
+                - link "Page Public Content Access Feature" [ref=f77e480] [cursor=pointer]:
+                  - /url: /docs/apps/review/feature#reference-PAGES_ACCESS
+                - text: . However, posts with message CTAs cannot be accessed using another Page's access token since pages cannot message other pages.
+            - generic [ref=f77e483]:
+              - heading "Page Post URLs" [level=3] [ref=f77e484]
+              - button [ref=f77e485] [cursor=pointer]
+            - generic [ref=f77e489]:
+              - text: The URL, or permalink, for a Page post is
+              - code [ref=f77e490]: https://www.facebook.com/
+              - strong [ref=f77e491]:
+                - emphasis [ref=f77e492]:
+                  - code [ref=f77e493]: page_post_id
+              - text: .
+            - generic [ref=f77e496]:
+              - heading "Update a Post" [level=2] [ref=f77e497]
+              - button [ref=f77e498] [cursor=pointer]
+            - generic [ref=f77e502]:
+              - text: To update a Page post, send a
+              - code [ref=f77e503]: POST
+              - text: request to the
+              - code [ref=f77e504]: /page_post_id
+              - text: endpoint with the parameters you want to update set to the new content.
+            - generic [ref=f77e507]:
+              - heading "Example Request" [level=4] [ref=f77e508]
+              - button [ref=f77e509] [cursor=pointer]
+            - generic [ref=f77e513]: Formatted for readability. Replace bold, italics values, such as page_post_id, with your values.
+            - generic [ref=f77e515]:
+              - code [ref=f77e517]:
+                - text: curl -X POST "https://graph.facebook.com/
+                - generic [ref=f77e518]: v25.0
+                - text: /
+                - generic [ref=f77e519]: page_post_id
+                - text: "\" \\ -H \"Content-Type: application/json\" \\ -d '{ \"message\":\""
+                - generic [ref=f77e520]: I am updating my Page post
+                - text: "\", }'"
+              - button [ref=f77e521] [cursor=pointer]
+            - generic [ref=f77e524]:
+              - text: On success, your app receives the following JSON response with
+              - code [ref=f77e525]: success
+              - text: "set to true:"
+            - generic [ref=f77e526]:
+              - generic [ref=f77e527]: "{ \"success\": true }"
+              - button [ref=f77e530] [cursor=pointer]
+            - generic [ref=f77e535]:
+              - heading "Limitations" [level=4] [ref=f77e536]
+              - button [ref=f77e537] [cursor=pointer]
+            - generic [ref=f77e541]: An app can only update a Page post if the post was made using that app.
+            - generic [ref=f77e544]:
+              - heading "Delete a Post" [level=2] [ref=f77e545]
+              - button [ref=f77e546] [cursor=pointer]
+            - generic [ref=f77e550]:
+              - text: To delete a Page post, send a
+              - code [ref=f77e551]: DELETE
+              - text: request to the
+              - code [ref=f77e552]: /page_post_id
+              - text: endpoint where
+              - code [ref=f77e553]: page_post_id
+              - text: is the ID for post you want to delete.
+            - generic [ref=f77e556]:
+              - heading "Example Request" [level=4] [ref=f77e557]
+              - button [ref=f77e558] [cursor=pointer]
+            - generic [ref=f77e562]: Formatted for readability. Replace bold, italics values, such as page_post_id, with your values.
+            - generic [ref=f77e564]:
+              - code [ref=f77e566]:
+                - text: curl -i -X DELETE "https://graph.facebook.com/
+                - generic [ref=f77e567]: v25.0
+                - text: /
+                - generic [ref=f77e568]: page_post_id
+                - text: "\""
+              - button [ref=f77e569] [cursor=pointer]
+            - generic [ref=f77e572]:
+              - text: On success, your app receives the following JSON response with
+              - code [ref=f77e573]: success
+              - text: set to
+              - code [ref=f77e574]: "true"
+              - text: ":"
+            - generic [ref=f77e575]:
+              - generic [ref=f77e576]: "{ \"success\": true }"
+              - button [ref=f77e579] [cursor=pointer]
+            - generic [ref=f77e584]:
+              - heading "Next Steps" [level=2] [ref=f77e585]
+              - button [ref=f77e586] [cursor=pointer]
+            - generic [ref=f77e590]:
+              - text: Learn how to
+              - link "comment on Page posts and @mention" [ref=f77e591] [cursor=pointer]:
+                - /url: /docs/pages/comments
+              - text: a specific person or Page who posted or commented on your Page.
+            - generic [ref=f77e594]:
+              - heading "See Also" [level=2] [ref=f77e595]
+              - button [ref=f77e596] [cursor=pointer]
+            - generic [ref=f77e602]:
+              - heading "Video API guides" [level=4] [ref=f77e603]
+              - button [ref=f77e604] [cursor=pointer]
+            - list [ref=f77e608]:
+              - listitem [ref=f77e610]:
+                - link "Video Uploads Guide" [ref=f77e611] [cursor=pointer]:
+                  - /url: /documentation/video-api/guides/publishing
+              - listitem [ref=f77e613]:
+                - link "Video API Guide" [ref=f77e614] [cursor=pointer]:
+                  - /url: /docs/graph-api/video
+            - generic [ref=f77e617]:
+              - heading "References" [level=4] [ref=f77e618]
+              - button [ref=f77e619] [cursor=pointer]
+            - list [ref=f77e623]:
+              - listitem [ref=f77e625]:
+                - link "Page Reference" [ref=f77e626] [cursor=pointer]:
+                  - /url: /docs/graph-api/reference/page
+              - listitem [ref=f77e628]:
+                - link "Page Feed Reference" [ref=f77e629] [cursor=pointer]:
+                  - /url: /docs/graph-api/reference/page/feed
+              - listitem [ref=f77e631]:
+                - link "Page Post Reference" [ref=f77e632] [cursor=pointer]:
+                  - /url: /docs/graph-api/reference/page-post
+              - listitem [ref=f77e634]:
+                - link "Permissions Reference" [ref=f77e635] [cursor=pointer]:
+                  - /url: /docs/permissions
+              - listitem [ref=f77e637]:
+                - link "Photo Reference" [ref=f77e638] [cursor=pointer]:
+                  - /url: /docs/graph-api/reference/photo
+              - listitem [ref=f77e640]:
+                - link "Page Tasks" [ref=f77e641] [cursor=pointer]:
+                  - /url: /documentation/pages-api/overview#tasks
+              - listitem [ref=f77e643]:
+                - link "Video Reference" [ref=f77e644] [cursor=pointer]:
+                  - /url: /docs/graph-api/reference/video
+      - complementary [ref=f77e645]
+  - generic [ref=f77e647]:
+    - separator [ref=f77e648]
+    - contentinfo [ref=f77e649]:
+      - generic [ref=f77e650]:
+        - separator [ref=f77e651]
+        - generic [ref=f77e653]:
+          - generic [ref=f77e655]:
+            - generic [ref=f77e657]:
+              - img "Meta" [ref=f77e659]
+              - list [ref=f77e661]:
+                - listitem:
+                  - link "Facebook":
+                    - /url: https://www.facebook.com/MetaforDevelopers
+                    - img "Facebook"
+                - listitem:
+                  - link "Instagram":
+                    - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.instagram.com%2Fmetafordevelopers%2F&h=AUDWQ1bI7nb6mkkfXHhM0ca0kuORPliFM9rreOVhD1HmgFTYjp9iB6Lk9nuLfc2qjAj22rVM8lqOn1Zmh_IPLYyKkX5b5lvK_H22IYN4Q0-AQO6fE9Mx-aigu_JVyfvJu91a-PDwIgxCZ417SJLMzQ
+                    - img "Instagram"
+                - listitem:
+                  - link "X":
+                    - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Ftwitter.com%2Fmetafordevs&h=AUDWQ1bI7nb6mkkfXHhM0ca0kuORPliFM9rreOVhD1HmgFTYjp9iB6Lk9nuLfc2qjAj22rVM8lqOn1Zmh_IPLYyKkX5b5lvK_H22IYN4Q0-AQO6fE9Mx-aigu_JVyfvJu91a-PDwIgxCZ417SJLMzQ
+                    - img "X"
+                - listitem:
+                  - link "LinkedIn":
+                    - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.linkedin.com%2Fshowcase%2Fmeta-for-developers%2F&h=AUDWQ1bI7nb6mkkfXHhM0ca0kuORPliFM9rreOVhD1HmgFTYjp9iB6Lk9nuLfc2qjAj22rVM8lqOn1Zmh_IPLYyKkX5b5lvK_H22IYN4Q0-AQO6fE9Mx-aigu_JVyfvJu91a-PDwIgxCZ417SJLMzQ
+                    - img "LinkedIn"
+                - listitem:
+                  - link "YouTube":
+                    - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.youtube.com%2FMetaDevelopers%2F&h=AUDWQ1bI7nb6mkkfXHhM0ca0kuORPliFM9rreOVhD1HmgFTYjp9iB6Lk9nuLfc2qjAj22rVM8lqOn1Zmh_IPLYyKkX5b5lvK_H22IYN4Q0-AQO6fE9Mx-aigu_JVyfvJu91a-PDwIgxCZ417SJLMzQ
+                    - img "YouTube"
+            - generic [ref=f77e663]:
+              - generic [ref=f77e666]:
+                - heading "Build with Meta" [level=2] [ref=f77e667]
+                - list [ref=f77e669]:
+                  - listitem [ref=f77e670]:
+                    - link "AI" [ref=f77e672] [cursor=pointer]:
+                      - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.llama.com%2F&h=AUDWQ1bI7nb6mkkfXHhM0ca0kuORPliFM9rreOVhD1HmgFTYjp9iB6Lk9nuLfc2qjAj22rVM8lqOn1Zmh_IPLYyKkX5b5lvK_H22IYN4Q0-AQO6fE9Mx-aigu_JVyfvJu91a-PDwIgxCZ417SJLMzQ
+                  - listitem [ref=f77e673]:
+                    - link "Meta Horizon" [ref=f77e675] [cursor=pointer]:
+                      - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fdevelopers.meta.com%2Fhorizon%2F&h=AUDWQ1bI7nb6mkkfXHhM0ca0kuORPliFM9rreOVhD1HmgFTYjp9iB6Lk9nuLfc2qjAj22rVM8lqOn1Zmh_IPLYyKkX5b5lvK_H22IYN4Q0-AQO6fE9Mx-aigu_JVyfvJu91a-PDwIgxCZ417SJLMzQ
+                  - listitem [ref=f77e676]:
+                    - link "Social technologies" [ref=f77e678] [cursor=pointer]:
+                      - /url: /social-technologies/
+                  - listitem [ref=f77e679]:
+                    - link "Wearables" [ref=f77e681] [cursor=pointer]:
+                      - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fdevelopers.meta.com%2Fwearables%2F&h=AUDWQ1bI7nb6mkkfXHhM0ca0kuORPliFM9rreOVhD1HmgFTYjp9iB6Lk9nuLfc2qjAj22rVM8lqOn1Zmh_IPLYyKkX5b5lvK_H22IYN4Q0-AQO6fE9Mx-aigu_JVyfvJu91a-PDwIgxCZ417SJLMzQ
+              - generic [ref=f77e684]:
+                - heading "News" [level=2] [ref=f77e685]
+                - list [ref=f77e687]:
+                  - listitem [ref=f77e688]:
+                    - link "Meta for Developers" [ref=f77e690] [cursor=pointer]:
+                      - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fdevelopers.meta.com%2Fblog%2F&h=AUDWQ1bI7nb6mkkfXHhM0ca0kuORPliFM9rreOVhD1HmgFTYjp9iB6Lk9nuLfc2qjAj22rVM8lqOn1Zmh_IPLYyKkX5b5lvK_H22IYN4Q0-AQO6fE9Mx-aigu_JVyfvJu91a-PDwIgxCZ417SJLMzQ
+                  - listitem [ref=f77e691]:
+                    - link "Blog" [ref=f77e693] [cursor=pointer]:
+                      - /url: /blog/
+                  - listitem [ref=f77e694]:
+                    - link "Success stories" [ref=f77e696] [cursor=pointer]:
+                      - /url: /success-stories/
+              - generic [ref=f77e699]:
+                - heading "Support" [level=2] [ref=f77e700]
+                - list [ref=f77e702]:
+                  - listitem [ref=f77e703]:
+                    - link "Developer Support" [ref=f77e705] [cursor=pointer]:
+                      - /url: /support/
+                  - listitem [ref=f77e706]:
+                    - link "Bug tool" [ref=f77e708] [cursor=pointer]:
+                      - /url: /support/bugs/
+                  - listitem [ref=f77e709]:
+                    - link "Platform status" [ref=f77e711] [cursor=pointer]:
+                      - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fmetastatus.com%2F&h=AUDWQ1bI7nb6mkkfXHhM0ca0kuORPliFM9rreOVhD1HmgFTYjp9iB6Lk9nuLfc2qjAj22rVM8lqOn1Zmh_IPLYyKkX5b5lvK_H22IYN4Q0-AQO6fE9Mx-aigu_JVyfvJu91a-PDwIgxCZ417SJLMzQ
+                  - listitem [ref=f77e712]:
+                    - link "Developer community forum" [ref=f77e714] [cursor=pointer]:
+                      - /url: https://www.facebook.com/groups/fbdevelopers/
+                  - listitem [ref=f77e715]:
+                    - link "Report an incident" [ref=f77e717] [cursor=pointer]:
+                      - /url: /incident/report/
+              - generic [ref=f77e720]:
+                - heading "About us" [level=2] [ref=f77e721]
+                - list [ref=f77e723]:
+                  - listitem [ref=f77e724]:
+                    - link "About" [ref=f77e726] [cursor=pointer]:
+                      - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fabout.fb.com%2F&h=AUDWQ1bI7nb6mkkfXHhM0ca0kuORPliFM9rreOVhD1HmgFTYjp9iB6Lk9nuLfc2qjAj22rVM8lqOn1Zmh_IPLYyKkX5b5lvK_H22IYN4Q0-AQO6fE9Mx-aigu_JVyfvJu91a-PDwIgxCZ417SJLMzQ
+                  - listitem [ref=f77e727]:
+                    - link "Careers" [ref=f77e729] [cursor=pointer]:
+                      - /url: https://www.facebook.com/careers
+              - generic [ref=f77e732]:
+                - heading "Terms and policies" [level=2] [ref=f77e733]
+                - list [ref=f77e735]:
+                  - listitem [ref=f77e736]:
+                    - link "Responsible platform initiatives" [ref=f77e738] [cursor=pointer]:
+                      - /url: /products/responsible-platform-initiatives/
+                  - listitem [ref=f77e739]:
+                    - link "Platform terms" [ref=f77e741] [cursor=pointer]:
+                      - /url: /terms/dfc_platform_terms/
+                  - listitem [ref=f77e742]:
+                    - link "Developer policies" [ref=f77e744] [cursor=pointer]:
+                      - /url: /devpolicy/
+                  - listitem [ref=f77e745]:
+                    - link "Privacy policy" [ref=f77e747] [cursor=pointer]:
+                      - /url: https://www.facebook.com/about/privacy
+                  - listitem [ref=f77e748]:
+                    - link "Cookies" [ref=f77e750] [cursor=pointer]:
+                      - /url: https://www.facebook.com/help/cookies
+          - button "Change language" [ref=f77e755] [cursor=pointer]:
+            - generic [ref=f77e756]: English (US)

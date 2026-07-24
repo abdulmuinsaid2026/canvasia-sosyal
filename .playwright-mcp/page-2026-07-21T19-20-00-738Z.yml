@@ -1,0 +1,56 @@
+- generic [active] [ref=f18e1]:
+  - banner [ref=f18e2]:
+    - link "CS CanvasiaSocial" [ref=f18e3] [cursor=pointer]:
+      - /url: /Dashboard
+      - generic [ref=f18e4]: CS
+      - generic [ref=f18e5]: CanvasiaSocial
+    - navigation "Ana menü" [ref=f18e6]:
+      - link "Dashboard" [ref=f18e7] [cursor=pointer]:
+        - /url: /Dashboard
+      - link "Ürünler" [ref=f18e8] [cursor=pointer]:
+        - /url: /Products
+      - link "Kampanyalar" [ref=f18e9] [cursor=pointer]:
+        - /url: /Campaigns
+      - link "Taslaklar" [ref=f18e10] [cursor=pointer]:
+        - /url: /Drafts
+      - link "Takvim" [ref=f18e11] [cursor=pointer]:
+        - /url: /Calendar
+      - link "Canvasia" [ref=f18e12] [cursor=pointer]:
+        - /url: /Settings/Canvasia
+    - generic [ref=f18e13]:
+      - generic [ref=f18e14]: admin@example.com
+      - button "Çıkış" [ref=f18e16] [cursor=pointer]
+  - main [ref=f18e17]:
+    - link "← Ürünlere dön" [ref=f18e18] [cursor=pointer]:
+      - /url: /Products
+    - generic [ref=f18e19]:
+      - generic [ref=f18e20]: Görsel yok
+      - article [ref=f18e23]:
+        - paragraph [ref=f18e24]: Dekor
+        - heading "Test Ürün 1" [level=1] [ref=f18e25]
+        - strong [ref=f18e27]: 100.00 TL
+        - paragraph [ref=f18e28]: Stokta var
+        - generic [ref=f18e29]:
+          - heading "Ürün açıklaması" [level=2] [ref=f18e30]
+          - paragraph [ref=f18e31]: Birinci test ürünü
+        - generic [ref=f18e32]:
+          - heading "Prompt özeti" [level=2] [ref=f18e33]
+          - paragraph [ref=f18e34]: Birinci ürün için sosyal içerik
+        - generic [ref=f18e35]:
+          - combobox [ref=f18e36]:
+            - option "Instagram" [selected]
+            - option "Facebook"
+            - option "TikTok"
+            - option "Pinterest"
+          - button "Tekli AI içerik üret" [ref=f18e37] [cursor=pointer]
+        - link "Canvasia ürününü aç" [ref=f18e38] [cursor=pointer]:
+          - /url: https://www.canvasia.com.tr/test-1
+        - paragraph [ref=f18e39]: "Son cache güncellemesi: 21.07.2026 19:11"
+    - generic [ref=f18e40]:
+      - heading "Üretilen içerikler" [level=2] [ref=f18e41]
+      - article [ref=f18e42]:
+        - generic [ref=f18e43]:
+          - strong [ref=f18e44]: Instagram
+          - generic [ref=f18e45]: Approved
+        - paragraph [ref=f18e46]: Test kampanya içeriği
+        - text: "#canvasia #dekorasyon"

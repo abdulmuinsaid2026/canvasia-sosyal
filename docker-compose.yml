@@ -1,0 +1,168 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-canvasia_social}
+      POSTGRES_USER: ${POSTGRES_USER:-canvasia}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD must be set}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  web:
+    build:
+      context: .
+      target: web-final
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ConnectionStrings__DefaultConnection: Host=postgres;Port=5432;Database=${POSTGRES_DB:-canvasia_social};Username=${POSTGRES_USER:-canvasia};Password=${POSTGRES_PASSWORD:?POSTGRES_PASSWORD must be set}
+      DataProtection__KeysPath: /var/lib/canvasia-social/keys
+      DATA_PROTECTION_KEYS_PATH: /var/lib/canvasia-social/keys
+      DATA_PROTECTION_STORE: ${DATA_PROTECTION_STORE:-file}
+      TRUST_FORWARDED_HEADERS: ${TRUST_FORWARDED_HEADERS:-false}
+      RUN_MIGRATIONS: ${RUN_MIGRATIONS:-true}
+      Security__UseHttpsRedirection: "false"
+      INITIAL_ADMIN_EMAIL: ${INITIAL_ADMIN_EMAIL:-}
+      INITIAL_ADMIN_PASSWORD: ${INITIAL_ADMIN_PASSWORD:-}
+      LOGIN_RATE_LIMIT_PER_MINUTE: ${LOGIN_RATE_LIMIT_PER_MINUTE:-10}
+      CANVASIA_API_BASE_URL: ${CANVASIA_API_BASE_URL:-}
+      CANVASIA_API_KEY: ${CANVASIA_API_KEY:-}
+      CANVASIA_PRODUCTS_PAGE_SIZE: ${CANVASIA_PRODUCTS_PAGE_SIZE:-100}
+      CANVASIA_SYNC_CRON: ${CANVASIA_SYNC_CRON:-0 */6 * * *}
+      CANVASIA_REQUEST_TIMEOUT_SECONDS: ${CANVASIA_REQUEST_TIMEOUT_SECONDS:-30}
+      OPENROUTER_BASE_URL: ${OPENROUTER_BASE_URL:-https://openrouter.ai/api/v1}
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
+      OPENROUTER_MODEL: ${OPENROUTER_MODEL:-openai/gpt-4o-mini}
+      OPENROUTER_REQUEST_TIMEOUT_SECONDS: ${OPENROUTER_REQUEST_TIMEOUT_SECONDS:-120}
+      CANVASIA_BATCH_MAX_PRODUCTS: ${CANVASIA_BATCH_MAX_PRODUCTS:-100}
+      CANVASIA_AI_BATCH_CONCURRENCY: ${CANVASIA_AI_BATCH_CONCURRENCY:-1}
+      CANVASIA_DEFAULT_POST_INTERVAL_MINUTES: ${CANVASIA_DEFAULT_POST_INTERVAL_MINUTES:-60}
+      CANVASIA_INSTAGRAM_DAILY_LIMIT: ${CANVASIA_INSTAGRAM_DAILY_LIMIT:-10}
+      CANVASIA_FACEBOOK_DAILY_LIMIT: ${CANVASIA_FACEBOOK_DAILY_LIMIT:-10}
+      CANVASIA_TIKTOK_DAILY_LIMIT: ${CANVASIA_TIKTOK_DAILY_LIMIT:-5}
+      CANVASIA_PINTEREST_DAILY_LIMIT: ${CANVASIA_PINTEREST_DAILY_LIMIT:-20}
+      CANVASIA_REQUIRE_APPROVAL: ${CANVASIA_REQUIRE_APPROVAL:-true}
+      DEFAULT_TIME_ZONE: ${DEFAULT_TIME_ZONE:-Europe/Istanbul}
+      AUTO_PUBLISH_ENABLED: ${AUTO_PUBLISH_ENABLED:-false}
+      PUBLISH_MAX_RETRY_COUNT: ${PUBLISH_MAX_RETRY_COUNT:-3}
+      CANVASIA_ALLOWED_IMAGE_HOSTS: ${CANVASIA_ALLOWED_IMAGE_HOSTS:-canvasia.com.tr}
+      SOCIAL_IMAGE_MAX_BYTES: ${SOCIAL_IMAGE_MAX_BYTES:-10485760}
+      SOCIAL_IMAGE_TIMEOUT_SECONDS: ${SOCIAL_IMAGE_TIMEOUT_SECONDS:-20}
+      INSTAGRAM_ENABLED: ${INSTAGRAM_ENABLED:-false}
+      INSTAGRAM_CLIENT_ID: ${INSTAGRAM_CLIENT_ID:-}
+      INSTAGRAM_CLIENT_SECRET: ${INSTAGRAM_CLIENT_SECRET:-}
+      INSTAGRAM_REDIRECT_URI: ${INSTAGRAM_REDIRECT_URI:-}
+      INSTAGRAM_SCOPES: ${INSTAGRAM_SCOPES:-instagram_business_basic,instagram_business_content_publish}
+      INSTAGRAM_API_BASE_URL: ${INSTAGRAM_API_BASE_URL:-https://graph.instagram.com/v25.0/}
+      FACEBOOK_ENABLED: ${FACEBOOK_ENABLED:-false}
+      FACEBOOK_CLIENT_ID: ${FACEBOOK_CLIENT_ID:-}
+      FACEBOOK_CLIENT_SECRET: ${FACEBOOK_CLIENT_SECRET:-}
+      FACEBOOK_REDIRECT_URI: ${FACEBOOK_REDIRECT_URI:-}
+      FACEBOOK_SCOPES: ${FACEBOOK_SCOPES:-pages_show_list,pages_read_engagement,pages_manage_posts}
+      FACEBOOK_API_BASE_URL: ${FACEBOOK_API_BASE_URL:-https://graph.facebook.com/v25.0/}
+      TIKTOK_ENABLED: ${TIKTOK_ENABLED:-false}
+      TIKTOK_CLIENT_ID: ${TIKTOK_CLIENT_ID:-}
+      TIKTOK_CLIENT_SECRET: ${TIKTOK_CLIENT_SECRET:-}
+      TIKTOK_REDIRECT_URI: ${TIKTOK_REDIRECT_URI:-}
+      TIKTOK_SCOPES: ${TIKTOK_SCOPES:-user.info.basic,video.publish}
+      TIKTOK_API_BASE_URL: ${TIKTOK_API_BASE_URL:-https://open.tiktokapis.com/v2/}
+      PINTEREST_ENABLED: ${PINTEREST_ENABLED:-false}
+      PINTEREST_CLIENT_ID: ${PINTEREST_CLIENT_ID:-}
+      PINTEREST_CLIENT_SECRET: ${PINTEREST_CLIENT_SECRET:-}
+      PINTEREST_REDIRECT_URI: ${PINTEREST_REDIRECT_URI:-}
+      PINTEREST_SCOPES: ${PINTEREST_SCOPES:-user_accounts:read,boards:read,pins:read,pins:write}
+      PINTEREST_API_BASE_URL: ${PINTEREST_API_BASE_URL:-https://api.pinterest.com/v5/}
+    ports:
+      - "${CANVASIA_SOCIAL_PORT:-8080}:8080"
+    volumes:
+      - data-protection-keys:/var/lib/canvasia-social/keys
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "--silent", "http://localhost:8080/health/live"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+  worker:
+    build:
+      context: .
+      target: worker-final
+    environment:
+      DOTNET_ENVIRONMENT: Production
+      GENERAL_WORKER_COUNT: ${GENERAL_WORKER_COUNT:-4}
+      DataProtection__KeysPath: /var/lib/canvasia-social/keys
+      DATA_PROTECTION_KEYS_PATH: /var/lib/canvasia-social/keys
+      DATA_PROTECTION_STORE: ${DATA_PROTECTION_STORE:-file}
+      ConnectionStrings__DefaultConnection: Host=postgres;Port=5432;Database=${POSTGRES_DB:-canvasia_social};Username=${POSTGRES_USER:-canvasia};Password=${POSTGRES_PASSWORD:?POSTGRES_PASSWORD must be set}
+      CANVASIA_API_BASE_URL: ${CANVASIA_API_BASE_URL:-}
+      CANVASIA_API_KEY: ${CANVASIA_API_KEY:-}
+      CANVASIA_PRODUCTS_PAGE_SIZE: ${CANVASIA_PRODUCTS_PAGE_SIZE:-100}
+      CANVASIA_SYNC_CRON: ${CANVASIA_SYNC_CRON:-0 */6 * * *}
+      CANVASIA_REQUEST_TIMEOUT_SECONDS: ${CANVASIA_REQUEST_TIMEOUT_SECONDS:-30}
+      OPENROUTER_BASE_URL: ${OPENROUTER_BASE_URL:-https://openrouter.ai/api/v1}
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
+      OPENROUTER_MODEL: ${OPENROUTER_MODEL:-openai/gpt-4o-mini}
+      OPENROUTER_REQUEST_TIMEOUT_SECONDS: ${OPENROUTER_REQUEST_TIMEOUT_SECONDS:-120}
+      CANVASIA_BATCH_MAX_PRODUCTS: ${CANVASIA_BATCH_MAX_PRODUCTS:-100}
+      CANVASIA_AI_BATCH_CONCURRENCY: ${CANVASIA_AI_BATCH_CONCURRENCY:-1}
+      CANVASIA_DEFAULT_POST_INTERVAL_MINUTES: ${CANVASIA_DEFAULT_POST_INTERVAL_MINUTES:-60}
+      CANVASIA_INSTAGRAM_DAILY_LIMIT: ${CANVASIA_INSTAGRAM_DAILY_LIMIT:-10}
+      CANVASIA_FACEBOOK_DAILY_LIMIT: ${CANVASIA_FACEBOOK_DAILY_LIMIT:-10}
+      CANVASIA_TIKTOK_DAILY_LIMIT: ${CANVASIA_TIKTOK_DAILY_LIMIT:-5}
+      CANVASIA_PINTEREST_DAILY_LIMIT: ${CANVASIA_PINTEREST_DAILY_LIMIT:-20}
+      CANVASIA_REQUIRE_APPROVAL: ${CANVASIA_REQUIRE_APPROVAL:-true}
+      DEFAULT_TIME_ZONE: ${DEFAULT_TIME_ZONE:-Europe/Istanbul}
+      AUTO_PUBLISH_ENABLED: ${AUTO_PUBLISH_ENABLED:-false}
+      PUBLISH_MAX_RETRY_COUNT: ${PUBLISH_MAX_RETRY_COUNT:-3}
+      CANVASIA_ALLOWED_IMAGE_HOSTS: ${CANVASIA_ALLOWED_IMAGE_HOSTS:-canvasia.com.tr}
+      SOCIAL_IMAGE_MAX_BYTES: ${SOCIAL_IMAGE_MAX_BYTES:-10485760}
+      SOCIAL_IMAGE_TIMEOUT_SECONDS: ${SOCIAL_IMAGE_TIMEOUT_SECONDS:-20}
+      INSTAGRAM_ENABLED: ${INSTAGRAM_ENABLED:-false}
+      INSTAGRAM_CLIENT_ID: ${INSTAGRAM_CLIENT_ID:-}
+      INSTAGRAM_CLIENT_SECRET: ${INSTAGRAM_CLIENT_SECRET:-}
+      INSTAGRAM_REDIRECT_URI: ${INSTAGRAM_REDIRECT_URI:-}
+      INSTAGRAM_SCOPES: ${INSTAGRAM_SCOPES:-instagram_business_basic,instagram_business_content_publish}
+      INSTAGRAM_API_BASE_URL: ${INSTAGRAM_API_BASE_URL:-https://graph.instagram.com/v25.0/}
+      FACEBOOK_ENABLED: ${FACEBOOK_ENABLED:-false}
+      FACEBOOK_CLIENT_ID: ${FACEBOOK_CLIENT_ID:-}
+      FACEBOOK_CLIENT_SECRET: ${FACEBOOK_CLIENT_SECRET:-}
+      FACEBOOK_REDIRECT_URI: ${FACEBOOK_REDIRECT_URI:-}
+      FACEBOOK_SCOPES: ${FACEBOOK_SCOPES:-pages_show_list,pages_read_engagement,pages_manage_posts}
+      FACEBOOK_API_BASE_URL: ${FACEBOOK_API_BASE_URL:-https://graph.facebook.com/v25.0/}
+      TIKTOK_ENABLED: ${TIKTOK_ENABLED:-false}
+      TIKTOK_CLIENT_ID: ${TIKTOK_CLIENT_ID:-}
+      TIKTOK_CLIENT_SECRET: ${TIKTOK_CLIENT_SECRET:-}
+      TIKTOK_REDIRECT_URI: ${TIKTOK_REDIRECT_URI:-}
+      TIKTOK_SCOPES: ${TIKTOK_SCOPES:-user.info.basic,video.publish}
+      TIKTOK_API_BASE_URL: ${TIKTOK_API_BASE_URL:-https://open.tiktokapis.com/v2/}
+      PINTEREST_ENABLED: ${PINTEREST_ENABLED:-false}
+      PINTEREST_CLIENT_ID: ${PINTEREST_CLIENT_ID:-}
+      PINTEREST_CLIENT_SECRET: ${PINTEREST_CLIENT_SECRET:-}
+      PINTEREST_REDIRECT_URI: ${PINTEREST_REDIRECT_URI:-}
+      PINTEREST_SCOPES: ${PINTEREST_SCOPES:-user_accounts:read,boards:read,pins:read,pins:write}
+      PINTEREST_API_BASE_URL: ${PINTEREST_API_BASE_URL:-https://api.pinterest.com/v5/}
+    volumes:
+      - data-protection-keys:/var/lib/canvasia-social/keys
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "--silent", "http://localhost:8081/health/live"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+    depends_on:
+      postgres:
+        condition: service_healthy
+      web:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  postgres-data:
+  data-protection-keys:

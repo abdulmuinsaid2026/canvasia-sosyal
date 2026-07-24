@@ -1,0 +1,51 @@
+- generic [active] [ref=f3e1]:
+  - banner [ref=f3e2]:
+    - link "CS CanvasiaSocial" [ref=f3e3] [cursor=pointer]:
+      - /url: /Dashboard
+      - generic [ref=f3e4]: CS
+      - generic [ref=f3e5]: CanvasiaSocial
+    - navigation "Ana menü" [ref=f3e6]:
+      - link "Dashboard" [ref=f3e7] [cursor=pointer]:
+        - /url: /Dashboard
+      - link "Ürünler" [ref=f3e8] [cursor=pointer]:
+        - /url: /Products
+      - link "Canvasia" [ref=f3e9] [cursor=pointer]:
+        - /url: /Settings/Canvasia
+    - generic [ref=f3e10]:
+      - generic [ref=f3e11]: admin@example.com
+      - button "Çıkış" [ref=f3e13] [cursor=pointer]
+  - main [ref=f3e14]:
+    - generic [ref=f3e15]:
+      - paragraph [ref=f3e16]: ENTEGRASYON
+      - heading "Canvasia ayarları" [level=1] [ref=f3e17]
+      - paragraph [ref=f3e18]: Bağlantı durumunu doğrulayın ve ürün cache senkronizasyonunu yönetin.
+    - generic [ref=f3e19]:
+      - article [ref=f3e20]:
+        - heading "Bağlantı" [level=2] [ref=f3e21]
+        - generic [ref=f3e22]:
+          - term [ref=f3e23]: Base URL
+          - definition [ref=f3e24]: https://www.canvasia.com.tr
+          - term [ref=f3e25]: API anahtarı
+          - definition [ref=f3e26]: Tanımlı
+          - term [ref=f3e27]: İstek timeout
+          - definition [ref=f3e28]: 30 saniye
+        - generic [ref=f3e29]:
+          - button "Bağlantıyı test et" [ref=f3e31] [cursor=pointer]
+          - button "Örnek ürünü test et" [ref=f3e33] [cursor=pointer]
+      - article [ref=f3e34]:
+        - heading "Senkronizasyon" [level=2] [ref=f3e35]
+        - generic [ref=f3e36]:
+          - term [ref=f3e37]: Durum
+          - definition [ref=f3e38]: NeverRun
+          - term [ref=f3e39]: Son başarılı çalışma
+          - definition [ref=f3e40]: Henüz yok
+          - term [ref=f3e41]: İşlenen ürün
+          - definition [ref=f3e42]: "0"
+          - term [ref=f3e43]: Cache toplamı
+          - definition [ref=f3e44]: "0"
+          - term [ref=f3e45]: Sayfa boyutu
+          - definition [ref=f3e46]: "100"
+          - term [ref=f3e47]: Periyodik cron
+          - definition [ref=f3e48]:
+            - code [ref=f3e49]: 0 */6 * * *
+        - button "Manuel senkronizasyonu başlat" [ref=f3e51] [cursor=pointer]

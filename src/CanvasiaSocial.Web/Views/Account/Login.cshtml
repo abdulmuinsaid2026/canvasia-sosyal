@@ -1,0 +1,31 @@
+@model CanvasiaSocial.Web.Models.LoginViewModel
+@{
+    ViewData["Title"] = "Giriş";
+    Layout = "_AuthLayout";
+}
+
+<main class="auth-shell">
+    <section class="auth-card">
+        <div class="brand-mark">CS</div>
+        <p class="eyebrow">CANVASIA SOCIAL</p>
+        <h1>Hesabınıza giriş yapın</h1>
+        <p class="auth-copy">Sosyal medya içeriklerinizi tek merkezden yönetin.</p>
+
+        <form asp-action="Login" asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post">
+            <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
+            <div class="field">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" type="email" autocomplete="username" autofocus />
+            </div>
+            <div class="field">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" autocomplete="current-password" />
+            </div>
+            <label class="check-field">
+                <input asp-for="RememberMe" />
+                <span>Beni hatırla</span>
+            </label>
+            <button type="submit" class="primary-button">Giriş yap</button>
+        </form>
+    </section>
+</main>

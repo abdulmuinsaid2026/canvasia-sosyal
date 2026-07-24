@@ -1,0 +1,14 @@
+@model ErrorViewModel
+@{
+    ViewData["Title"] = "Hata";
+}
+
+<section class="empty-state">
+    <p class="eyebrow">BEKLENMEYEN HATA</p>
+    <h1>İşleminiz tamamlanamadı</h1>
+    <p>Lütfen daha sonra yeniden deneyin.</p>
+    @if (Model.ShowRequestId)
+    {
+        <p class="request-id">İstek kodu: <code>@Model.RequestId</code></p>
+    }
+</section>

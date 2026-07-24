@@ -1,0 +1,58 @@
+- generic [active] [ref=f16e1]:
+  - banner [ref=f16e2]:
+    - link "CS CanvasiaSocial" [ref=f16e3] [cursor=pointer]:
+      - /url: /Dashboard
+      - generic [ref=f16e4]: CS
+      - generic [ref=f16e5]: CanvasiaSocial
+    - navigation "Ana menü" [ref=f16e6]:
+      - link "Dashboard" [ref=f16e7] [cursor=pointer]:
+        - /url: /Dashboard
+      - link "Ürünler" [ref=f16e8] [cursor=pointer]:
+        - /url: /Products
+      - link "Kampanyalar" [ref=f16e9] [cursor=pointer]:
+        - /url: /Campaigns
+      - link "Taslaklar" [ref=f16e10] [cursor=pointer]:
+        - /url: /Drafts
+      - link "Takvim" [ref=f16e11] [cursor=pointer]:
+        - /url: /Calendar
+      - link "Canvasia" [ref=f16e12] [cursor=pointer]:
+        - /url: /Settings/Canvasia
+    - generic [ref=f16e13]:
+      - generic [ref=f16e14]: admin@example.com
+      - button "Çıkış" [ref=f16e16] [cursor=pointer]
+  - main [ref=f16e17]:
+    - generic [ref=f16e18]:
+      - paragraph [ref=f16e19]: ENTEGRASYON
+      - heading "Canvasia ayarları" [level=1] [ref=f16e20]
+      - paragraph [ref=f16e21]: Bağlantı durumunu doğrulayın ve ürün cache senkronizasyonunu yönetin.
+    - generic [ref=f16e22]: Canvasia API bağlantısı başarılı.
+    - generic [ref=f16e23]:
+      - article [ref=f16e24]:
+        - heading "Bağlantı" [level=2] [ref=f16e25]
+        - generic [ref=f16e26]:
+          - term [ref=f16e27]: Base URL
+          - definition [ref=f16e28]: https://www.canvasia.com.tr
+          - term [ref=f16e29]: API anahtarı
+          - definition [ref=f16e30]: Tanımlı
+          - term [ref=f16e31]: İstek timeout
+          - definition [ref=f16e32]: 30 saniye
+        - generic [ref=f16e33]:
+          - button "Bağlantıyı test et" [ref=f16e35] [cursor=pointer]
+          - button "Örnek ürünü test et" [ref=f16e37] [cursor=pointer]
+      - article [ref=f16e38]:
+        - heading "Senkronizasyon" [level=2] [ref=f16e39]
+        - generic [ref=f16e40]:
+          - term [ref=f16e41]: Durum
+          - definition [ref=f16e42]: NeverRun
+          - term [ref=f16e43]: Son başarılı çalışma
+          - definition [ref=f16e44]: Henüz yok
+          - term [ref=f16e45]: İşlenen ürün
+          - definition [ref=f16e46]: "0"
+          - term [ref=f16e47]: Cache toplamı
+          - definition [ref=f16e48]: "3"
+          - term [ref=f16e49]: Sayfa boyutu
+          - definition [ref=f16e50]: "100"
+          - term [ref=f16e51]: Periyodik cron
+          - definition [ref=f16e52]:
+            - code [ref=f16e53]: 0 */6 * * *
+        - button "Manuel senkronizasyonu başlat" [ref=f16e55] [cursor=pointer]

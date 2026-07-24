@@ -1,0 +1,68 @@
+@model IReadOnlyList<CanvasiaSocial.Application.Social.SocialPlatformCard>
+@{
+    ViewData["Title"] = "Sosyal hesaplar";
+    var succeeded = TempData["SocialResultSucceeded"] as bool?;
+    var message = TempData["SocialResultMessage"] as string;
+}
+
+<section class="page-heading">
+    <p class="eyebrow">RESMİ OAUTH</p>
+    <h1>Sosyal hesaplar</h1>
+    <p>Hesaplar yalnızca platformların resmî yetkilendirme ekranlarından bağlanır. Kullanıcı adı veya parola saklanmaz.</p>
+</section>
+
+@if (!string.IsNullOrWhiteSpace(message))
+{
+    <div class="notice @(succeeded == true ? "notice-success" : "notice-error")">@message</div>
+}
+
+<div class="social-grid">
+@foreach (var card in Model)
+{
+    <article class="settings-card social-card">
+        <div class="social-card-heading">
+            <div>
+                <p class="eyebrow">@card.Platform.ToString().ToUpperInvariant()</p>
+                <h2>@card.Platform</h2>
+            </div>
+            <span class="status-pill @(card.IsConfigured ? "success" : "muted")">
+                @(card.IsConfigured ? "Yapılandırıldı" : "Yapılandırılmadı")
+            </span>
+        </div>
+        <dl>
+            <dt>Callback</dt><dd>@(string.IsNullOrWhiteSpace(card.RedirectUri) ? "Tanımlı değil" : card.RedirectUri)</dd>
+            <dt>Yetkiler</dt><dd>@string.Join(", ", card.RequiredScopes)</dd>
+        </dl>
+        @if (card.IsConfigured && card.Platform is CanvasiaSocial.Domain.Enums.Platform.Instagram or CanvasiaSocial.Domain.Enums.Platform.Facebook)
+        {
+            <form asp-action="Connect" asp-route-platform="@card.Platform" method="post">
+                <button class="primary-button" type="submit">Resmî OAuth ile bağlan</button>
+            </form>
+        }
+        else
+        {
+            <button class="primary-button" type="button" disabled>Bağlantı kullanılamıyor</button>
+        }
+
+        @foreach (var account in card.Accounts)
+        {
+            <section class="connected-account">
+                <div>
+                    <strong>@account.DisplayName</strong>
+                    <span>@(account.Username is null ? account.Status : $"@@{account.Username} · {account.Status}")</span>
+                </div>
+                <dl>
+                    <dt>Token süresi</dt><dd>@(account.TokenExpiresAtUtc?.ToString("dd.MM.yyyy HH:mm 'UTC'") ?? "Sağlayıcı süre bildirmedi")</dd>
+                    <dt>Yetkiler</dt><dd>@string.Join(", ", account.Scopes)</dd>
+                    <dt>Son doğrulama</dt><dd>@(account.LastValidatedAtUtc?.ToString("dd.MM.yyyy HH:mm 'UTC'") ?? "Henüz yok")</dd>
+                </dl>
+                <div class="button-row">
+                    <form asp-action="Validate" asp-route-accountId="@account.Id" method="post"><button class="secondary-button" type="submit">Bağlantıyı doğrula</button></form>
+                    <form asp-action="Refresh" asp-route-accountId="@account.Id" method="post"><button class="secondary-button" type="submit">Bağlantıyı yenile</button></form>
+                    <form asp-action="Disconnect" asp-route-accountId="@account.Id" method="post"><button class="danger-button" type="submit">Bağlantıyı kaldır</button></form>
+                </div>
+            </section>
+        }
+    </article>
+}
+</div>

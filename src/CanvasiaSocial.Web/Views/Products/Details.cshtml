@@ -1,0 +1,68 @@
+@using CanvasiaSocial.Domain.Enums
+@model CanvasiaSocial.Web.Models.ProductDetailsPageViewModel
+@{
+    ViewData["Title"] = Model.Product.Title;
+    var product = Model.Product;
+}
+
+<a class="back-link" asp-action="Index">← Ürünlere dön</a>
+<section class="detail-layout">
+    <div>
+        <div class="detail-hero">
+            @if (product.Images.Count > 0)
+            {
+                <img src="@product.Images[0].Url" alt="@product.Title" referrerpolicy="no-referrer" />
+            }
+            else
+            {
+                <span>Görsel yok</span>
+            }
+        </div>
+        @if (product.Images.Count > 1)
+        {
+            <div class="thumbnail-grid">
+                @foreach (var image in product.Images.Skip(1))
+                {
+                    <img src="@image.Url" alt="@product.Title" loading="lazy" referrerpolicy="no-referrer" />
+                }
+            </div>
+        }
+    </div>
+    <article class="detail-copy">
+        <p class="eyebrow">@(product.CategoryName ?? "KATEGORİSİZ")</p>
+        <h1>@product.Title</h1>
+        <div class="price-line"><strong>@product.Price.ToString("N2") TL</strong>@if (product.IsDiscounted) { <span class="status-pill sale">İndirimli fiyat</span> }</div>
+        <p class="stock-line @(product.InStock ? "in-stock" : "out-stock")">@(product.InStock ? "Stokta var" : "Stokta yok")</p>
+        @if (!string.IsNullOrWhiteSpace(product.Description))
+        {
+            <section><h2>Ürün açıklaması</h2><p class="preserve-lines">@product.Description</p></section>
+        }
+        @if (!string.IsNullOrWhiteSpace(product.PromptSummary))
+        {
+            <section class="prompt-box"><h2>Prompt özeti</h2><p>@product.PromptSummary</p></section>
+        }
+        @if (Model.Contents.Count == 0)
+        {
+            <section class="empty-state compact-state"><h2>Henüz içerik üretilmedi</h2><p>Bu ürün için sosyal medya içeriği sonraki aşamada üretilebilir.</p></section>
+        }
+        <form asp-action="Generate" asp-route-id="@product.Id" method="post" class="inline-form">
+            <select name="platform" asp-items="Html.GetEnumSelectList<Platform>()"></select>
+            <button class="primary-button inline-button" type="submit">Tekli AI içerik üret</button>
+        </form>
+        @if (!string.IsNullOrWhiteSpace(product.ProductUrl))
+        {
+            <a class="secondary-button inline-button" href="@product.ProductUrl" target="_blank" rel="noopener noreferrer">Canvasia ürününü aç</a>
+        }
+        <p class="sync-note">Son cache güncellemesi: @product.SyncedAtUtc.ToLocalTime().ToString("dd.MM.yyyy HH:mm")</p>
+    </article>
+</section>
+
+@if (Model.Contents.Count > 0)
+{
+    <section class="content-stack"><h2>Üretilen içerikler</h2>
+        @foreach (var content in Model.Contents)
+        {
+            <article class="content-card"><div><strong>@content.Platform</strong><span class="status-pill">@content.Status</span></div><p>@content.Caption</p><small>@string.Join(" ", content.Hashtags.Select(x => "#" + x.TrimStart('#')))</small></article>
+        }
+    </section>
+}

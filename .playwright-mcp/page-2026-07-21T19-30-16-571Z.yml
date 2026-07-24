@@ -1,0 +1,423 @@
+- generic [ref=f72e2]:
+  - generic:
+    - iframe
+  - generic:
+    - iframe
+  - generic:
+    - iframe
+  - generic:
+    - iframe
+  - generic [ref=f72e3]:
+    - generic [ref=f72e9]:
+      - generic [ref=f72e10]:
+        - link [ref=f72e12] [cursor=pointer]:
+          - /url: /?no_redirect=true
+          - img "Meta logo" [ref=f72e14]
+        - tablist [ref=f72e23]:
+          - tab "Docs" [selected] [ref=f72e24] [cursor=pointer]
+          - tab "Tools" [ref=f72e29] [cursor=pointer]
+          - tab "Support" [ref=f72e34] [cursor=pointer]
+      - generic [ref=f72e39]:
+        - generic [ref=f72e40]:
+          - generic [ref=f72e41]: Search input
+          - textbox "Search input" [ref=f72e57]:
+            - /placeholder: Search...
+        - link "Login" [ref=f72e58] [cursor=pointer]:
+          - /url: https://business.facebook.com/business/loginpage/?is_work_accounts=true&login_options[0]=FB&login_options[1]=SSO&config_ref=biz_login_tool_flavor_dfc&app=436761779744620&next=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fgraph-api%2Fchangelog%2F%3Fnav_ref%3Dbiz_unified_f3_login_page_to_dfc
+    - generic [ref=f72e64]:
+      - navigation "Breadcrumb" [ref=f72e68]:
+        - generic [ref=f72e69]:
+          - link [ref=f72e70] [cursor=pointer]:
+            - /url: /docs/
+            - heading "Docs" [level=3] [ref=f72e71]
+          - link [ref=f72e73] [cursor=pointer]:
+            - /url: /docs/graph-api
+            - heading "Graph API" [level=3] [ref=f72e74]
+          - link [ref=f72e76] [cursor=pointer]:
+            - /url: /docs/graph-api/changelog
+            - heading "Changelog" [level=3] [ref=f72e77]
+      - generic [ref=f72e78]:
+        - generic [ref=f72e82]:
+          - link "Graph API" [ref=f72e84] [cursor=pointer]:
+            - /url: /docs/graph-api
+          - list [ref=f72e85]:
+            - listitem [ref=f72e86]:
+              - link "Overview" [ref=f72e87] [cursor=pointer]:
+                - /url: /docs/graph-api/overview
+            - listitem [ref=f72e88]:
+              - link "Get Started" [ref=f72e89] [cursor=pointer]:
+                - /url: /docs/graph-api/get-started
+            - listitem [ref=f72e90]:
+              - link "Batch Requests" [ref=f72e91] [cursor=pointer]:
+                - /url: /docs/graph-api/batch-requests
+            - listitem [ref=f72e92]:
+              - link "Debug Requests" [ref=f72e93] [cursor=pointer]:
+                - /url: /docs/graph-api/guides/debugging
+            - listitem [ref=f72e94]:
+              - link "Handle Errors" [ref=f72e95] [cursor=pointer]:
+                - /url: /docs/graph-api/guides/error-handling
+            - listitem [ref=f72e96]:
+              - link "Field Expansion" [ref=f72e97] [cursor=pointer]:
+                - /url: /docs/graph-api/guides/field-expansion
+            - listitem [ref=f72e98]:
+              - link "Secure Requests" [ref=f72e99] [cursor=pointer]:
+                - /url: /docs/graph-api/guides/secure-requests
+            - listitem [ref=f72e100]:
+              - link "Changelog" [ref=f72e101] [cursor=pointer]:
+                - /url: /docs/graph-api/changelog
+              - list [ref=f72e103]:
+                - listitem [ref=f72e104]:
+                  - link "Upgrade" [ref=f72e105] [cursor=pointer]:
+                    - /url: /docs/graph-api/advanced/api-upgrade
+                - listitem [ref=f72e106]:
+                  - link "Versions" [ref=f72e107] [cursor=pointer]:
+                    - /url: /docs/graph-api/changelog/versions
+                - listitem [ref=f72e108]:
+                  - link "Out-Of-Cycle Changes" [ref=f72e109] [cursor=pointer]:
+                    - /url: /docs/graph-api/changelog/out-of-cycle-changes
+            - listitem [ref=f72e110]:
+              - link "Reference" [ref=f72e111] [cursor=pointer]:
+                - /url: /docs/graph-api/reference
+        - generic [ref=f72e115]:
+          - generic [ref=f72e117]:
+            - generic [ref=f72e119]:
+              - heading "Changelog" [level=1] [ref=f72e120]
+              - table [ref=f72e121]:
+                - rowgroup [ref=f72e122]:
+                  - row [ref=f72e123]:
+                    - cell [ref=f72e124]:
+                      - paragraph [ref=f72e125]: "The latest Graph API version is:"
+                    - cell [ref=f72e126]:
+                      - code [ref=f72e127]: v25.0
+              - paragraph [ref=f72e128]:
+                - text: The Graph API and Marketing API changelogs document
+                - link "versioned" [ref=f72e129] [cursor=pointer]:
+                  - /url: "#versioned"
+                - text: and
+                - link "out-of-cycle" [ref=f72e130] [cursor=pointer]:
+                  - /url: "#outofcycle"
+                - text: changes, respective to the API.
+              - heading "Related Changelogs" [level=3] [ref=f72e131]
+              - list [ref=f72e132]:
+                - listitem [ref=f72e133]:
+                  - link "Instagram Platform Changelog" [ref=f72e135] [cursor=pointer]:
+                    - /url: https://developers.facebook.com/docs/instagram-platform/changelog
+                - listitem [ref=f72e136]:
+                  - link "Marketing API Changelog" [ref=f72e138] [cursor=pointer]:
+                    - /url: https://developers.facebook.com/docs/marketing-api/marketing-api-changelog
+                - listitem [ref=f72e139]:
+                  - generic [ref=f72e140]:
+                    - link "Messenger Platform Changelog" [ref=f72e141] [cursor=pointer]:
+                      - /url: https://developers.facebook.com/docs/messenger-platform/changelog/
+                    - text: (includes Instagram Messaging)
+                - listitem [ref=f72e142]:
+                  - link "WhatsApp Business Platform Changelog" [ref=f72e144] [cursor=pointer]:
+                    - /url: https://developers.facebook.com/docs/whatsapp/business-platform/changelog
+              - heading "Versioned Changes" [level=3] [ref=f72e145]
+              - paragraph [ref=f72e146]:
+                - text: Versioned changes are changes introduced with the release of a new API
+                - link "version" [ref=f72e147] [cursor=pointer]:
+                  - /url: /docs/apps/versions
+                - text: . Versioned changes typically apply to the newest version immediately and often will apply to other versions at a future date. The changelog accompanying each release indicates which changes apply to the current release and which changes apply to other versions.
+              - paragraph [ref=f72e148]:
+                - text: Refer to our
+                - link "Upgrade Guide" [ref=f72e149] [cursor=pointer]:
+                  - /url: /docs/apps/upgrading
+                - text: to learn how to upgrade to a new API version.
+              - heading "Out-Of-Cycle Changes" [level=3] [ref=f72e150]
+              - paragraph [ref=f72e151]: Out-of-cycle changes are changes introduced outside of our normal, versioned release schedule and typically do not apply to a specific version. Instead, out-of-cycle changes usually apply to all API versions immediately. Because of this, out-of-cycle changes are introduced infrequently.
+            - generic [ref=f72e153]:
+              - heading "Available Graph API Versions" [level=2] [ref=f72e154]
+              - table [ref=f72e156]:
+                - rowgroup [ref=f72e157]:
+                  - row [ref=f72e158]:
+                    - columnheader "Version" [ref=f72e159]
+                    - columnheader "Date Introduced" [ref=f72e160]
+                    - columnheader "Available Until" [ref=f72e161]
+                - rowgroup [ref=f72e162]:
+                  - row [ref=f72e163]:
+                    - cell [ref=f72e164]:
+                      - paragraph [ref=f72e165]:
+                        - link "v25.0" [ref=f72e166] [cursor=pointer]:
+                          - /url: /docs/graph-api/changelog/version25.0
+                    - cell [ref=f72e167]:
+                      - paragraph [ref=f72e168]: February 18, 2026
+                    - cell [ref=f72e169]:
+                      - paragraph [ref=f72e170]: TBD
+                  - row [ref=f72e171]:
+                    - cell [ref=f72e172]:
+                      - paragraph [ref=f72e173]:
+                        - link "v24.0" [ref=f72e174] [cursor=pointer]:
+                          - /url: /docs/graph-api/changelog/version24.0
+                    - cell [ref=f72e175]:
+                      - paragraph [ref=f72e176]: October 8, 2025
+                    - cell [ref=f72e177]:
+                      - paragraph [ref=f72e178]: TBD
+                  - row [ref=f72e179]:
+                    - cell [ref=f72e180]:
+                      - paragraph [ref=f72e181]:
+                        - link "v23.0" [ref=f72e182] [cursor=pointer]:
+                          - /url: /docs/graph-api/changelog/version23.0
+                    - cell [ref=f72e183]:
+                      - paragraph [ref=f72e184]: May 29, 2025
+                    - cell [ref=f72e185]:
+                      - paragraph [ref=f72e186]: TBD
+                  - row [ref=f72e187]:
+                    - cell [ref=f72e188]:
+                      - paragraph [ref=f72e189]:
+                        - link "v22.0" [ref=f72e190] [cursor=pointer]:
+                          - /url: /docs/graph-api/changelog/version22.0
+                    - cell [ref=f72e191]:
+                      - paragraph [ref=f72e192]: January 21, 2025
+                    - cell [ref=f72e193]:
+                      - paragraph [ref=f72e194]: TBD
+                  - row [ref=f72e195]:
+                    - cell [ref=f72e196]:
+                      - paragraph [ref=f72e197]:
+                        - link "v21.0" [ref=f72e198] [cursor=pointer]:
+                          - /url: /docs/graph-api/changelog/version21.0
+                    - cell [ref=f72e199]:
+                      - paragraph [ref=f72e200]: October 2, 2024
+                    - cell [ref=f72e201]:
+                      - paragraph [ref=f72e202]: TBD
+                  - row [ref=f72e203]:
+                    - cell [ref=f72e204]:
+                      - paragraph [ref=f72e205]:
+                        - link "v20.0" [ref=f72e206] [cursor=pointer]:
+                          - /url: /docs/graph-api/changelog/version20.0#graph-api
+                    - cell [ref=f72e207]:
+                      - paragraph [ref=f72e208]: May 21, 2024
+                    - cell [ref=f72e209]:
+                      - paragraph [ref=f72e210]: September 24, 2026
+                  - row [ref=f72e211]:
+                    - cell [ref=f72e212]:
+                      - paragraph [ref=f72e213]:
+                        - link "v19.0" [ref=f72e214] [cursor=pointer]:
+                          - /url: /docs/graph-api/changelog/version19.0#graph-api
+                    - cell [ref=f72e215]:
+                      - paragraph [ref=f72e216]: January 23, 2024
+                    - cell [ref=f72e217]:
+                      - paragraph [ref=f72e218]: May 21, 2026
+                  - row [ref=f72e219]:
+                    - cell [ref=f72e220]:
+                      - paragraph [ref=f72e221]:
+                        - link "v18.0" [ref=f72e222] [cursor=pointer]:
+                          - /url: /docs/graph-api/changelog/version18.0#graph-api
+                    - cell [ref=f72e223]:
+                      - paragraph [ref=f72e224]: September 12, 2023
+                    - cell [ref=f72e225]:
+                      - paragraph [ref=f72e226]: January 26, 2026
+                  - row [ref=f72e227]:
+                    - cell [ref=f72e228]:
+                      - paragraph [ref=f72e229]:
+                        - link "v17.0" [ref=f72e230] [cursor=pointer]:
+                          - /url: /docs/graph-api/changelog/version17.0#graph-api
+                    - cell [ref=f72e231]:
+                      - paragraph [ref=f72e232]: May 23, 2023
+                    - cell [ref=f72e233]:
+                      - paragraph [ref=f72e234]: September 12, 2025
+                  - row [ref=f72e235]:
+                    - cell [ref=f72e236]:
+                      - paragraph [ref=f72e237]:
+                        - link "v16.0" [ref=f72e238] [cursor=pointer]:
+                          - /url: /docs/graph-api/changelog/version16.0#graph-api
+                    - cell [ref=f72e239]:
+                      - paragraph [ref=f72e240]: February 2, 2023
+                    - cell [ref=f72e241]:
+                      - paragraph [ref=f72e242]: May 14, 2025
+                  - row [ref=f72e243]:
+                    - cell [ref=f72e244]:
+                      - paragraph [ref=f72e245]:
+                        - link "v15.0" [ref=f72e246] [cursor=pointer]:
+                          - /url: /docs/graph-api/changelog/version15.0#graph-api
+                    - cell [ref=f72e247]:
+                      - paragraph [ref=f72e248]: September 15, 2022
+                    - cell [ref=f72e249]:
+                      - paragraph [ref=f72e250]: November 20, 2024
+                  - row [ref=f72e251]:
+                    - cell [ref=f72e252]:
+                      - paragraph [ref=f72e253]:
+                        - link "v14.0" [ref=f72e254] [cursor=pointer]:
+                          - /url: /docs/graph-api/changelog/version14.0#graph-api
+                    - cell [ref=f72e255]:
+                      - paragraph [ref=f72e256]: May 25, 2022
+                    - cell [ref=f72e257]:
+                      - paragraph [ref=f72e258]: September 17, 2024
+                  - row [ref=f72e259]:
+                    - cell [ref=f72e260]:
+                      - paragraph [ref=f72e261]:
+                        - link "v13.0" [ref=f72e262] [cursor=pointer]:
+                          - /url: /docs/graph-api/changelog/version13.0#graph-api
+                    - cell [ref=f72e263]:
+                      - paragraph [ref=f72e264]: February 8, 2022
+                    - cell [ref=f72e265]:
+                      - paragraph [ref=f72e266]: May 28, 2024
+              - link [ref=f72e267] [cursor=pointer]:
+                - /url: "#"
+            - generic [ref=f72e270]:
+              - heading "Available Marketing API Versions" [level=2] [ref=f72e271]
+              - paragraph [ref=f72e274]:
+                - text: Marketing API
+                - link "version auto-upgrade" [ref=f72e275] [cursor=pointer]:
+                  - /url: /docs/marketing-api/versions#version-auto-upgrade
+                - text: will release on May 14, 2024.
+              - table [ref=f72e278]:
+                - rowgroup [ref=f72e279]:
+                  - row [ref=f72e280]:
+                    - columnheader "Version" [ref=f72e281]
+                    - columnheader "Date Introduced" [ref=f72e282]
+                    - columnheader "Available Until" [ref=f72e283]
+                - rowgroup [ref=f72e284]:
+                  - row [ref=f72e285]:
+                    - cell [ref=f72e286]:
+                      - paragraph [ref=f72e287]:
+                        - link "v25.0" [ref=f72e288] [cursor=pointer]:
+                          - /url: /docs/marketing-api/marketing-api-changelog/version25.0
+                    - cell [ref=f72e289]:
+                      - paragraph [ref=f72e290]: February 18, 2026
+                    - cell [ref=f72e291]:
+                      - paragraph [ref=f72e292]: TBD
+                  - row [ref=f72e293]:
+                    - cell [ref=f72e294]:
+                      - paragraph [ref=f72e295]:
+                        - link "v24.0" [ref=f72e296] [cursor=pointer]:
+                          - /url: /docs/marketing-api/marketing-api-changelog/version24.0
+                    - cell [ref=f72e297]:
+                      - paragraph [ref=f72e298]: October 8, 2025
+                    - cell [ref=f72e299]:
+                      - paragraph [ref=f72e300]: October 6, 2026
+                  - row [ref=f72e301]:
+                    - cell [ref=f72e302]:
+                      - paragraph [ref=f72e303]:
+                        - link "v23.0" [ref=f72e304] [cursor=pointer]:
+                          - /url: /docs/marketing-api/marketing-api-changelog/version23.0
+                    - cell [ref=f72e305]:
+                      - paragraph [ref=f72e306]: May 29, 2025
+                    - cell [ref=f72e307]:
+                      - paragraph [ref=f72e308]: June 9, 2026
+              - link [ref=f72e309] [cursor=pointer]:
+                - /url: "#"
+            - generic [ref=f72e312]:
+              - heading "Out-Of-Cycle Changes" [level=2] [ref=f72e313]
+              - list [ref=f72e314]:
+                - listitem [ref=f72e315]:
+                  - link "2023 out-of-cycle changes" [ref=f72e316] [cursor=pointer]:
+                    - /url: /docs/graph-api/changelog/non-versioned-changes/nvc-2023
+              - link [ref=f72e317] [cursor=pointer]:
+                - /url: "#"
+          - link [ref=f72e319] [cursor=pointer]:
+            - /url: "#"
+        - generic [ref=f72e324]:
+          - generic [ref=f72e325]: On This Page
+          - link "Changelog" [ref=f72e327] [cursor=pointer]:
+            - /url: "#changelog"
+          - link "Available Graph API Versions" [ref=f72e329] [cursor=pointer]:
+            - /url: "#available-graph-api-versions"
+          - link "Available Marketing API Versions" [ref=f72e331] [cursor=pointer]:
+            - /url: "#available-marketing-api-versions"
+          - link "Out-Of-Cycle Changes" [ref=f72e333] [cursor=pointer]:
+            - /url: "#out-of-cycle-changes"
+    - contentinfo [ref=f72e337]:
+      - generic [ref=f72e338]:
+        - separator [ref=f72e339]
+        - generic [ref=f72e341]:
+          - generic [ref=f72e343]:
+            - generic [ref=f72e345]:
+              - generic [ref=f72e346]:
+                - img "Meta"
+              - list [ref=f72e348]:
+                - listitem:
+                  - link "Facebook":
+                    - /url: https://www.facebook.com/MetaforDevelopers
+                    - img "Facebook"
+                - listitem:
+                  - link "Instagram":
+                    - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.instagram.com%2Fmetafordevelopers%2F&h=AUDRp8h0gYqKZ7y8iMAKeU-_y_clPDKeo730ZeEDV4xlFKWMsAQh_Tb6fhPi9-rlS91El4AmaB8vVFRCJ-2dchFI2hOW5rEQM1QmN5adjDdaT7qCUMiRyaPpI9mP_tY6i2g89yq3nDiHI-b5VpXxhQ
+                    - img "Instagram"
+                - listitem:
+                  - link "X":
+                    - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Ftwitter.com%2Fmetafordevs&h=AUDRp8h0gYqKZ7y8iMAKeU-_y_clPDKeo730ZeEDV4xlFKWMsAQh_Tb6fhPi9-rlS91El4AmaB8vVFRCJ-2dchFI2hOW5rEQM1QmN5adjDdaT7qCUMiRyaPpI9mP_tY6i2g89yq3nDiHI-b5VpXxhQ
+                    - img "X"
+                - listitem:
+                  - link "LinkedIn":
+                    - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.linkedin.com%2Fshowcase%2Fmeta-for-developers%2F&h=AUDRp8h0gYqKZ7y8iMAKeU-_y_clPDKeo730ZeEDV4xlFKWMsAQh_Tb6fhPi9-rlS91El4AmaB8vVFRCJ-2dchFI2hOW5rEQM1QmN5adjDdaT7qCUMiRyaPpI9mP_tY6i2g89yq3nDiHI-b5VpXxhQ
+                    - img "LinkedIn"
+                - listitem:
+                  - link "YouTube":
+                    - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.youtube.com%2FMetaDevelopers%2F&h=AUDRp8h0gYqKZ7y8iMAKeU-_y_clPDKeo730ZeEDV4xlFKWMsAQh_Tb6fhPi9-rlS91El4AmaB8vVFRCJ-2dchFI2hOW5rEQM1QmN5adjDdaT7qCUMiRyaPpI9mP_tY6i2g89yq3nDiHI-b5VpXxhQ
+                    - img "YouTube"
+            - generic [ref=f72e350]:
+              - generic [ref=f72e353]:
+                - heading "Build with Meta" [level=2] [ref=f72e354]
+                - list [ref=f72e356]:
+                  - listitem [ref=f72e357]:
+                    - link "AI" [ref=f72e359] [cursor=pointer]:
+                      - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.llama.com%2F&h=AUDRp8h0gYqKZ7y8iMAKeU-_y_clPDKeo730ZeEDV4xlFKWMsAQh_Tb6fhPi9-rlS91El4AmaB8vVFRCJ-2dchFI2hOW5rEQM1QmN5adjDdaT7qCUMiRyaPpI9mP_tY6i2g89yq3nDiHI-b5VpXxhQ
+                  - listitem [ref=f72e360]:
+                    - link "Meta Horizon" [ref=f72e362] [cursor=pointer]:
+                      - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fdevelopers.meta.com%2Fhorizon%2F&h=AUDRp8h0gYqKZ7y8iMAKeU-_y_clPDKeo730ZeEDV4xlFKWMsAQh_Tb6fhPi9-rlS91El4AmaB8vVFRCJ-2dchFI2hOW5rEQM1QmN5adjDdaT7qCUMiRyaPpI9mP_tY6i2g89yq3nDiHI-b5VpXxhQ
+                  - listitem [ref=f72e363]:
+                    - link "Social technologies" [ref=f72e365] [cursor=pointer]:
+                      - /url: /social-technologies/
+                  - listitem [ref=f72e366]:
+                    - link "Wearables" [ref=f72e368] [cursor=pointer]:
+                      - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fdevelopers.meta.com%2Fwearables%2F&h=AUDRp8h0gYqKZ7y8iMAKeU-_y_clPDKeo730ZeEDV4xlFKWMsAQh_Tb6fhPi9-rlS91El4AmaB8vVFRCJ-2dchFI2hOW5rEQM1QmN5adjDdaT7qCUMiRyaPpI9mP_tY6i2g89yq3nDiHI-b5VpXxhQ
+              - generic [ref=f72e371]:
+                - heading "News" [level=2] [ref=f72e372]
+                - list [ref=f72e374]:
+                  - listitem [ref=f72e375]:
+                    - link "Meta for Developers" [ref=f72e377] [cursor=pointer]:
+                      - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fdevelopers.meta.com%2Fblog%2F&h=AUDRp8h0gYqKZ7y8iMAKeU-_y_clPDKeo730ZeEDV4xlFKWMsAQh_Tb6fhPi9-rlS91El4AmaB8vVFRCJ-2dchFI2hOW5rEQM1QmN5adjDdaT7qCUMiRyaPpI9mP_tY6i2g89yq3nDiHI-b5VpXxhQ
+                  - listitem [ref=f72e378]:
+                    - link "Blog" [ref=f72e380] [cursor=pointer]:
+                      - /url: /blog/
+                  - listitem [ref=f72e381]:
+                    - link "Success stories" [ref=f72e383] [cursor=pointer]:
+                      - /url: /success-stories/
+              - generic [ref=f72e386]:
+                - heading "Support" [level=2] [ref=f72e387]
+                - list [ref=f72e389]:
+                  - listitem [ref=f72e390]:
+                    - link "Developer Support" [ref=f72e392] [cursor=pointer]:
+                      - /url: /support/
+                  - listitem [ref=f72e393]:
+                    - link "Bug tool" [ref=f72e395] [cursor=pointer]:
+                      - /url: /support/bugs/
+                  - listitem [ref=f72e396]:
+                    - link "Platform status" [ref=f72e398] [cursor=pointer]:
+                      - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fmetastatus.com%2F&h=AUDRp8h0gYqKZ7y8iMAKeU-_y_clPDKeo730ZeEDV4xlFKWMsAQh_Tb6fhPi9-rlS91El4AmaB8vVFRCJ-2dchFI2hOW5rEQM1QmN5adjDdaT7qCUMiRyaPpI9mP_tY6i2g89yq3nDiHI-b5VpXxhQ
+                  - listitem [ref=f72e399]:
+                    - link "Developer community forum" [ref=f72e401] [cursor=pointer]:
+                      - /url: https://www.facebook.com/groups/fbdevelopers/
+                  - listitem [ref=f72e402]:
+                    - link "Report an incident" [ref=f72e404] [cursor=pointer]:
+                      - /url: /incident/report/
+              - generic [ref=f72e407]:
+                - heading "About us" [level=2] [ref=f72e408]
+                - list [ref=f72e410]:
+                  - listitem [ref=f72e411]:
+                    - link "About" [ref=f72e413] [cursor=pointer]:
+                      - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fabout.fb.com%2F&h=AUDRp8h0gYqKZ7y8iMAKeU-_y_clPDKeo730ZeEDV4xlFKWMsAQh_Tb6fhPi9-rlS91El4AmaB8vVFRCJ-2dchFI2hOW5rEQM1QmN5adjDdaT7qCUMiRyaPpI9mP_tY6i2g89yq3nDiHI-b5VpXxhQ
+                  - listitem [ref=f72e414]:
+                    - link "Careers" [ref=f72e416] [cursor=pointer]:
+                      - /url: https://www.facebook.com/careers
+              - generic [ref=f72e419]:
+                - heading "Terms and policies" [level=2] [ref=f72e420]
+                - list [ref=f72e422]:
+                  - listitem [ref=f72e423]:
+                    - link "Responsible platform initiatives" [ref=f72e425] [cursor=pointer]:
+                      - /url: /products/responsible-platform-initiatives/
+                  - listitem [ref=f72e426]:
+                    - link "Platform terms" [ref=f72e428] [cursor=pointer]:
+                      - /url: /terms/dfc_platform_terms/
+                  - listitem [ref=f72e429]:
+                    - link "Developer policies" [ref=f72e431] [cursor=pointer]:
+                      - /url: /devpolicy/
+                  - listitem [ref=f72e432]:
+                    - link "Privacy policy" [ref=f72e434] [cursor=pointer]:
+                      - /url: https://www.facebook.com/about/privacy
+                  - listitem [ref=f72e435]:
+                    - link "Cookies" [ref=f72e437] [cursor=pointer]:
+                      - /url: https://www.facebook.com/help/cookies
+          - button "Change language" [ref=f72e442] [cursor=pointer]:
+            - generic [ref=f72e443]: English (US)

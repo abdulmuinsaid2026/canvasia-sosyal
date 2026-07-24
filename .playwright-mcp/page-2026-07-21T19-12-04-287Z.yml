@@ -1,0 +1,119 @@
+- generic [active] [ref=f10e1]:
+  - banner [ref=f10e2]:
+    - link "CS CanvasiaSocial" [ref=f10e3] [cursor=pointer]:
+      - /url: /Dashboard
+      - generic [ref=f10e4]: CS
+      - generic [ref=f10e5]: CanvasiaSocial
+    - navigation "Ana menü" [ref=f10e6]:
+      - link "Dashboard" [ref=f10e7] [cursor=pointer]:
+        - /url: /Dashboard
+      - link "Ürünler" [ref=f10e8] [cursor=pointer]:
+        - /url: /Products
+      - link "Kampanyalar" [ref=f10e9] [cursor=pointer]:
+        - /url: /Campaigns
+      - link "Taslaklar" [ref=f10e10] [cursor=pointer]:
+        - /url: /Drafts
+      - link "Takvim" [ref=f10e11] [cursor=pointer]:
+        - /url: /Calendar
+      - link "Canvasia" [ref=f10e12] [cursor=pointer]:
+        - /url: /Settings/Canvasia
+    - generic [ref=f10e13]:
+      - generic [ref=f10e14]: admin@example.com
+      - button "Çıkış" [ref=f10e16] [cursor=pointer]
+  - main [ref=f10e17]:
+    - generic [ref=f10e18]:
+      - generic [ref=f10e19]:
+        - paragraph [ref=f10e20]: CANVASIA CACHE
+        - heading "Ürünler" [level=1] [ref=f10e21]
+        - paragraph [ref=f10e22]: Canvasia kataloğunun son başarılı senkronizasyonda yerel cache'e alınmış görünümü.
+      - strong [ref=f10e23]: 3 ürün
+    - generic [ref=f10e24]:
+      - generic [ref=f10e25]:
+        - text: Arama
+        - textbox "Arama" [ref=f10e26]:
+          - /placeholder: Başlık veya slug
+          - text: Test Ürün
+      - generic [ref=f10e27]:
+        - text: Kategori
+        - textbox "Kategori" [ref=f10e28]:
+          - /placeholder: Kategori adı
+      - generic [ref=f10e29]:
+        - text: Stok
+        - combobox "Stok" [ref=f10e30]:
+          - option "Tümü" [selected]
+          - option "Stokta"
+          - option "Stokta yok"
+      - generic [ref=f10e31]:
+        - text: İndirim
+        - combobox "İndirim" [ref=f10e32]:
+          - option "Tümü" [selected]
+          - option "İndirimli"
+          - option "İndirimsiz"
+      - button "Filtrele" [ref=f10e33] [cursor=pointer]
+    - generic [ref=f10e34]:
+      - generic [ref=f10e35]:
+        - button "Sayfadakileri seç" [ref=f10e36] [cursor=pointer]
+        - button "Seçimi temizle" [ref=f10e37] [cursor=pointer]
+        - strong [ref=f10e38]: 0 ürün seçildi
+        - button "Toplu sosyal medyaya hazırla" [ref=f10e39] [cursor=pointer]
+      - region "Ürün listesi" [ref=f10e40]:
+        - article [ref=f10e41]:
+          - generic [ref=f10e42]:
+            - checkbox "Seç" [ref=f10e43]
+            - text: Seç
+          - link "Görsel yok" [ref=f10e44] [cursor=pointer]:
+            - /url: /Products/Details/10000000-0000-0000-0000-000000000001
+          - generic [ref=f10e46]:
+            - paragraph [ref=f10e47]: Dekor
+            - heading [level=2] [ref=f10e48]:
+              - link "Test Ürün 1" [ref=f10e49] [cursor=pointer]:
+                - /url: /Products/Details/10000000-0000-0000-0000-000000000001
+            - generic [ref=f10e50]:
+              - strong [ref=f10e51]: 100.00 TL
+              - generic [ref=f10e52]: Stokta
+            - generic [ref=f10e53]:
+              - link "Ayrıntı" [ref=f10e54] [cursor=pointer]:
+                - /url: /Products/Details/10000000-0000-0000-0000-000000000001
+              - link "Canvasia'da aç" [ref=f10e55] [cursor=pointer]:
+                - /url: https://www.canvasia.com.tr/test-1
+        - article [ref=f10e56]:
+          - generic [ref=f10e57]:
+            - checkbox "Seç" [ref=f10e58]
+            - text: Seç
+          - link "Görsel yok" [ref=f10e59] [cursor=pointer]:
+            - /url: /Products/Details/10000000-0000-0000-0000-000000000002
+          - generic [ref=f10e61]:
+            - paragraph [ref=f10e62]: Dekor
+            - heading [level=2] [ref=f10e63]:
+              - link "Test Ürün 2" [ref=f10e64] [cursor=pointer]:
+                - /url: /Products/Details/10000000-0000-0000-0000-000000000002
+            - generic [ref=f10e65]:
+              - strong [ref=f10e66]: 200.00 TL
+              - generic [ref=f10e67]: Stokta
+              - generic [ref=f10e68]: İndirimli
+            - generic [ref=f10e69]:
+              - link "Ayrıntı" [ref=f10e70] [cursor=pointer]:
+                - /url: /Products/Details/10000000-0000-0000-0000-000000000002
+              - link "Canvasia'da aç" [ref=f10e71] [cursor=pointer]:
+                - /url: https://www.canvasia.com.tr/test-2
+        - article [ref=f10e72]:
+          - generic [ref=f10e73]:
+            - checkbox "Seç" [ref=f10e74]
+            - text: Seç
+          - link "Görsel yok" [ref=f10e75] [cursor=pointer]:
+            - /url: /Products/Details/10000000-0000-0000-0000-000000000003
+          - generic [ref=f10e77]:
+            - paragraph [ref=f10e78]: Tablo
+            - heading [level=2] [ref=f10e79]:
+              - link "Test Ürün 3" [ref=f10e80] [cursor=pointer]:
+                - /url: /Products/Details/10000000-0000-0000-0000-000000000003
+            - generic [ref=f10e81]:
+              - strong [ref=f10e82]: 300.00 TL
+              - generic [ref=f10e83]: Stokta
+            - generic [ref=f10e84]:
+              - link "Ayrıntı" [ref=f10e85] [cursor=pointer]:
+                - /url: /Products/Details/10000000-0000-0000-0000-000000000003
+              - link "Canvasia'da aç" [ref=f10e86] [cursor=pointer]:
+                - /url: https://www.canvasia.com.tr/test-3
+    - navigation "Ürün sayfaları" [ref=f10e87]:
+      - generic [ref=f10e88]: Sayfa 1 / 1

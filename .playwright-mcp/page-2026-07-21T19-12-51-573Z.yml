@@ -1,0 +1,82 @@
+- generic [active] [ref=f11e1]:
+  - banner [ref=f11e2]:
+    - link "CS CanvasiaSocial" [ref=f11e3] [cursor=pointer]:
+      - /url: /Dashboard
+      - generic [ref=f11e4]: CS
+      - generic [ref=f11e5]: CanvasiaSocial
+    - navigation "Ana menü" [ref=f11e6]:
+      - link "Dashboard" [ref=f11e7] [cursor=pointer]:
+        - /url: /Dashboard
+      - link "Ürünler" [ref=f11e8] [cursor=pointer]:
+        - /url: /Products
+      - link "Kampanyalar" [ref=f11e9] [cursor=pointer]:
+        - /url: /Campaigns
+      - link "Taslaklar" [ref=f11e10] [cursor=pointer]:
+        - /url: /Drafts
+      - link "Takvim" [ref=f11e11] [cursor=pointer]:
+        - /url: /Calendar
+      - link "Canvasia" [ref=f11e12] [cursor=pointer]:
+        - /url: /Settings/Canvasia
+    - generic [ref=f11e13]:
+      - generic [ref=f11e14]: admin@example.com
+      - button "Çıkış" [ref=f11e16] [cursor=pointer]
+  - main [ref=f11e17]:
+    - generic [ref=f11e18]:
+      - paragraph [ref=f11e19]: KAMPANYA OLUŞTUR
+      - heading "Toplu sosyal medya hazırlığı" [level=1] [ref=f11e20]
+      - paragraph [ref=f11e21]: 3 ürün kalıcı AI job kuyruğuna hazırlanacak.
+    - generic [ref=f11e22]:
+      - generic [ref=f11e23]:
+        - generic [ref=f11e24]:
+          - text: Kampanya adı
+          - textbox "Kampanya adı" [ref=f11e25]: Kampanya 21.07.2026
+        - generic [ref=f11e26]:
+          - text: Platform
+          - combobox "Platform" [ref=f11e27]:
+            - option "Instagram" [selected]
+            - option "Facebook"
+            - option "TikTok"
+            - option "Pinterest"
+        - generic [ref=f11e28]:
+          - text: Sosyal hesap
+          - combobox "Sosyal hesap" [ref=f11e29]:
+            - option "Daha sonra bağlanacak" [selected]
+        - generic [ref=f11e30]:
+          - text: Mod
+          - combobox "Mod" [ref=f11e31]:
+            - option "DraftOnly"
+            - option "RequireApproval" [selected]
+            - option "AutoSchedule"
+        - generic [ref=f11e32]:
+          - text: Başlangıç (Europe/Istanbul)
+          - textbox "Başlangıç (Europe/Istanbul)" [ref=f11e33]: 2026-07-22T09:00
+        - generic [ref=f11e34]:
+          - text: Gönderiler arası dakika
+          - spinbutton "Gönderiler arası dakika" [ref=f11e35]: "60"
+        - generic [ref=f11e36]:
+          - text: Günlük limit
+          - spinbutton "Günlük limit" [ref=f11e37]: "10"
+        - generic [ref=f11e38]:
+          - text: İzin başlangıcı
+          - textbox "İzin başlangıcı" [ref=f11e39]: 09:00
+        - generic [ref=f11e40]:
+          - text: İzin bitişi
+          - textbox "İzin bitişi" [ref=f11e41]: 21:00
+        - generic [ref=f11e42]:
+          - checkbox "Fiyatı içeriğe ekle" [checked] [ref=f11e43]
+          - text: Fiyatı içeriğe ekle
+        - generic [ref=f11e44]:
+          - checkbox "Ürün linkini ekle" [checked] [ref=f11e45]
+          - text: Ürün linkini ekle
+        - button "Kampanyayı başlat" [ref=f11e46] [cursor=pointer]
+      - complementary [ref=f11e47]:
+        - heading "Seçilen ürünler" [level=2] [ref=f11e48]
+        - generic [ref=f11e49]:
+          - strong [ref=f11e50]: Test Ürün 1
+          - generic [ref=f11e51]: 100.00 TL
+        - generic [ref=f11e52]:
+          - strong [ref=f11e53]: Test Ürün 2
+          - generic [ref=f11e54]: 200.00 TL
+        - generic [ref=f11e55]:
+          - strong [ref=f11e56]: Test Ürün 3
+          - generic [ref=f11e57]: 300.00 TL

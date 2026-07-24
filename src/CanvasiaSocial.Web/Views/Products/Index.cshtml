@@ -1,0 +1,104 @@
+@using CanvasiaSocial.Application.Products
+@model PagedResult<ProductListItem>
+@{
+    ViewData["Title"] = "Ürünler";
+    var filter = (ProductSearch)ViewBag.Filter;
+}
+
+<section class="page-heading split-heading">
+    <div>
+        <p class="eyebrow">CANVASIA CACHE</p>
+        <h1>Ürünler</h1>
+        <p>Canvasia kataloğunun son başarılı senkronizasyonda yerel cache'e alınmış görünümü.</p>
+    </div>
+    <strong class="result-count">@Model.TotalItems.ToString("N0") ürün</strong>
+</section>
+
+<form method="get" class="filter-panel">
+    <label>Arama<input name="search" value="@filter.Search" placeholder="Başlık veya slug" /></label>
+    <label>Kategori<input name="category" value="@filter.Category" placeholder="Kategori adı" /></label>
+    <label>Stok
+        <select name="inStock">
+            <option value="">Tümü</option>
+            <option value="true" selected="@(filter.InStock is true)">Stokta</option>
+            <option value="false" selected="@(filter.InStock is false)">Stokta yok</option>
+        </select>
+    </label>
+    <label>İndirim
+        <select name="isDiscounted">
+            <option value="">Tümü</option>
+            <option value="true" selected="@(filter.IsDiscounted is true)">İndirimli</option>
+            <option value="false" selected="@(filter.IsDiscounted is false)">İndirimsiz</option>
+        </select>
+    </label>
+    <button class="primary-button compact" type="submit">Filtrele</button>
+</form>
+
+@if (Model.Items.Count == 0)
+{
+    <section class="empty-state"><h2>Cache'te ürün yok</h2><p>Ayarlar ekranından ilk senkronizasyonu başlatabilirsiniz.</p></section>
+}
+else
+{
+    <form asp-controller="BulkPrepare" asp-action="Index" method="post" id="bulk-form">
+    <div class="bulk-toolbar"><button type="button" class="secondary-button" id="select-page">Sayfadakileri seç</button><button type="button" class="text-button" id="clear-selection">Seçimi temizle</button><strong><span id="selected-count">0</span> ürün seçildi</strong><button type="submit" class="primary-button compact">Toplu sosyal medyaya hazırla</button></div>
+    <section class="product-grid" aria-label="Ürün listesi">
+        @foreach (var product in Model.Items)
+        {
+            <article class="product-card">
+                <label class="product-select"><input type="checkbox" name="productIds" value="@product.Id" /> Seç</label>
+                <a class="product-image" asp-action="Details" asp-route-id="@product.Id">
+                    @if (!string.IsNullOrWhiteSpace(product.PrimaryImageUrl))
+                    {
+                        <img src="@product.PrimaryImageUrl" alt="" loading="lazy" referrerpolicy="no-referrer" />
+                    }
+                    else
+                    {
+                        <span>Görsel yok</span>
+                    }
+                </a>
+                <div class="product-body">
+                    <p class="product-category">@(product.CategoryName ?? "Kategorisiz")</p>
+                    <h2><a asp-action="Details" asp-route-id="@product.Id">@product.Title</a></h2>
+                    <div class="product-meta">
+                        <strong>@product.Price.ToString("N2") TL</strong>
+                        <span class="status-pill @(product.InStock ? "success" : "muted")">@(product.InStock ? "Stokta" : "Stokta yok")</span>
+                        @if (product.IsDiscounted) { <span class="status-pill sale">İndirimli</span> }
+                    </div>
+                    <div class="card-actions">
+                        <a asp-action="Details" asp-route-id="@product.Id">Ayrıntı</a>
+                        @if (!string.IsNullOrWhiteSpace(product.ProductUrl))
+                        {
+                            <a href="@product.ProductUrl" target="_blank" rel="noopener noreferrer">Canvasia'da aç</a>
+                        }
+                    </div>
+                </div>
+            </article>
+        }
+    </section>
+    </form>
+
+    <nav class="pagination" aria-label="Ürün sayfaları">
+        @if (Model.Page > 1)
+        {
+            <a asp-route-page="@(Model.Page - 1)" asp-route-pageSize="@Model.PageSize" asp-route-search="@filter.Search"
+               asp-route-category="@filter.Category" asp-route-inStock="@filter.InStock" asp-route-isDiscounted="@filter.IsDiscounted">Önceki</a>
+        }
+        <span>Sayfa @Model.Page / @Model.TotalPages</span>
+        @if (Model.Page < Model.TotalPages)
+        {
+            <a asp-route-page="@(Model.Page + 1)" asp-route-pageSize="@Model.PageSize" asp-route-search="@filter.Search"
+               asp-route-category="@filter.Category" asp-route-inStock="@filter.InStock" asp-route-isDiscounted="@filter.IsDiscounted">Sonraki</a>
+        }
+    </nav>
+}
+<script>
+(() => {
+  const boxes = [...document.querySelectorAll('input[name="productIds"]')];
+  const count = document.getElementById('selected-count');
+  const update = () => count.textContent = boxes.filter(x => x.checked).length;
+  boxes.forEach(x => x.addEventListener('change', update));
+  document.getElementById('select-page')?.addEventListener('click', () => { boxes.forEach(x => x.checked = true); update(); });
+  document.getElementById('clear-selection')?.addEventListener('click', () => { boxes.forEach(x => x.checked = false); update(); });
+})();
+</script>

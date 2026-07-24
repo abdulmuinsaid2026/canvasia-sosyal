@@ -1,0 +1,57 @@
+- generic [active] [ref=f22e1]:
+  - banner [ref=f22e2]:
+    - link "CS CanvasiaSocial" [ref=f22e3] [cursor=pointer]:
+      - /url: /Dashboard
+      - generic [ref=f22e4]: CS
+      - generic [ref=f22e5]: CanvasiaSocial
+    - navigation "Ana menü" [ref=f22e6]:
+      - link "Dashboard" [ref=f22e7] [cursor=pointer]:
+        - /url: /Dashboard
+      - link "Ürünler" [ref=f22e8] [cursor=pointer]:
+        - /url: /Products
+      - link "Kampanyalar" [ref=f22e9] [cursor=pointer]:
+        - /url: /Campaigns
+      - link "Taslaklar" [ref=f22e10] [cursor=pointer]:
+        - /url: /Drafts
+      - link "Takvim" [ref=f22e11] [cursor=pointer]:
+        - /url: /Calendar
+      - link "Canvasia" [ref=f22e12] [cursor=pointer]:
+        - /url: /Settings/Canvasia
+    - generic [ref=f22e13]:
+      - generic [ref=f22e14]: admin@example.com
+      - button "Çıkış" [ref=f22e16] [cursor=pointer]
+  - main [ref=f22e17]:
+    - generic [ref=f22e18]:
+      - paragraph [ref=f22e19]: ENTEGRASYON
+      - heading "Canvasia ayarları" [level=1] [ref=f22e20]
+      - paragraph [ref=f22e21]: Bağlantı durumunu doğrulayın ve ürün cache senkronizasyonunu yönetin.
+    - generic [ref=f22e22]:
+      - article [ref=f22e23]:
+        - heading "Bağlantı" [level=2] [ref=f22e24]
+        - generic [ref=f22e25]:
+          - term [ref=f22e26]: Base URL
+          - definition [ref=f22e27]: https://www.canvasia.com.tr
+          - term [ref=f22e28]: API anahtarı
+          - definition [ref=f22e29]: Tanımlı
+          - term [ref=f22e30]: İstek timeout
+          - definition [ref=f22e31]: 30 saniye
+        - generic [ref=f22e32]:
+          - button "Bağlantıyı test et" [ref=f22e34] [cursor=pointer]
+          - button "Örnek ürünü test et" [ref=f22e36] [cursor=pointer]
+      - article [ref=f22e37]:
+        - heading "Senkronizasyon" [level=2] [ref=f22e38]
+        - generic [ref=f22e39]:
+          - term [ref=f22e40]: Durum
+          - definition [ref=f22e41]: NeverRun
+          - term [ref=f22e42]: Son başarılı çalışma
+          - definition [ref=f22e43]: Henüz yok
+          - term [ref=f22e44]: İşlenen ürün
+          - definition [ref=f22e45]: "0"
+          - term [ref=f22e46]: Cache toplamı
+          - definition [ref=f22e47]: "3"
+          - term [ref=f22e48]: Sayfa boyutu
+          - definition [ref=f22e49]: "100"
+          - term [ref=f22e50]: Periyodik cron
+          - definition [ref=f22e51]:
+            - code [ref=f22e52]: 0 */6 * * *
+        - button "Manuel senkronizasyonu başlat" [ref=f22e54] [cursor=pointer]

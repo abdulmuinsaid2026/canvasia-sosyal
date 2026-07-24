@@ -1,0 +1,48 @@
+- generic [active] [ref=f9e1]:
+  - banner [ref=f9e2]:
+    - link "CS CanvasiaSocial" [ref=f9e3] [cursor=pointer]:
+      - /url: /Dashboard
+      - generic [ref=f9e4]: CS
+      - generic [ref=f9e5]: CanvasiaSocial
+    - navigation "Ana menü" [ref=f9e6]:
+      - link "Dashboard" [ref=f9e7] [cursor=pointer]:
+        - /url: /Dashboard
+      - link "Ürünler" [ref=f9e8] [cursor=pointer]:
+        - /url: /Products
+      - link "Canvasia" [ref=f9e9] [cursor=pointer]:
+        - /url: /Settings/Canvasia
+    - generic [ref=f9e10]:
+      - generic [ref=f9e11]: admin@example.com
+      - button "Çıkış" [ref=f9e13] [cursor=pointer]
+  - main [ref=f9e14]:
+    - generic [ref=f9e15]:
+      - generic [ref=f9e16]:
+        - paragraph [ref=f9e17]: CANVASIA CACHE
+        - heading "Ürünler" [level=1] [ref=f9e18]
+        - paragraph [ref=f9e19]: Canvasia kataloğunun son başarılı senkronizasyonda yerel cache'e alınmış görünümü.
+      - strong [ref=f9e20]: 0 ürün
+    - generic [ref=f9e21]:
+      - generic [ref=f9e22]:
+        - text: Arama
+        - textbox "Arama" [ref=f9e23]:
+          - /placeholder: Başlık veya slug
+      - generic [ref=f9e24]:
+        - text: Kategori
+        - textbox "Kategori" [ref=f9e25]:
+          - /placeholder: Kategori adı
+      - generic [ref=f9e26]:
+        - text: Stok
+        - combobox "Stok" [ref=f9e27]:
+          - option "Tümü" [selected]
+          - option "Stokta"
+          - option "Stokta yok"
+      - generic [ref=f9e28]:
+        - text: İndirim
+        - combobox "İndirim" [ref=f9e29]:
+          - option "Tümü" [selected]
+          - option "İndirimli"
+          - option "İndirimsiz"
+      - button "Filtrele" [ref=f9e30] [cursor=pointer]
+    - generic [ref=f9e31]:
+      - heading "Cache'te ürün yok" [level=2] [ref=f9e32]
+      - paragraph [ref=f9e33]: Ayarlar ekranından ilk senkronizasyonu başlatabilirsiniz.
