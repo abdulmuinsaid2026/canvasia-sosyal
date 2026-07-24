@@ -3,21 +3,27 @@
     ViewData["Title"] = "Gösterge Paneli";
 }
 
-<section class="page-heading">
-    <p class="eyebrow">YÖNETİM</p>
-    <h1>Gösterge Paneli</h1>
-    <p>Canvasia ürünleri ve sosyal medya çalışmalarınız için başlangıç görünümü.</p>
+<section class="page-heading dashboard-heading">
+    <div>
+        <p class="eyebrow"><span class="live-dot"></span> CANVASIA KONTROL MERKEZİ</p>
+        <h1>Sosyal medya operasyonunuz,<br /><span>tek bir akışta.</span></h1>
+        <p>Ürün kataloğunuzu, yapay zekâ içeriklerini ve yayın takviminizi merkezî bir çalışma alanından yönetin.</p>
+    </div>
+    <div class="dashboard-actions">
+        <a class="primary-button inline-button" asp-controller="Products" asp-action="Index">İçerik hazırlamaya başla</a>
+        <a class="secondary-button inline-button" asp-controller="Calendar" asp-action="Index">Yayın takvimini aç</a>
+    </div>
 </section>
 
 <section class="metric-grid" aria-label="Sistem özeti">
-    <article class="metric-card"><span>Sosyal hesap</span><strong>@Model.SocialAccountCount</strong></article>
-    <article class="metric-card"><span>Cache ürün</span><strong>@Model.ProductCount</strong></article>
-    <article class="metric-card"><span>Taslak içerik</span><strong>@Model.DraftContentCount</strong></article>
-    <article class="metric-card"><span>Planlı gönderi</span><strong>@Model.ScheduledPostCount</strong></article>
-    <article class="metric-card"><span>Aktif kampanya</span><strong>@Model.ActiveCampaignCount</strong></article>
+    <article class="metric-card metric-cyan"><span>Bağlı sosyal hesap</span><strong>@Model.SocialAccountCount</strong><small>Yayın kanalı</small></article>
+    <article class="metric-card metric-violet"><span>Katalog ürünü</span><strong>@Model.ProductCount</strong><small>Canvasia envanteri</small></article>
+    <article class="metric-card metric-pink"><span>Taslak içerik</span><strong>@Model.DraftContentCount</strong><small>İnceleme bekliyor</small></article>
+    <article class="metric-card metric-blue"><span>Planlı gönderi</span><strong>@Model.ScheduledPostCount</strong><small>Takvimde sırada</small></article>
+    <article class="metric-card metric-green"><span>Aktif kampanya</span><strong>@Model.ActiveCampaignCount</strong><small>Devam eden çalışma</small></article>
 </section>
 
 <section class="health-strip">
     <div><span>Son Canvasia senkronizasyonu</span><strong>@(Model.LastCanvasiaSyncAtUtc?.ToLocalTime().ToString("dd.MM.yyyy HH:mm") ?? "Henüz yok")</strong></div>
-    <div><span>Canvasia API</span><strong class="@(Model.IsCanvasiaApiHealthy ? "healthy" : "unhealthy")">@(Model.IsCanvasiaApiHealthy ? "Sağlıklı" : "Erişilemiyor")</strong></div>
+    <div><span>Canvasia API durumu</span><strong class="@(Model.IsCanvasiaApiHealthy ? "healthy" : "unhealthy")"><i></i>@(Model.IsCanvasiaApiHealthy ? "Sistemler çalışıyor" : "Bağlantı kurulamıyor")</strong></div>
 </section>

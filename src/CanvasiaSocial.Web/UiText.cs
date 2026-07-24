@@ -1,4 +1,5 @@
 using CanvasiaSocial.Domain.Enums;
+using CanvasiaSocial.Application.Products;
 
 namespace CanvasiaSocial.Web;
 
@@ -39,6 +40,17 @@ public static class UiText
         CampaignMode.RequireApproval => "Onaydan sonra planla",
         CampaignMode.AutoSchedule => "Otomatik planla",
         _ => mode.ToString()
+    };
+
+    public static string Turkish(this ProductSort sort) => sort switch
+    {
+        ProductSort.Title => "Ürün adına göre",
+        ProductSort.PriceAscending => "Fiyat: düşükten yükseğe",
+        ProductSort.PriceDescending => "Fiyat: yüksekten düşüğe",
+        ProductSort.RecentlySynced => "Son eşitlenenler",
+        ProductSort.RecentlyPrepared => "Son AI hazırlananlar",
+        ProductSort.RecentlyPublished => "Son yayımlananlar",
+        _ => sort.ToString()
     };
 
     public static string TurkishSystemStatus(string? status) => status switch

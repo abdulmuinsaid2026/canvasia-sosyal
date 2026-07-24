@@ -7,23 +7,25 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body>
+    <div class="ambient-glow ambient-glow-one" aria-hidden="true"></div>
+    <div class="ambient-glow ambient-glow-two" aria-hidden="true"></div>
     <header class="topbar">
         <a class="brand" asp-controller="Home" asp-action="Index">
-            <img class="brand-logo" src="~/images/canvasia-logo.svg" alt="Canvasia" />
-            <span>Sosyal</span>
+            <span class="brand-logo-frame"><img class="brand-logo" src="~/images/canvasia-logo.svg" alt="Canvasia" /></span>
+            <span class="brand-product">Sosyal Medya Yönetim Platformu</span>
         </a>
         @if (User.Identity?.IsAuthenticated == true)
         {
             <nav class="main-nav" aria-label="Ana menü">
-                <a asp-controller="Home" asp-action="Index">Genel bakış</a>
-                <a asp-controller="Products" asp-action="Index">Ürünler</a>
-                <a asp-controller="Campaigns" asp-action="Index">Kampanyalar</a>
-                <a asp-controller="Drafts" asp-action="Index">Taslaklar</a>
-                <a asp-controller="Calendar" asp-action="Index">Takvim</a>
+                <a class="@ActiveNav("Home")" asp-controller="Home" asp-action="Index">Genel bakış</a>
+                <a class="@ActiveNav("Products", "BulkPrepare")" asp-controller="Products" asp-action="Index">Ürünler</a>
+                <a class="@ActiveNav("Campaigns")" asp-controller="Campaigns" asp-action="Index">Kampanyalar</a>
+                <a class="@ActiveNav("Drafts")" asp-controller="Drafts" asp-action="Index">Taslaklar</a>
+                <a class="@ActiveNav("Calendar")" asp-controller="Calendar" asp-action="Index">Takvim</a>
                 @if (User.IsInRole("Admin"))
                 {
-                    <a asp-controller="CanvasiaSettings" asp-action="Index">Canvasia</a>
-                    <a asp-controller="SocialAccounts" asp-action="Index">Sosyal hesaplar</a>
+                    <a class="@ActiveNav("CanvasiaSettings")" asp-controller="CanvasiaSettings" asp-action="Index">Canvasia</a>
+                    <a class="@ActiveNav("SocialAccounts")" asp-controller="SocialAccounts" asp-action="Index">Sosyal hesaplar</a>
                 }
             </nav>
             <div class="user-menu">
@@ -40,3 +42,8 @@
     </main>
 </body>
 </html>
+
+@functions {
+    private string ActiveNav(params string[] controllers) =>
+        controllers.Contains(ViewContext.RouteData.Values["controller"]?.ToString(), StringComparer.OrdinalIgnoreCase) ? "active" : "";
+}
