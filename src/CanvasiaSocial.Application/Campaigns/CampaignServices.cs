@@ -26,9 +26,11 @@ public interface IDraftService
 
 public interface ICalendarService
 {
+    bool CanPublishNow { get; }
     Task<IReadOnlyList<CalendarEntry>> GetAsync(DateTime fromUtc, DateTime toUtc, Platform? platform, ContentStatus? status, CancellationToken cancellationToken = default);
     Task RescheduleAsync(Guid scheduledPostId, DateTime localTime, CancellationToken cancellationToken = default);
     Task CancelAsync(Guid scheduledPostId, CancellationToken cancellationToken = default);
+    Task PublishNowAsync(Guid scheduledPostId, CancellationToken cancellationToken = default);
 }
 
 public interface IScheduleCalculator

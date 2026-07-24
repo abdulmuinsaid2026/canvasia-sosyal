@@ -1,5 +1,6 @@
 using System.Net;
 using System.Net.Http.Headers;
+using System.Diagnostics;
 using CanvasiaSocial.Application.Ai;
 using CanvasiaSocial.Domain.Enums;
 using CanvasiaSocial.Infrastructure.Ai;
@@ -32,7 +33,8 @@ public sealed class OpenRouterContentGeneratorTests
 
         using var client = new HttpClient(handler) { BaseAddress = new Uri("https://openrouter.test/") };
         var generator = new OpenRouterContentGenerator(client, new OpenRouterOptions());
-        using var timeout = new CancellationTokenSource(TimeSpan.FromSeconds(1));
+        using var timeout = new CancellationTokenSource(TimeSpan.FromSeconds(5));
+        var stopwatch = Stopwatch.StartNew();
 
         var result = await generator.GenerateAsync(new AiContentRequest(
             Guid.NewGuid(), "Ürün", null, 100, null, null, "https://canvasia.test/urun",
@@ -40,6 +42,7 @@ public sealed class OpenRouterContentGeneratorTests
 
         Assert.Equal("Hazır içerik", result.Caption);
         Assert.Equal(2, calls);
+        Assert.True(stopwatch.Elapsed < TimeSpan.FromSeconds(1.5));
     }
 
     private sealed class StubHandler(

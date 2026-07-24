@@ -24,6 +24,7 @@ public sealed class CalendarController(ICalendarService calendar) : Controller
         var items = await calendar.GetAsync(TimeZoneInfo.ConvertTimeToUtc(DateTime.SpecifyKind(fromLocal, DateTimeKind.Unspecified), zone),
             TimeZoneInfo.ConvertTimeToUtc(DateTime.SpecifyKind(toLocal, DateTimeKind.Unspecified), zone), platform, status, token);
         ViewBag.View = view; ViewBag.Date = center; ViewBag.Platform = platform; ViewBag.Status = status;
+        ViewBag.CanPublishNow = calendar.CanPublishNow;
         return View(items);
     }
 
@@ -34,4 +35,19 @@ public sealed class CalendarController(ICalendarService calendar) : Controller
     [HttpPost("{id:guid}/Cancel"), Authorize(Policy = ApplicationPolicies.ManageContent)]
     public async Task<IActionResult> Cancel(Guid id, CancellationToken token)
     { await calendar.CancelAsync(id, token); return RedirectToAction(nameof(Index)); }
+
+    [HttpPost("{id:guid}/PublishNow"), Authorize(Policy = ApplicationPolicies.ManageContent)]
+    public async Task<IActionResult> PublishNow(Guid id, CancellationToken token)
+    {
+        try
+        {
+            await calendar.PublishNowAsync(id, token);
+            TempData["SuccessMessage"] = "Gönderi publish kuyruğuna alındı.";
+        }
+        catch (InvalidOperationException exception)
+        {
+            TempData["ErrorMessage"] = exception.Message;
+        }
+        return RedirectToAction(nameof(Index));
+    }
 }

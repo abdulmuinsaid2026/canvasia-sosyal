@@ -108,6 +108,48 @@ public sealed class CampaignWorkflowTests
         Assert.False(new CampaignOptions().AutoPublishEnabled);
     }
 
+    [Fact]
+    public async Task Manual_publish_requires_global_publish_switch()
+    {
+        await using var db = CreateContext();
+        var post = new ScheduledPost
+        {
+            GeneratedContentId = Guid.NewGuid(), Platform = Platform.Instagram, Status = ContentStatus.Scheduled,
+            ScheduledAtUtc = DateTime.UtcNow.AddDays(1), IdempotencyKey = "manual-disabled", CreatedByUserId = "tester"
+        };
+        db.ScheduledPosts.Add(post);
+        await db.SaveChangesAsync();
+        var jobs = new RecordingJobs();
+        var service = new CalendarService(db, jobs, new CampaignOptions());
+
+        await Assert.ThrowsAsync<InvalidOperationException>(() => service.PublishNowAsync(post.Id));
+
+        Assert.Empty(jobs.Created);
+        Assert.True(post.ScheduledAtUtc > DateTime.UtcNow);
+    }
+
+    [Fact]
+    public async Task Manual_publish_makes_post_due_and_enqueues_only_that_post()
+    {
+        await using var db = CreateContext();
+        var post = new ScheduledPost
+        {
+            GeneratedContentId = Guid.NewGuid(), Platform = Platform.Instagram, Status = ContentStatus.Scheduled,
+            ScheduledAtUtc = DateTime.UtcNow.AddDays(1), IdempotencyKey = "manual-enabled", CreatedByUserId = "tester"
+        };
+        db.ScheduledPosts.Add(post);
+        await db.SaveChangesAsync();
+        var jobs = new RecordingJobs();
+        var service = new CalendarService(db, jobs, new CampaignOptions { AutoPublishEnabled = true });
+
+        await service.PublishNowAsync(post.Id);
+
+        Assert.True(post.ScheduledAtUtc <= DateTime.UtcNow);
+        var job = Assert.Single(jobs.Created);
+        Assert.Equal(typeof(PublishScheduledPostJob), job.Type);
+        Assert.Equal(post.Id, job.Args[0]);
+    }
+
     private static CampaignService CreateService(ApplicationDbContext db, RecordingJobs jobs) =>
         new(db, jobs, new ScheduleCalculator(), new CampaignOptions());
 

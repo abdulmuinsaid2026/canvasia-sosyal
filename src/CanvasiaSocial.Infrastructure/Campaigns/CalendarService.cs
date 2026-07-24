@@ -1,12 +1,19 @@
 using CanvasiaSocial.Application.Campaigns;
 using CanvasiaSocial.Domain.Enums;
+using CanvasiaSocial.Infrastructure.Jobs;
 using CanvasiaSocial.Infrastructure.Persistence;
+using Hangfire;
 using Microsoft.EntityFrameworkCore;
 
 namespace CanvasiaSocial.Infrastructure.Campaigns;
 
-public sealed class CalendarService(ApplicationDbContext dbContext) : ICalendarService
+public sealed class CalendarService(
+    ApplicationDbContext dbContext,
+    IBackgroundJobClient jobs,
+    CampaignOptions options) : ICalendarService
 {
+    public bool CanPublishNow => options.AutoPublishEnabled;
+
     public async Task<IReadOnlyList<CalendarEntry>> GetAsync(
         DateTime fromUtc, DateTime toUtc, Platform? platform, ContentStatus? status,
         CancellationToken cancellationToken = default)
@@ -52,5 +59,22 @@ public sealed class CalendarService(ApplicationDbContext dbContext) : ICalendarS
         var item = await dbContext.CampaignItems.FirstOrDefaultAsync(x => x.ScheduledPostId == scheduledPostId, cancellationToken);
         if (item is not null) item.Status = ContentStatus.Cancelled;
         await dbContext.SaveChangesAsync(cancellationToken);
+    }
+
+    public async Task PublishNowAsync(Guid scheduledPostId, CancellationToken cancellationToken = default)
+    {
+        if (!options.AutoPublishEnabled)
+            throw new InvalidOperationException("Manuel yayın için AUTO_PUBLISH_ENABLED etkinleştirilmelidir.");
+
+        var post = await dbContext.ScheduledPosts.FirstOrDefaultAsync(x => x.Id == scheduledPostId, cancellationToken)
+            ?? throw new InvalidOperationException("Takvim kaydı bulunamadı.");
+        if (post.Status != ContentStatus.Scheduled)
+            throw new InvalidOperationException("Yalnızca planlanmış gönderiler hemen yayımlanabilir.");
+
+        post.ScheduledAtUtc = DateTime.UtcNow;
+        post.NextRetryAtUtc = null;
+        post.UpdatedAtUtc = DateTime.UtcNow;
+        await dbContext.SaveChangesAsync(cancellationToken);
+        jobs.Enqueue<PublishScheduledPostJob>(job => job.ExecuteAsync(post.Id, CancellationToken.None));
     }
 }
