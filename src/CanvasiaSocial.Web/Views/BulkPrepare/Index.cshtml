@@ -8,7 +8,7 @@
     @foreach (var id in Model.ProductIds) { <input type="hidden" name="ProductIds" value="@id" /> }
     <label>Kampanya adı<input asp-for="Name" required maxlength="300" /></label>
     <label>Platform<select asp-for="Platform" asp-items="Html.GetEnumSelectList<Platform>()"></select></label>
-    <label>Sosyal hesap<select asp-for="SocialAccountId" required><option value="">Hesap seçin</option>@foreach (var account in Model.SocialAccounts) { <option value="@account.Id" data-platform="@account.Platform">@account.DisplayName</option> }</select></label>
+    <label>Sosyal hesap<select asp-for="SocialAccountId" required><option value="">Hesap seçin</option>@foreach (var account in Model.SocialAccounts) { <option value="@account.Id" data-platform="@((int)account.Platform)">@account.DisplayName</option> }</select></label>
     <label>Çalışma biçimi<select asp-for="Mode">@foreach (var mode in Enum.GetValues<CampaignMode>()) { <option value="@mode">@mode.Turkish()</option> }</select></label>
     <label>Başlangıç (Europe/Istanbul)<input asp-for="StartLocal" type="datetime-local" required /></label>
     <label>Gönderiler arası dakika<input asp-for="IntervalMinutes" min="1" max="1440" /></label>
