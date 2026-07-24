@@ -142,7 +142,7 @@ public sealed class InstagramPublisher(HttpClient httpClient, IReadOnlyDictionar
 
     private async Task WaitUntilReadyAsync(string creationId, string token, CancellationToken cancellationToken)
     {
-        for (var attempt = 0; attempt < 15; attempt++)
+        for (var attempt = 0; attempt < 30; attempt++)
         {
             using var request = SocialHttp.Bearer(HttpMethod.Get,
                 new Uri(new Uri(options.ApiBaseUrl), $"{Uri.EscapeDataString(creationId)}?fields=status_code,status").ToString(), token);
@@ -152,7 +152,7 @@ public sealed class InstagramPublisher(HttpClient httpClient, IReadOnlyDictionar
             if (status is "FINISHED") return;
             if (status is "ERROR" or "EXPIRED")
                 throw new SocialPublisherException("Instagram görseli işleyemedi.", SocialPublishFailureKind.InvalidContent, providerErrorCode: status);
-            await Task.Delay(TimeSpan.FromSeconds(2), cancellationToken);
+            await Task.Delay(TimeSpan.FromSeconds(10), cancellationToken);
         }
         throw new SocialPublisherException("Instagram görsel işleme süresi aşıldı.", SocialPublishFailureKind.Transient);
     }

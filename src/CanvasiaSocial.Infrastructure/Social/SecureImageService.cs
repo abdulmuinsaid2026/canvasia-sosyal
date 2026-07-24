@@ -13,6 +13,12 @@ public sealed class SecureImageService(SecureImageOptions options) : ISecureImag
 
     public async Task<Uri> ValidateAndPrepareAsync(string imageUrl, CancellationToken cancellationToken = default)
     {
+        var image = await DownloadAsync(imageUrl, cancellationToken);
+        return image.SourceUrl;
+    }
+
+    public async Task<ValidatedImage> DownloadAsync(string imageUrl, CancellationToken cancellationToken = default)
+    {
         using var timeout = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
         timeout.CancelAfter(TimeSpan.FromSeconds(options.TimeoutSeconds));
         cancellationToken = timeout.Token;
@@ -41,6 +47,7 @@ public sealed class SecureImageService(SecureImageOptions options) : ISecureImag
             if (response.Content.Headers.ContentLength > options.MaxBytes) throw Invalid("Görsel dosyası boyut sınırını aşıyor.");
 
             await using var stream = await response.Content.ReadAsStreamAsync(cancellationToken);
+            await using var content = new MemoryStream();
             var header = new byte[12];
             var read = 0;
             while (read < header.Length)
@@ -50,14 +57,16 @@ public sealed class SecureImageService(SecureImageOptions options) : ISecureImag
                 read += count;
             }
             if (!MatchesMime(header.AsSpan(0, read), mime)) throw Invalid("Görsel içeriği bildirilen MIME türüyle eşleşmiyor.");
+            await content.WriteAsync(header.AsMemory(0, read), cancellationToken);
             long total = read;
             var buffer = new byte[81920];
             while ((read = await stream.ReadAsync(buffer, cancellationToken)) > 0)
             {
                 total += read;
                 if (total > options.MaxBytes) throw Invalid("Görsel dosyası boyut sınırını aşıyor.");
+                await content.WriteAsync(buffer.AsMemory(0, read), cancellationToken);
             }
-            return current;
+            return new ValidatedImage(current, mime, content.ToArray());
         }
         throw Invalid("Görsel doğrulanamadı.");
     }

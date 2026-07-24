@@ -23,7 +23,7 @@ public sealed class BulkPrepareController(IProductCacheService products, ICampai
             Products = await products.GetByIdsAsync(ids, cancellationToken),
             Name = $"Kampanya {DateTime.Now:dd.MM.yyyy}"
         };
-        model.SocialAccounts = await campaigns.GetSocialAccountsAsync(model.Platform, cancellationToken);
+        model.SocialAccounts = await GetAllSocialAccountsAsync(cancellationToken);
         return View(model);
     }
 
@@ -32,9 +32,26 @@ public sealed class BulkPrepareController(IProductCacheService products, ICampai
     {
         if (model.ProductIds.Count is 0 or > 100) return BadRequest("Ürün sınırı aşıldı.");
         var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? User.Identity?.Name ?? "system";
-        var id = await campaigns.CreateAsync(new CreateCampaignRequest(model.Name, model.Platform, model.SocialAccountId,
-            model.Mode, model.StartLocal, model.IntervalMinutes, model.DailyLimit, model.AllowedStartTime,
-            model.AllowedEndTime, model.IncludePrice, model.IncludeProductLink, model.ProductIds, userId), cancellationToken);
-        return RedirectToAction("Details", "Campaigns", new { id });
+        try
+        {
+            var id = await campaigns.CreateAsync(new CreateCampaignRequest(model.Name, model.Platform, model.SocialAccountId,
+                model.Mode, model.StartLocal, model.IntervalMinutes, model.DailyLimit, model.AllowedStartTime,
+                model.AllowedEndTime, model.IncludePrice, model.IncludeProductLink, model.ProductIds, userId), cancellationToken);
+            return RedirectToAction("Details", "Campaigns", new { id });
+        }
+        catch (InvalidOperationException exception)
+        {
+            ModelState.AddModelError(string.Empty, exception.Message);
+            model.Products = await products.GetByIdsAsync(model.ProductIds, cancellationToken);
+            model.SocialAccounts = await GetAllSocialAccountsAsync(cancellationToken);
+            return View("Index", model);
+        }
+    }
+
+    private async Task<IReadOnlyList<SocialAccountOption>> GetAllSocialAccountsAsync(CancellationToken cancellationToken)
+    {
+        var groups = await Task.WhenAll(Enum.GetValues<CanvasiaSocial.Domain.Enums.Platform>()
+            .Select(platform => campaigns.GetSocialAccountsAsync(platform, cancellationToken)));
+        return groups.SelectMany(x => x).ToArray();
     }
 }

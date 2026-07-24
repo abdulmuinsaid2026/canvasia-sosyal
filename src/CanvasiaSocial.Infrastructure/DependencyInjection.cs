@@ -85,6 +85,7 @@ public static class DependencyInjection
         var imageOptions = SecureImageOptions.FromConfiguration(configuration);
         services.AddSingleton(imageOptions);
         services.AddScoped<ISecureImageService, SecureImageService>();
+        services.AddSingleton<ISocialImageTokenService, SocialImageTokenService>();
 
         var openRouterOptions = OpenRouterOptions.FromConfiguration(configuration);
         services.AddSingleton(openRouterOptions);

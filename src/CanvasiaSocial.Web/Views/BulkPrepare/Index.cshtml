@@ -1,14 +1,15 @@
 @using CanvasiaSocial.Domain.Enums
 @model CanvasiaSocial.Web.Models.BulkPrepareViewModel
 @{ ViewData["Title"] = "Toplu Hazırlık"; }
-<section class="page-heading"><p class="eyebrow">KAMPANYA OLUŞTUR</p><h1>Toplu sosyal medya hazırlığı</h1><p>@Model.ProductIds.Count ürün kalıcı AI job kuyruğuna hazırlanacak.</p></section>
+<section class="page-heading"><p class="eyebrow">KAMPANYA OLUŞTUR</p><h1>Toplu sosyal medya hazırlığı</h1><p>@Model.ProductIds.Count ürün kalıcı yapay zekâ iş kuyruğuna hazırlanacak.</p></section>
 <div class="campaign-builder">
 <form asp-action="Start" method="post" class="settings-card form-grid">
+    <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
     @foreach (var id in Model.ProductIds) { <input type="hidden" name="ProductIds" value="@id" /> }
     <label>Kampanya adı<input asp-for="Name" required maxlength="300" /></label>
     <label>Platform<select asp-for="Platform" asp-items="Html.GetEnumSelectList<Platform>()"></select></label>
-    <label>Sosyal hesap<select asp-for="SocialAccountId"><option value="">Daha sonra bağlanacak</option>@foreach (var account in Model.SocialAccounts) { <option value="@account.Id">@account.DisplayName</option> }</select></label>
-    <label>Mod<select asp-for="Mode" asp-items="Html.GetEnumSelectList<CampaignMode>()"></select></label>
+    <label>Sosyal hesap<select asp-for="SocialAccountId" required><option value="">Hesap seçin</option>@foreach (var account in Model.SocialAccounts) { <option value="@account.Id" data-platform="@account.Platform">@account.DisplayName</option> }</select></label>
+    <label>Çalışma biçimi<select asp-for="Mode">@foreach (var mode in Enum.GetValues<CampaignMode>()) { <option value="@mode">@mode.Turkish()</option> }</select></label>
     <label>Başlangıç (Europe/Istanbul)<input asp-for="StartLocal" type="datetime-local" required /></label>
     <label>Gönderiler arası dakika<input asp-for="IntervalMinutes" min="1" max="1440" /></label>
     <label>Günlük limit<input asp-for="DailyLimit" min="1" max="100" /></label>
@@ -20,3 +21,19 @@
 </form>
 <aside class="selected-list"><h2>Seçilen ürünler</h2>@foreach (var p in Model.Products) { <div><strong>@p.Title</strong><span>@p.Price.ToString("N2") TL</span></div> }</aside>
 </div>
+<script>
+(() => {
+    const platform = document.getElementById('Platform');
+    const account = document.getElementById('SocialAccountId');
+    const filterAccounts = () => {
+        for (const option of account.options) {
+            if (!option.dataset.platform) continue;
+            option.hidden = option.dataset.platform !== platform.value;
+            option.disabled = option.hidden;
+        }
+        if (account.selectedOptions[0]?.disabled) account.value = '';
+    };
+    platform.addEventListener('change', filterAccounts);
+    filterAccounts();
+})();
+</script>

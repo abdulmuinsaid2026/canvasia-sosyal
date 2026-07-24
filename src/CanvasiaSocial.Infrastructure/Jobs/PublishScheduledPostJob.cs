@@ -37,6 +37,7 @@ public sealed class PublishScheduledPostJob(
     IEnumerable<ISocialPublisher> publishers,
     ISocialTokenProtector tokenProtector,
     ISecureImageService imageService,
+    ISocialImageTokenService imageTokenService,
     CampaignOptions options,
     ILogger<PublishScheduledPostJob> logger)
 {
@@ -96,6 +97,8 @@ public sealed class PublishScheduledPostJob(
             var image = post.GeneratedContent.ProductCache.Images.OrderByDescending(x => x.IsPrimary).ThenBy(x => x.SortOrder).FirstOrDefault()
                 ?? throw new SocialPublisherException("Üründe yayımlanabilir görsel bulunamadı.", SocialPublishFailureKind.InvalidContent);
             var safeImageUrl = await imageService.ValidateAndPrepareAsync(image.Url, cancellationToken);
+            if (post.Platform == Platform.Instagram)
+                safeImageUrl = imageTokenService.CreateInstagramJpegUrl(post.Id, provider.Configuration.RedirectUri);
             var caption = BuildCaption(post.GeneratedContent);
             var publishRequest = new SocialPostRequest(caption, safeImageUrl, post.IdempotencyKey);
             var contentValidation = await provider.ValidatePostAsync(publishRequest, cancellationToken);

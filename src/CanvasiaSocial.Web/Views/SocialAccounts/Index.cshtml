@@ -6,7 +6,7 @@
 }
 
 <section class="page-heading">
-    <p class="eyebrow">RESMİ OAUTH</p>
+    <p class="eyebrow">RESMÎ YETKİLENDİRME</p>
     <h1>Sosyal hesaplar</h1>
     <p>Hesaplar yalnızca platformların resmî yetkilendirme ekranlarından bağlanır. Kullanıcı adı veya parola saklanmaz.</p>
 </section>
@@ -30,13 +30,13 @@
             </span>
         </div>
         <dl>
-            <dt>Callback</dt><dd>@(string.IsNullOrWhiteSpace(card.RedirectUri) ? "Tanımlı değil" : card.RedirectUri)</dd>
+            <dt>Geri dönüş adresi</dt><dd>@(string.IsNullOrWhiteSpace(card.RedirectUri) ? "Tanımlı değil" : card.RedirectUri)</dd>
             <dt>Yetkiler</dt><dd>@string.Join(", ", card.RequiredScopes)</dd>
         </dl>
         @if (card.IsConfigured && card.Platform is CanvasiaSocial.Domain.Enums.Platform.Instagram or CanvasiaSocial.Domain.Enums.Platform.Facebook)
         {
             <form asp-action="Connect" asp-route-platform="@card.Platform" method="post">
-                <button class="primary-button" type="submit">Resmî OAuth ile bağlan</button>
+                <button class="primary-button" type="submit">Resmî yetkilendirmeyle bağlan</button>
             </form>
         }
         else
@@ -49,7 +49,7 @@
             <section class="connected-account">
                 <div>
                     <strong>@account.DisplayName</strong>
-                    <span>@(account.Username is null ? account.Status : $"@@{account.Username} · {account.Status}")</span>
+                    <span>@(account.Username is null ? UiText.TurkishSystemStatus(account.Status) : $"@@{account.Username} · {UiText.TurkishSystemStatus(account.Status)}")</span>
                 </div>
                 <dl>
                     <dt>Token süresi</dt><dd>@(account.TokenExpiresAtUtc?.ToString("dd.MM.yyyy HH:mm 'UTC'") ?? "Sağlayıcı süre bildirmedi")</dd>

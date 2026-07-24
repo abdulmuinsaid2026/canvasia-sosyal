@@ -150,6 +150,35 @@ public sealed class CampaignWorkflowTests
         Assert.Equal(post.Id, job.Args[0]);
     }
 
+    [Fact]
+    public async Task Failed_publish_can_be_explicitly_requeued()
+    {
+        await using var db = CreateContext();
+        var content = Content(Guid.NewGuid(), Platform.Instagram, ContentStatus.Failed);
+        var post = new ScheduledPost
+        {
+            GeneratedContent = content, GeneratedContentId = content.Id, Platform = Platform.Instagram,
+            Status = ContentStatus.Failed, ScheduledAtUtc = DateTime.UtcNow.AddHours(-1),
+            IdempotencyKey = "manual-retry", CreatedByUserId = "tester", AttemptCount = 3,
+            LastErrorCode = "ERROR", LastErrorMessage = "Instagram görseli işleyemedi."
+        };
+        db.AddRange(content, post);
+        await db.SaveChangesAsync();
+        var jobs = new RecordingJobs();
+        var service = new CalendarService(db, jobs, new CampaignOptions { AutoPublishEnabled = true });
+
+        await service.RetryPublishAsync(post.Id);
+
+        Assert.Equal(ContentStatus.Scheduled, post.Status);
+        Assert.Equal(ContentStatus.Scheduled, content.Status);
+        Assert.Null(post.LastErrorCode);
+        Assert.Null(post.LastErrorMessage);
+        Assert.True(post.ScheduledAtUtc <= DateTime.UtcNow);
+        var job = Assert.Single(jobs.Created);
+        Assert.Equal(typeof(PublishScheduledPostJob), job.Type);
+        Assert.Equal(post.Id, job.Args[0]);
+    }
+
     private static CampaignService CreateService(ApplicationDbContext db, RecordingJobs jobs) =>
         new(db, jobs, new ScheduleCalculator(), new CampaignOptions());
 

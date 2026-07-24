@@ -53,7 +53,7 @@
         {
             <a class="secondary-button inline-button" href="@product.ProductUrl" target="_blank" rel="noopener noreferrer">Canvasia ürününü aç</a>
         }
-        <p class="sync-note">Son cache güncellemesi: @product.SyncedAtUtc.ToLocalTime().ToString("dd.MM.yyyy HH:mm")</p>
+         <p class="sync-note">Son önbellek güncellemesi: @product.SyncedAtUtc.ToLocalTime().ToString("dd.MM.yyyy HH:mm")</p>
     </article>
 </section>
 
@@ -62,7 +62,7 @@
     <section class="content-stack"><h2>Üretilen içerikler</h2>
         @foreach (var content in Model.Contents)
         {
-            <article class="content-card"><div><strong>@content.Platform</strong><span class="status-pill">@content.Status</span></div><p>@content.Caption</p><small>@string.Join(" ", content.Hashtags.Select(x => "#" + x.TrimStart('#')))</small></article>
+            <article class="content-card"><div><strong>@content.Platform</strong><span class="status-pill">@content.Status.Turkish()</span></div><p>@content.Caption</p><small>@string.Join(" ", content.Hashtags.Select(x => "#" + x.TrimStart('#')))</small></article>
         }
     </section>
 }

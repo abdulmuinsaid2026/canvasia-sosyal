@@ -1,9 +1,68 @@
+@using System.Globalization
 @using CanvasiaSocial.Domain.Enums
 @model IReadOnlyList<CanvasiaSocial.Application.Campaigns.CalendarEntry>
-@{ ViewData["Title"] = "Takvim"; var zone = TimeZoneInfo.FindSystemTimeZoneById("Europe/Istanbul"); var canPublishNow = (bool)ViewBag.CanPublishNow; }
-<section class="page-heading"><p class="eyebrow">EUROPE/ISTANBUL</p><h1>İçerik takvimi</h1><p>Planlar UTC saklanır, burada İstanbul saatiyle gösterilir.</p></section>
+@{
+    ViewData["Title"] = "Takvim";
+    var zone = TimeZoneInfo.FindSystemTimeZoneById("Europe/Istanbul");
+    var culture = CultureInfo.GetCultureInfo("tr-TR");
+    var canPublishNow = (bool)ViewBag.CanPublishNow;
+    var currentView = (string)ViewBag.View;
+    var currentPlatform = (Platform?)ViewBag.Platform;
+    var currentStatus = (ContentStatus?)ViewBag.Status;
+}
+<section class="page-heading">
+    <p class="eyebrow">İSTANBUL SAATİ</p>
+    <h1>İçerik takvimi</h1>
+    <p>Planlanan ve yayımlanan içerikleri İstanbul saatiyle yönetin.</p>
+</section>
 @if (TempData["SuccessMessage"] is string successMessage) { <div class="notice notice-success" role="status">@successMessage</div> }
 @if (TempData["ErrorMessage"] is string errorMessage) { <div class="notice notice-error" role="alert">@errorMessage</div> }
-@if (!canPublishNow) { <div class="notice notice-error" role="alert">Manuel veya otomatik yayın kapalı. Gerçek gönderim için önce Railway'de AUTO_PUBLISH_ENABLED=true yapıp Web ve Worker'ı yeniden deploy edin.</div> }
-<form method="get" class="filter-panel calendar-filter"><label>Görünüm<select name="view"><option value="day">Gün</option><option value="week">Hafta</option><option value="month" selected>Ay</option></select></label><label>Tarih<input type="date" name="date" value="@(((DateTime)ViewBag.Date).ToString("yyyy-MM-dd"))" /></label><label>Platform<select name="platform"><option value="">Tümü</option>@foreach (var p in Enum.GetValues<Platform>()) { <option value="@p">@p</option> }</select></label><label>Durum<select name="status"><option value="">Tümü</option>@foreach (var s in Enum.GetValues<ContentStatus>()) { <option value="@s">@s</option> }</select></label><button class="primary-button compact">Göster</button></form>
-<div class="calendar-list">@foreach (var item in Model) { var local = TimeZoneInfo.ConvertTimeFromUtc(DateTime.SpecifyKind(item.ScheduledAtUtc, DateTimeKind.Utc), zone); <article class="calendar-card"><time><strong>@local.ToString("dd")</strong><span>@local.ToString("MMM HH:mm")</span></time><div><p class="eyebrow">@item.Platform · @item.Status</p><h2>@item.ProductTitle</h2><span>@item.CampaignName</span></div><form asp-action="Reschedule" asp-route-id="@item.ScheduledPostId" method="post"><input type="datetime-local" name="localTime" value="@local.ToString("yyyy-MM-ddTHH:mm")" /><button class="secondary-button">Değiştir</button></form>@if (item.Status == ContentStatus.Scheduled) { <form asp-action="PublishNow" asp-route-id="@item.ScheduledPostId" method="post" onsubmit="return confirm('Bu gönderi şimdi Instagram API üzerinden yayımlansın mı?');"><button class="primary-button compact" disabled="@(!canPublishNow)">Şimdi yayınla</button></form> }<form asp-action="Cancel" asp-route-id="@item.ScheduledPostId" method="post"><button class="text-button">İptal</button></form></article> }</div>
+@if (!canPublishNow) { <div class="notice notice-error" role="alert">Gerçek yayın kapalı. Yayınlamak için sistem yöneticinizin gönderimi etkinleştirmesi gerekir.</div> }
+<form method="get" class="filter-panel calendar-filter">
+    <label>Görünüm<select name="view"><option value="day" selected="@(currentView == "day")">Gün</option><option value="week" selected="@(currentView == "week")">Hafta</option><option value="month" selected="@(currentView == "month")">Ay</option></select></label>
+    <label>Tarih<input type="date" name="date" value="@(((DateTime)ViewBag.Date).ToString("yyyy-MM-dd"))" /></label>
+    <label>Platform<select name="platform"><option value="">Tümü</option>@foreach (var platform in Enum.GetValues<Platform>()) { <option value="@platform" selected="@(currentPlatform == platform)">@platform</option> }</select></label>
+    <label>Durum<select name="status"><option value="">Tümü</option>@foreach (var status in Enum.GetValues<ContentStatus>()) { <option value="@status" selected="@(currentStatus == status)">@status.Turkish()</option> }</select></label>
+    <button class="primary-button compact">Göster</button>
+</form>
+@if (Model.Count == 0)
+{
+    <section class="empty-state compact-state"><h2>Kayıt bulunamadı</h2><p>Seçtiğiniz tarih ve filtrelerde takvim kaydı yok.</p></section>
+}
+<div class="calendar-list">
+@foreach (var item in Model)
+{
+    var local = TimeZoneInfo.ConvertTimeFromUtc(DateTime.SpecifyKind(item.ScheduledAtUtc, DateTimeKind.Utc), zone);
+    <article class="calendar-card @(item.Status == ContentStatus.Failed ? "calendar-card-failed" : null)">
+        <time datetime="@local.ToString("O")"><strong>@local.ToString("dd")</strong><span>@local.ToString("MMM HH:mm", culture)</span></time>
+        <div class="calendar-content">
+            <p class="eyebrow">@item.Platform · @item.Status.Turkish()</p>
+            <h2>@item.ProductTitle</h2>
+            <span>@item.CampaignName</span>
+            @if (item.Status == ContentStatus.Failed)
+            {
+                <div class="publish-error" role="alert">
+                    <strong>Yayın başarısız oldu</strong>
+                    <p>@(item.LastErrorMessage ?? "Platform hata ayrıntısı bildirmedi.")</p>
+                    <small>@UiText.PublishErrorAdvice(item.LastErrorCode, item.LastErrorMessage) · Deneme: @item.AttemptCount</small>
+                </div>
+            }
+        </div>
+        <div class="calendar-actions">
+            @if (item.Status == ContentStatus.Scheduled)
+            {
+                <form asp-action="Reschedule" asp-route-id="@item.ScheduledPostId" method="post"><input type="datetime-local" name="localTime" value="@local.ToString("yyyy-MM-ddTHH:mm")" /><button class="secondary-button">Zamanı değiştir</button></form>
+                <form asp-action="PublishNow" asp-route-id="@item.ScheduledPostId" method="post" onsubmit="return confirm('Bu gönderi şimdi @item.Platform üzerinde yayımlansın mı?');"><button class="primary-button compact" disabled="@(!canPublishNow)">Şimdi yayınla</button></form>
+            }
+            @if (item.Status == ContentStatus.Failed)
+            {
+                <form asp-action="RetryPublish" asp-route-id="@item.ScheduledPostId" method="post" onsubmit="return confirm('Bu gönderi yeniden @item.Platform üzerinde yayımlansın mı?');"><button class="primary-button compact" disabled="@(!canPublishNow)">Yeniden yayınla</button></form>
+            }
+            @if (item.Status is ContentStatus.Scheduled or ContentStatus.Failed)
+            {
+                <form asp-action="Cancel" asp-route-id="@item.ScheduledPostId" method="post"><button class="text-button">İptal et</button></form>
+            }
+        </div>
+    </article>
+}
+</div>

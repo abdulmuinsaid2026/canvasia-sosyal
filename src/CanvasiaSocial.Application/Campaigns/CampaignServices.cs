@@ -31,6 +31,7 @@ public interface ICalendarService
     Task RescheduleAsync(Guid scheduledPostId, DateTime localTime, CancellationToken cancellationToken = default);
     Task CancelAsync(Guid scheduledPostId, CancellationToken cancellationToken = default);
     Task PublishNowAsync(Guid scheduledPostId, CancellationToken cancellationToken = default);
+    Task RetryPublishAsync(Guid scheduledPostId, CancellationToken cancellationToken = default);
 }
 
 public interface IScheduleCalculator

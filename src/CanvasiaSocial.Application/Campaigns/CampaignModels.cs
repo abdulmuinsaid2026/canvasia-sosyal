@@ -36,7 +36,8 @@ public sealed record CampaignItemDetails(
     ContentStatus Status,
     string? Caption,
     string? Error,
-    DateTime? ScheduledAtUtc);
+    DateTime? ScheduledAtUtc,
+    Guid? ScheduledPostId);
 
 public sealed record CampaignDetails(
     Guid Id,
@@ -68,6 +69,9 @@ public sealed record CalendarEntry(
     Platform Platform,
     ContentStatus Status,
     DateTime ScheduledAtUtc,
-    string TimeZoneId);
+    string TimeZoneId,
+    int AttemptCount,
+    string? LastErrorCode,
+    string? LastErrorMessage);
 
 public sealed record SocialAccountOption(Guid Id, Platform Platform, string DisplayName);

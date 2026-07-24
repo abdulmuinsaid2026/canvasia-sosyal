@@ -23,6 +23,9 @@ public sealed class CampaignService(
         }
         if (string.IsNullOrWhiteSpace(request.Name)) throw new InvalidOperationException("Kampanya adı zorunludur.");
         if (request.AllowedStartTime >= request.AllowedEndTime) throw new InvalidOperationException("İzin verilen saat aralığı geçersiz.");
+        if (!request.SocialAccountId.HasValue || !await dbContext.SocialAccounts.AsNoTracking().AnyAsync(x =>
+                x.Id == request.SocialAccountId.Value && x.Platform == request.Platform && x.Status == "Active", cancellationToken))
+            throw new InvalidOperationException("Kampanya için etkin ve platformla eşleşen bir sosyal hesap seçilmelidir.");
         var products = await dbContext.ProductCaches.AsNoTracking().Where(x => productIds.Contains(x.Id)).Select(x => x.Id).ToListAsync(cancellationToken);
         if (products.Count != productIds.Length) throw new InvalidOperationException("Seçilen ürünlerden biri cache içinde bulunamadı.");
 
@@ -78,7 +81,8 @@ public sealed class CampaignService(
         return new CampaignDetails(campaign.Id, campaign.Name, campaign.Platform, campaign.Mode, campaign.Status,
             campaign.TotalItems, campaign.CompletedItems, campaign.FailedItems, campaign.StartAtUtc, campaign.TimeZoneId,
             campaign.Items.OrderBy(x => x.SortOrder).Select(x => new CampaignItemDetails(x.Id, x.ProductCacheId,
-                x.ProductCache.Title, x.Status, x.GeneratedContent?.Caption, x.ErrorMessage, x.ScheduledPost?.ScheduledAtUtc)).ToArray());
+                x.ProductCache.Title, x.Status, x.GeneratedContent?.Caption, x.ErrorMessage,
+                x.ScheduledPost?.ScheduledAtUtc, x.ScheduledPostId)).ToArray());
     }
 
     public Task PauseAsync(Guid id, CancellationToken cancellationToken = default) =>

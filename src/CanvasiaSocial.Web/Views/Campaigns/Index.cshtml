@@ -1,6 +1,6 @@
 @model IReadOnlyList<CanvasiaSocial.Application.Campaigns.CampaignListItem>
 @{ ViewData["Title"] = "Kampanyalar"; }
-<section class="page-heading"><p class="eyebrow">TOPLU ÜRETİM</p><h1>Kampanyalar</h1><p>Kalıcı job ilerlemesi ve kampanya durumları.</p></section>
+<section class="page-heading"><p class="eyebrow">TOPLU ÜRETİM</p><h1>Kampanyalar</h1><p>İçerik hazırlama ilerlemesini ve kampanya durumlarını izleyin.</p></section>
 <div class="table-wrap"><table><thead><tr><th>Kampanya</th><th>Durum</th><th>Platform</th><th>Toplam</th><th>Hazır</th><th>Başarısız</th><th>Başlangıç</th><th></th></tr></thead><tbody>
-@foreach (var item in Model) { <tr><td>@item.Name</td><td>@item.Status</td><td>@item.Platform</td><td>@item.TotalItems</td><td>@item.CompletedItems</td><td>@item.FailedItems</td><td>@(item.StartAtUtc?.ToLocalTime().ToString("dd.MM.yyyy HH:mm") ?? "-")</td><td><a asp-action="Details" asp-route-id="@item.Id">Ayrıntı</a></td></tr> }
+@foreach (var item in Model) { <tr><td>@item.Name</td><td>@item.Status.Turkish()</td><td>@item.Platform</td><td>@item.TotalItems</td><td>@item.CompletedItems</td><td>@item.FailedItems</td><td>@(item.StartAtUtc?.ToLocalTime().ToString("dd.MM.yyyy HH:mm") ?? "-")</td><td><a asp-action="Details" asp-route-id="@item.Id">Ayrıntı</a></td></tr> }
 </tbody></table></div>

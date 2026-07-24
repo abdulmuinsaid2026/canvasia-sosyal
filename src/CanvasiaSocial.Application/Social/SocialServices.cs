@@ -34,4 +34,13 @@ public interface ISocialTokenProtector
 public interface ISecureImageService
 {
     Task<Uri> ValidateAndPrepareAsync(string imageUrl, CancellationToken cancellationToken = default);
+    Task<ValidatedImage> DownloadAsync(string imageUrl, CancellationToken cancellationToken = default);
+}
+
+public sealed record ValidatedImage(Uri SourceUrl, string MimeType, byte[] Content);
+
+public interface ISocialImageTokenService
+{
+    Uri CreateInstagramJpegUrl(Guid scheduledPostId, string redirectUri);
+    bool IsValidInstagramJpegToken(Guid scheduledPostId, string token);
 }

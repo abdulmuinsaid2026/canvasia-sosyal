@@ -121,7 +121,7 @@ public sealed class PublishScheduledPostJobTests
             await db.SaveChangesAsync();
             var provider = new FakePublisher();
             ISocialPublisher[] providers = [provider, new DisabledPublisher(Platform.Facebook), new DisabledPublisher(Platform.TikTok), new DisabledPublisher(Platform.Pinterest)];
-            var job = new PublishScheduledPostJob(db, providers, protector, new FakeImageService(), options,
+            var job = new PublishScheduledPostJob(db, providers, protector, new FakeImageService(), new FakeImageTokenService(), options,
                 NullLogger<PublishScheduledPostJob>.Instance);
             return new Fixture(db, provider, post, job);
         }
@@ -156,6 +156,14 @@ public sealed class PublishScheduledPostJobTests
     private sealed class FakeImageService : ISecureImageService
     {
         public Task<Uri> ValidateAndPrepareAsync(string imageUrl, CancellationToken cancellationToken = default) => Task.FromResult(new Uri(imageUrl));
+        public Task<ValidatedImage> DownloadAsync(string imageUrl, CancellationToken cancellationToken = default) =>
+            Task.FromResult(new ValidatedImage(new Uri(imageUrl), "image/jpeg", [0xFF, 0xD8, 0xFF]));
+    }
+
+    private sealed class FakeImageTokenService : ISocialImageTokenService
+    {
+        public Uri CreateInstagramJpegUrl(Guid scheduledPostId, string redirectUri) => new("https://example.test/image.jpg");
+        public bool IsValidInstagramJpegToken(Guid scheduledPostId, string token) => true;
     }
 
     private sealed class DisabledPublisher(Platform platform) : ISocialPublisher

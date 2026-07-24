@@ -42,7 +42,22 @@ public sealed class CalendarController(ICalendarService calendar) : Controller
         try
         {
             await calendar.PublishNowAsync(id, token);
-            TempData["SuccessMessage"] = "Gönderi publish kuyruğuna alındı.";
+            TempData["SuccessMessage"] = "Gönderi yayın kuyruğuna alındı.";
+        }
+        catch (InvalidOperationException exception)
+        {
+            TempData["ErrorMessage"] = exception.Message;
+        }
+        return RedirectToAction(nameof(Index));
+    }
+
+    [HttpPost("{id:guid}/RetryPublish"), Authorize(Policy = ApplicationPolicies.ManageContent)]
+    public async Task<IActionResult> RetryPublish(Guid id, CancellationToken token)
+    {
+        try
+        {
+            await calendar.RetryPublishAsync(id, token);
+            TempData["SuccessMessage"] = "Gönderi yeniden yayın kuyruğuna alındı.";
         }
         catch (InvalidOperationException exception)
         {

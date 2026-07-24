@@ -6,7 +6,7 @@
 <section class="page-heading">
     <p class="eyebrow">ENTEGRASYON</p>
     <h1>Canvasia ayarları</h1>
-    <p>Bağlantı durumunu doğrulayın ve ürün cache senkronizasyonunu yönetin.</p>
+    <p>Bağlantı durumunu doğrulayın ve ürün önbelleği eşitlemesini yönetin.</p>
 </section>
 
 @if (!string.IsNullOrWhiteSpace(Model.ResultMessage))
@@ -18,9 +18,9 @@
     <article class="settings-card">
         <h2>Bağlantı</h2>
         <dl>
-            <dt>Base URL</dt><dd>@(string.IsNullOrWhiteSpace(Model.Configuration.BaseUrl) ? "Tanımlı değil" : Model.Configuration.BaseUrl)</dd>
+            <dt>Temel adres</dt><dd>@(string.IsNullOrWhiteSpace(Model.Configuration.BaseUrl) ? "Tanımlı değil" : Model.Configuration.BaseUrl)</dd>
             <dt>API anahtarı</dt><dd>@(Model.Configuration.IsApiKeyConfigured ? "Tanımlı" : "Tanımlı değil")</dd>
-            <dt>İstek timeout</dt><dd>@Model.Configuration.RequestTimeoutSeconds saniye</dd>
+            <dt>İstek zaman aşımı</dt><dd>@Model.Configuration.RequestTimeoutSeconds saniye</dd>
         </dl>
         <div class="button-row">
             <form asp-action="TestConnection" method="post"><button class="secondary-button" type="submit">Bağlantıyı test et</button></form>
@@ -30,12 +30,12 @@
     <article class="settings-card">
         <h2>Senkronizasyon</h2>
         <dl>
-            <dt>Durum</dt><dd>@Model.SyncStatus.Status</dd>
+            <dt>Durum</dt><dd>@UiText.TurkishSystemStatus(Model.SyncStatus.Status)</dd>
             <dt>Son başarılı çalışma</dt><dd>@(Model.SyncStatus.LastSuccessfulAtUtc?.ToLocalTime().ToString("dd.MM.yyyy HH:mm") ?? "Henüz yok")</dd>
             <dt>İşlenen ürün</dt><dd>@Model.SyncStatus.ProcessedProductCount.ToString("N0")</dd>
-            <dt>Cache toplamı</dt><dd>@Model.CachedProductCount.ToString("N0")</dd>
+            <dt>Önbellek toplamı</dt><dd>@Model.CachedProductCount.ToString("N0")</dd>
             <dt>Sayfa boyutu</dt><dd>@Model.Configuration.PageSize</dd>
-            <dt>Periyodik cron</dt><dd><code>@Model.Configuration.SyncCron</code></dd>
+            <dt>Çalışma zamanlaması</dt><dd><code>@Model.Configuration.SyncCron</code></dd>
         </dl>
         <form asp-action="Sync" method="post"><button class="primary-button inline-button" type="submit">Manuel senkronizasyonu başlat</button></form>
     </article>
