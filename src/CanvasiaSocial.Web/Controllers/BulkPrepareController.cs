@@ -17,10 +17,11 @@ public sealed class BulkPrepareController(IProductCacheService products, ICampai
     {
         var ids = productIds.Distinct().Take(101).ToList();
         if (ids.Count is 0 or > 100 || ids.Count != productIds.Count) return BadRequest("1 ile 100 arasında benzersiz ürün seçilmelidir.");
+        var productsList = await products.GetByIdsAsync(ids, cancellationToken);
         var model = new BulkPrepareViewModel
         {
             ProductIds = ids,
-            Products = await products.GetByIdsAsync(ids, cancellationToken),
+            Products = productsList,
             Name = $"Kampanya {DateTime.Now:dd.MM.yyyy}"
         };
         model.SocialAccounts = await GetAllSocialAccountsAsync(cancellationToken);

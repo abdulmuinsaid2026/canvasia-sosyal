@@ -67,9 +67,12 @@ public sealed class CampaignService(
             .Select(x => new CampaignListItem(x.Id, x.Name, x.Platform, x.Mode, x.Status, x.TotalItems,
                 x.CompletedItems, x.FailedItems, x.StartAtUtc, x.CreatedAtUtc)).ToListAsync(cancellationToken);
 
-    public async Task<IReadOnlyList<SocialAccountOption>> GetSocialAccountsAsync(Platform platform, CancellationToken cancellationToken = default) =>
-        await dbContext.SocialAccounts.AsNoTracking().Where(x => x.Platform == platform && x.Status == "Active")
+    public async Task<IReadOnlyList<SocialAccountOption>> GetSocialAccountsAsync(Platform platform, CancellationToken cancellationToken = default)
+    {
+        var accounts = await dbContext.SocialAccounts.AsNoTracking().Where(x => x.Platform == platform && x.Status == "Active")
             .OrderBy(x => x.DisplayName).Select(x => new SocialAccountOption(x.Id, x.Platform, x.DisplayName)).ToListAsync(cancellationToken);
+        return accounts;
+    }
 
     public async Task<CampaignDetails?> GetDetailsAsync(Guid id, CancellationToken cancellationToken = default)
     {
