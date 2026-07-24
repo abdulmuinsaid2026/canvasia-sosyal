@@ -1,4 +1,5 @@
 # syntax=docker/dockerfile:1
+ARG CANVASIA_RUNTIME_TARGET=web-final
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
 
@@ -36,3 +37,7 @@ USER app
 EXPOSE 8081
 HEALTHCHECK --interval=15s --timeout=3s --start-period=20s --retries=3 CMD curl --fail --silent http://localhost:8081/health/live || exit 1
 ENTRYPOINT ["dotnet", "CanvasiaSocial.Worker.dll"]
+
+# Railway builds the final stage by default. Web is the safe default; the Worker
+# service selects worker-final with CANVASIA_RUNTIME_TARGET=worker-final.
+FROM ${CANVASIA_RUNTIME_TARGET} AS final

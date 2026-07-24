@@ -139,7 +139,7 @@ Web ve Worker için aynı repository'den iki servis oluşturun. PostgreSQL servi
 
 Web:
 
-- Docker target: `web-final`
+- Dockerfile varsayılan final stage: `web-final`
 - Start command: image varsayılan entrypoint'i
 - Health path: `/health/ready`
 - Public domain: `sosyalmedya.canvasia.com.tr`
@@ -150,7 +150,7 @@ Web:
 
 Worker:
 
-- Docker target: `worker-final`
+- `CANVASIA_RUNTIME_TARGET=worker-final` build/service variable
 - Health path: `/health/ready`, port `8081`
 - Public domain gerekmez
 - `DATA_PROTECTION_STORE=database` ile Web ile aynı PostgreSQL key ring'i kullanılmalıdır
