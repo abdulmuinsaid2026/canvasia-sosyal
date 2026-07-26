@@ -67,6 +67,7 @@ public sealed class GenerateSocialContentJob(
         job.Status = ContentStatus.Generating;
         await dbContext.SaveChangesAsync(cancellationToken);
 
+        var contentGenerated = false;
         try
         {
             var product = job.ProductCache;
@@ -90,6 +91,7 @@ public sealed class GenerateSocialContentJob(
             job.ModelName = result.ModelName;
             job.CompletedAtUtc = DateTime.UtcNow;
             await dbContext.SaveChangesAsync(cancellationToken);
+            contentGenerated = true;
         }
         catch (Exception exception) when (exception is not OperationCanceledException)
         {
@@ -102,6 +104,18 @@ public sealed class GenerateSocialContentJob(
             job.CampaignItem.UpdatedAtUtc = DateTime.UtcNow;
             logger.LogError("Ürün içerik üretimi başarısız. Job: {JobId}, hata: {Error}", job.Id, safeError);
             await dbContext.SaveChangesAsync(CancellationToken.None);
+        }
+
+        if (contentGenerated && campaign.Mode == CampaignMode.AutoSchedule)
+        {
+            try
+            {
+                await campaignService.ScheduleAsync(campaign.Id, cancellationToken);
+            }
+            catch (Exception exception) when (exception is not OperationCanceledException)
+            {
+                logger.LogError(exception, "Üretilen içerik takvime aktarılamadı. Kampanya: {CampaignId}", campaign.Id);
+            }
         }
 
         await FinalizeCampaignAsync(campaign.Id, cancellationToken);
