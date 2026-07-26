@@ -222,6 +222,8 @@ public sealed class CampaignService(
             await dbContext.SaveChangesAsync(cancellationToken);
             return;
         }
+        var socialAccountId = await ResolveActiveSocialAccountIdAsync(campaign.SocialAccountId, campaign.Platform, cancellationToken);
+        campaign.SocialAccountId = socialAccountId;
 
         var startUtc = campaign.StartAtUtc ?? DateTime.UtcNow;
         var zone = TimeZoneInfo.FindSystemTimeZoneById(campaign.TimeZoneId);
@@ -245,7 +247,7 @@ public sealed class CampaignService(
             }
             var post = new ScheduledPost
             {
-                SocialAccountId = campaign.SocialAccountId,
+                SocialAccountId = socialAccountId,
                 GeneratedContentId = item.GeneratedContentId!.Value,
                 Platform = campaign.Platform,
                 Status = ContentStatus.Scheduled,
@@ -261,6 +263,26 @@ public sealed class CampaignService(
         campaign.EndAtUtc = times.LastOrDefault();
         campaign.UpdatedAtUtc = DateTime.UtcNow;
         await dbContext.SaveChangesAsync(cancellationToken);
+    }
+
+    private async Task<Guid> ResolveActiveSocialAccountIdAsync(
+        Guid? selectedAccountId, Platform platform, CancellationToken cancellationToken)
+    {
+        if (selectedAccountId.HasValue && await dbContext.SocialAccounts.AsNoTracking().AnyAsync(x =>
+                x.Id == selectedAccountId.Value && x.Platform == platform && x.Status == "Active", cancellationToken))
+        {
+            return selectedAccountId.Value;
+        }
+
+        var activeAccountIds = await dbContext.SocialAccounts.AsNoTracking()
+            .Where(x => x.Platform == platform && x.Status == "Active")
+            .Select(x => x.Id).Take(2).ToListAsync(cancellationToken);
+        return activeAccountIds.Count switch
+        {
+            1 => activeAccountIds[0],
+            0 => throw new InvalidOperationException("Yayın için etkin ve platformla eşleşen bir sosyal hesap bulunamadı."),
+            _ => throw new InvalidOperationException("Birden fazla etkin sosyal hesap bulundu. Kampanyadan yayın hesabı seçilmelidir.")
+        };
     }
 
     public static AiGenerationJob CreateGenerationJob(CampaignItem item) => new()
