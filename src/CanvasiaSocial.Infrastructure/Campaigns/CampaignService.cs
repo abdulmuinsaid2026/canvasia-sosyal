@@ -139,6 +139,52 @@ public sealed class CampaignService(
         jobs.Enqueue<GenerateSocialContentJob>(job => job.ExecuteAsync(generationJob.Id, CancellationToken.None));
     }
 
+    public async Task RetryFailedItemsAsync(Guid campaignId, CancellationToken cancellationToken = default)
+    {
+        var campaign = await dbContext.Campaigns.Include(x => x.Items)
+            .FirstOrDefaultAsync(x => x.Id == campaignId, cancellationToken)
+            ?? throw new InvalidOperationException("Kampanya bulunamadı.");
+        if (campaign.Status == CampaignStatus.Cancelled) throw new InvalidOperationException("İptal edilmiş kampanya yeniden denenemez.");
+
+        var failedItems = campaign.Items.Where(x =>
+            x.Status == ContentStatus.Failed && x.GeneratedContentId == null && x.ScheduledPostId == null).ToArray();
+        if (failedItems.Length == 0) return;
+
+        var itemIds = failedItems.Select(x => x.Id).ToArray();
+        var generationJobs = await dbContext.AiGenerationJobs
+            .Where(x => x.CampaignItemId.HasValue && itemIds.Contains(x.CampaignItemId.Value))
+            .ToDictionaryAsync(x => x.CampaignItemId!.Value, cancellationToken);
+        var jobsToEnqueue = new List<AiGenerationJob>(failedItems.Length);
+
+        foreach (var item in failedItems)
+        {
+            item.Status = ContentStatus.Generating;
+            item.ErrorMessage = null;
+            item.RetryCount++;
+            if (!generationJobs.TryGetValue(item.Id, out var generationJob))
+            {
+                generationJob = CreateGenerationJob(item);
+                dbContext.AiGenerationJobs.Add(generationJob);
+            }
+            else
+            {
+                generationJob.Status = ContentStatus.Generating;
+                generationJob.ErrorMessage = null;
+                generationJob.CompletedAtUtc = null;
+            }
+            jobsToEnqueue.Add(generationJob);
+        }
+
+        campaign.Status = CampaignStatus.Preparing;
+        campaign.FailedItems = campaign.Items.Count(x => x.Status == ContentStatus.Failed);
+        campaign.UpdatedAtUtc = DateTime.UtcNow;
+        await dbContext.SaveChangesAsync(cancellationToken);
+        foreach (var generationJob in jobsToEnqueue)
+        {
+            jobs.Enqueue<GenerateSocialContentJob>(job => job.ExecuteAsync(generationJob.Id, CancellationToken.None));
+        }
+    }
+
     public async Task ApproveAsync(Guid campaignId, string userId, CancellationToken cancellationToken = default)
     {
         var campaign = await dbContext.Campaigns.Include(x => x.Items).ThenInclude(x => x.GeneratedContent)
@@ -171,13 +217,20 @@ public sealed class CampaignService(
             skipped.ErrorMessage = "Ürün bu platformda daha önce yayımlandı.";
             items.Remove(skipped);
         }
+        if (items.Count == 0)
+        {
+            await dbContext.SaveChangesAsync(cancellationToken);
+            return;
+        }
 
         var startUtc = campaign.StartAtUtc ?? DateTime.UtcNow;
         var zone = TimeZoneInfo.FindSystemTimeZoneById(campaign.TimeZoneId);
         var startLocal = TimeZoneInfo.ConvertTimeFromUtc(DateTime.SpecifyKind(startUtc, DateTimeKind.Utc), zone);
+        var allocatedSlotCount = campaign.Items.Count(x => x.ScheduledPostId.HasValue);
         var times = scheduleCalculator.Calculate(new ScheduleRequest(startLocal, campaign.TimeZoneId,
             campaign.AllowedStartTime ?? new TimeOnly(9, 0), campaign.AllowedEndTime ?? new TimeOnly(21, 0),
-            Math.Max(1, campaign.IntervalMinutes), Math.Max(1, campaign.DailyLimit ?? options.GetPlatformDailyLimit(campaign.Platform)), items.Count));
+            Math.Max(1, campaign.IntervalMinutes), Math.Max(1, campaign.DailyLimit ?? options.GetPlatformDailyLimit(campaign.Platform)),
+            allocatedSlotCount + items.Count)).Skip(allocatedSlotCount).ToArray();
 
         for (var index = 0; index < items.Count; index++)
         {
