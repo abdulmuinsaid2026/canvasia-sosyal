@@ -24,6 +24,8 @@ public sealed class DraftsController(IDraftService drafts) : Controller
     [HttpPost("Schedule"), Authorize(Policy = ApplicationPolicies.ManageContent)]
     public async Task<IActionResult> Schedule(List<Guid> contentIds, CancellationToken token)
     {
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? User.Identity?.Name ?? "system";
+        await drafts.ReviewAsync(contentIds, true, userId, token);
         await drafts.ScheduleApprovedAsync(contentIds, token);
         return RedirectToAction(nameof(Index));
     }
