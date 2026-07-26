@@ -121,6 +121,32 @@ public sealed class CampaignWorkflowTests
     }
 
     [Fact]
+    public async Task Approved_unscheduled_content_stays_visible_until_scheduled()
+    {
+        await using var db = CreateContext();
+        var campaign = SeedCampaign(db, 1);
+        var item = campaign.Items.Single();
+        var content = Content(item.ProductCacheId, campaign.Platform, ContentStatus.AwaitingApproval);
+        db.GeneratedContents.Add(content);
+        item.GeneratedContent = content;
+        item.GeneratedContentId = content.Id;
+        item.Status = ContentStatus.AwaitingApproval;
+        await db.SaveChangesAsync();
+        var campaignService = CreateService(db, new RecordingJobs());
+        var drafts = new DraftService(db, campaignService);
+
+        await drafts.ReviewAsync([content.Id], true, "reviewer");
+
+        Assert.Contains(await drafts.GetPendingAsync(), x => x.Id == content.Id && x.Status == ContentStatus.Approved);
+
+        await drafts.ScheduleApprovedAsync([content.Id]);
+
+        Assert.DoesNotContain(await drafts.GetPendingAsync(), x => x.Id == content.Id);
+        Assert.NotNull(item.ScheduledPostId);
+        Assert.Equal(ContentStatus.Scheduled, item.Status);
+    }
+
+    [Fact]
     public async Task One_product_failure_does_not_stop_other_campaign_items()
     {
         await using var db = CreateContext();
