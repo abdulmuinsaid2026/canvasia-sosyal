@@ -86,6 +86,7 @@ public sealed class CalendarService(
         if (post.Status != ContentStatus.Scheduled)
             throw new InvalidOperationException("Yalnızca planlanmış gönderiler hemen yayımlanabilir.");
 
+        post.SocialAccountId = await ResolveActiveSocialAccountIdAsync(post.SocialAccountId, post.Platform, cancellationToken);
         post.ScheduledAtUtc = DateTime.UtcNow;
         post.NextRetryAtUtc = null;
         post.UpdatedAtUtc = DateTime.UtcNow;
@@ -100,7 +101,7 @@ public sealed class CalendarService(
 
         var snapshot = await dbContext.ScheduledPosts.AsNoTracking()
             .Where(x => x.Id == scheduledPostId)
-            .Select(x => new { x.Status, x.GeneratedContentId, x.LastErrorCode })
+            .Select(x => new { x.Status, x.GeneratedContentId, x.LastErrorCode, x.SocialAccountId, x.Platform })
             .FirstOrDefaultAsync(cancellationToken)
             ?? throw new InvalidOperationException("Takvim kaydı bulunamadı.");
         if (snapshot.Status != ContentStatus.Failed)
@@ -112,6 +113,7 @@ public sealed class CalendarService(
             throw new InvalidOperationException("Bu gönderi platformda daha önce yayımlanmış. Çift gönderiyi önlemek için işlem durduruldu.");
 
         var now = DateTime.UtcNow;
+        var socialAccountId = await ResolveActiveSocialAccountIdAsync(snapshot.SocialAccountId, snapshot.Platform, cancellationToken);
         if (dbContext.Database.IsRelational())
         {
             var changed = await dbContext.ScheduledPosts
@@ -120,6 +122,7 @@ public sealed class CalendarService(
                     .SetProperty(x => x.Status, ContentStatus.Scheduled)
                     .SetProperty(x => x.ScheduledAtUtc, now)
                     .SetProperty(x => x.NextRetryAtUtc, (DateTime?)null)
+                    .SetProperty(x => x.SocialAccountId, socialAccountId)
                     .SetProperty(x => x.LastErrorCode, (string?)null)
                     .SetProperty(x => x.LastErrorMessage, (string?)null)
                     .SetProperty(x => x.UpdatedAtUtc, now), cancellationToken);
@@ -131,6 +134,7 @@ public sealed class CalendarService(
             post.Status = ContentStatus.Scheduled;
             post.ScheduledAtUtc = now;
             post.NextRetryAtUtc = null;
+            post.SocialAccountId = socialAccountId;
             post.LastErrorCode = null;
             post.LastErrorMessage = null;
             post.UpdatedAtUtc = now;
@@ -147,5 +151,25 @@ public sealed class CalendarService(
         }
         await dbContext.SaveChangesAsync(cancellationToken);
         jobs.Enqueue<PublishScheduledPostJob>(job => job.ExecuteAsync(scheduledPostId, CancellationToken.None));
+    }
+
+    private async Task<Guid> ResolveActiveSocialAccountIdAsync(
+        Guid? selectedAccountId, Platform platform, CancellationToken cancellationToken)
+    {
+        if (selectedAccountId.HasValue && await dbContext.SocialAccounts.AsNoTracking().AnyAsync(x =>
+                x.Id == selectedAccountId.Value && x.Platform == platform && x.Status == "Active", cancellationToken))
+        {
+            return selectedAccountId.Value;
+        }
+
+        var activeAccountIds = await dbContext.SocialAccounts.AsNoTracking()
+            .Where(x => x.Platform == platform && x.Status == "Active")
+            .Select(x => x.Id).Take(2).ToListAsync(cancellationToken);
+        return activeAccountIds.Count switch
+        {
+            1 => activeAccountIds[0],
+            0 => throw new InvalidOperationException("Yayın için etkin ve platformla eşleşen bir sosyal hesap bulunamadı."),
+            _ => throw new InvalidOperationException("Birden fazla etkin sosyal hesap bulundu. Gönderi için yayın hesabı seçilmelidir.")
+        };
     }
 }
