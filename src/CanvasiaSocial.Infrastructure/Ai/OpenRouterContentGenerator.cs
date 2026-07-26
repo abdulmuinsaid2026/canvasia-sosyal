@@ -13,7 +13,6 @@ public sealed class OpenRouterContentGenerator(HttpClient httpClient, OpenRouter
         {
             model = options.Model,
             temperature = 0.7,
-            response_format = new { type = "json_object" },
             messages = new object[]
             {
                 new
