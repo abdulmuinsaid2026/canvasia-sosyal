@@ -32,6 +32,9 @@ public sealed class CampaignsController(ICampaignService campaigns) : Controller
     [HttpPost("Items/{itemId:guid}/Retry"), Authorize(Policy = ApplicationPolicies.ManageContent)]
     public async Task<IActionResult> Retry(Guid itemId, Guid campaignId, CancellationToken token) { await campaigns.RetryItemAsync(itemId, token); return Back(campaignId); }
 
+    [HttpPost("{id:guid}/RetryFailed"), Authorize(Policy = ApplicationPolicies.ManageContent)]
+    public async Task<IActionResult> RetryFailed(Guid id, CancellationToken token) { await campaigns.RetryFailedItemsAsync(id, token); return Back(id); }
+
     [HttpPost("{id:guid}/Approve"), Authorize(Policy = ApplicationPolicies.ApproveContent)]
     public async Task<IActionResult> Approve(Guid id, CancellationToken token)
     {
