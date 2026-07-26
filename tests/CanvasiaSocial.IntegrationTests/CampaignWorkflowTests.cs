@@ -66,6 +66,61 @@ public sealed class CampaignWorkflowTests
     }
 
     [Fact]
+    public async Task Auto_schedule_schedules_each_success_without_waiting_for_campaign_completion()
+    {
+        await using var db = CreateContext();
+        var campaign = SeedCampaign(db, 2, CampaignMode.AutoSchedule);
+        var items = campaign.Items.OrderBy(x => x.SortOrder).ToArray();
+        var firstJob = CampaignService.CreateGenerationJob(items[0]);
+        var secondJob = CampaignService.CreateGenerationJob(items[1]);
+        db.AiGenerationJobs.AddRange(firstJob, secondJob);
+        await db.SaveChangesAsync();
+        var service = CreateService(db, new RecordingJobs());
+        var generator = new SelectiveGenerator(Guid.Empty);
+        var job = new GenerateSocialContentJob(db, generator, service, NullLogger<GenerateSocialContentJob>.Instance);
+
+        await job.ExecuteAsync(firstJob.Id, CancellationToken.None);
+
+        var firstPost = Assert.Single(await db.ScheduledPosts.ToListAsync());
+        Assert.Equal(items[0].Id, (await db.CampaignItems.SingleAsync(x => x.ScheduledPostId == firstPost.Id)).Id);
+        Assert.Equal(ContentStatus.Scheduled, items[0].Status);
+        Assert.Equal(ContentStatus.Generating, items[1].Status);
+
+        await job.ExecuteAsync(secondJob.Id, CancellationToken.None);
+
+        var posts = await db.ScheduledPosts.OrderBy(x => x.ScheduledAtUtc).ToListAsync();
+        Assert.Equal(2, posts.Count);
+        Assert.Equal(TimeSpan.FromMinutes(campaign.IntervalMinutes), posts[1].ScheduledAtUtc - posts[0].ScheduledAtUtc);
+    }
+
+    [Fact]
+    public async Task Incremental_scheduling_preserves_daily_limit_across_calls()
+    {
+        await using var db = CreateContext();
+        var campaign = SeedCampaign(db, 3, CampaignMode.AutoSchedule);
+        campaign.DailyLimit = 2;
+        var service = CreateService(db, new RecordingJobs());
+
+        foreach (var item in campaign.Items.OrderBy(x => x.SortOrder))
+        {
+            var content = Content(item.ProductCacheId, campaign.Platform, ContentStatus.Approved);
+            db.GeneratedContents.Add(content);
+            item.GeneratedContent = content;
+            item.GeneratedContentId = content.Id;
+            item.Status = ContentStatus.Approved;
+            await db.SaveChangesAsync();
+            await service.ScheduleAsync(campaign.Id);
+        }
+
+        var zone = TimeZoneInfo.FindSystemTimeZoneById(campaign.TimeZoneId);
+        var localTimes = (await db.ScheduledPosts.OrderBy(x => x.ScheduledAtUtc).ToListAsync())
+            .Select(x => TimeZoneInfo.ConvertTimeFromUtc(x.ScheduledAtUtc, zone)).ToArray();
+        Assert.Equal(localTimes[0].Date, localTimes[1].Date);
+        Assert.Equal(localTimes[0].Date.AddDays(1), localTimes[2].Date);
+        Assert.Equal(campaign.AllowedStartTime, TimeOnly.FromDateTime(localTimes[2]));
+    }
+
+    [Fact]
     public async Task One_product_failure_does_not_stop_other_campaign_items()
     {
         await using var db = CreateContext();
@@ -87,6 +142,47 @@ public sealed class CampaignWorkflowTests
         Assert.Equal(1, campaign.FailedItems);
         Assert.Equal(1, campaign.CompletedItems);
         Assert.Equal(CampaignStatus.PartiallyFailed, campaign.Status);
+    }
+
+    [Fact]
+    public async Task Retry_failed_items_requeues_only_failed_content_generation()
+    {
+        await using var db = CreateContext();
+        var campaign = SeedCampaign(db, 4);
+        var items = campaign.Items.OrderBy(x => x.SortOrder).ToArray();
+        items[0].Status = ContentStatus.Failed;
+        items[0].ErrorMessage = "AI hatası";
+        items[1].Status = ContentStatus.Failed;
+        items[1].ErrorMessage = "AI hatası";
+        items[2].Status = ContentStatus.Failed;
+        items[2].ErrorMessage = "Yayın hatası";
+        items[2].ScheduledPostId = Guid.NewGuid();
+        items[3].Status = ContentStatus.AwaitingApproval;
+        campaign.Status = CampaignStatus.PartiallyFailed;
+        campaign.FailedItems = 3;
+        var existingJob = CampaignService.CreateGenerationJob(items[0]);
+        existingJob.Status = ContentStatus.Failed;
+        existingJob.ErrorMessage = "AI hatası";
+        db.AiGenerationJobs.Add(existingJob);
+        await db.SaveChangesAsync();
+        var jobs = new RecordingJobs();
+        var service = CreateService(db, jobs);
+
+        await service.RetryFailedItemsAsync(campaign.Id);
+
+        Assert.All(items[..2], item =>
+        {
+            Assert.Equal(ContentStatus.Generating, item.Status);
+            Assert.Null(item.ErrorMessage);
+            Assert.Equal(1, item.RetryCount);
+        });
+        Assert.Equal(ContentStatus.Failed, items[2].Status);
+        Assert.Equal(ContentStatus.AwaitingApproval, items[3].Status);
+        Assert.Equal(CampaignStatus.Preparing, campaign.Status);
+        Assert.Equal(1, campaign.FailedItems);
+        Assert.Equal(2, jobs.Created.Count);
+        Assert.All(jobs.Created, job => Assert.Equal(typeof(GenerateSocialContentJob), job.Type));
+        Assert.Equal(2, await db.AiGenerationJobs.CountAsync());
     }
 
     [Fact]
