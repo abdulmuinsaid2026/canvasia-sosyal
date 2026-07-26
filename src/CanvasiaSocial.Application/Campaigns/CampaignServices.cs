@@ -13,6 +13,7 @@ public interface ICampaignService
     Task ResumeAsync(Guid id, CancellationToken cancellationToken = default);
     Task CancelAsync(Guid id, CancellationToken cancellationToken = default);
     Task RetryItemAsync(Guid itemId, CancellationToken cancellationToken = default);
+    Task RetryFailedItemsAsync(Guid campaignId, CancellationToken cancellationToken = default);
     Task ApproveAsync(Guid campaignId, string userId, CancellationToken cancellationToken = default);
     Task ScheduleAsync(Guid campaignId, CancellationToken cancellationToken = default);
 }
