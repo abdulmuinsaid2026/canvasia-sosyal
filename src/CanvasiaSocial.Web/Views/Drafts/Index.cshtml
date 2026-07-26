@@ -6,7 +6,7 @@
 <section class="page-heading">
     <p class="eyebrow">ONAY AKIŞI</p>
     <h1>Taslaklar</h1>
-    <p>Bekleyen içerikleri toplu onaylayın veya reddedin.</p>
+    <p>Bekleyen içerikleri onaylayın veya doğrudan takvime aktarın.</p>
 </section>
 
 <form asp-action="Review" method="post" id="drafts-form">
@@ -16,7 +16,7 @@
         <strong><span id="selected-draft-count">0</span> içerik seçildi</strong>
         <button name="approve" value="true" class="primary-button compact">Seçilenleri onayla</button>
         <button name="approve" value="false" class="danger-button">Seçilenleri reddet</button>
-        <button formaction="/Drafts/Schedule" class="secondary-button">Seçilenleri planla</button>
+        <button formaction="/Drafts/Schedule" class="secondary-button">Onayla ve takvime aktar</button>
     </div>
     <div class="content-stack">
         @foreach (var item in Model)
