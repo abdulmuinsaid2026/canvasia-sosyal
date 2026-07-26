@@ -48,6 +48,8 @@ public sealed class CampaignWorkflowTests
     {
         await using var db = CreateContext();
         var campaign = SeedCampaign(db, 1, CampaignMode.AutoSchedule);
+        campaign.SocialAccountId = null;
+        campaign.SocialAccount = null;
         var item = campaign.Items.Single();
         var content = Content(item.ProductCacheId, campaign.Platform, ContentStatus.Approved);
         db.GeneratedContents.Add(content);
@@ -62,6 +64,8 @@ public sealed class CampaignWorkflowTests
 
         var post = Assert.Single(await db.ScheduledPosts.ToListAsync());
         Assert.Equal(DateTimeKind.Utc, post.ScheduledAtUtc.Kind);
+        Assert.NotNull(post.SocialAccountId);
+        Assert.Equal(post.SocialAccountId, campaign.SocialAccountId);
         Assert.Equal($"campaign:{campaign.Id}:item:{item.Id}", post.IdempotencyKey);
     }
 
@@ -277,6 +281,11 @@ public sealed class CampaignWorkflowTests
     {
         await using var db = CreateContext();
         var content = Content(Guid.NewGuid(), Platform.Instagram, ContentStatus.Failed);
+        var account = new SocialAccount
+        {
+            Platform = Platform.Instagram, DisplayName = "Canvasia", ExternalAccountId = "instagram-1",
+            EncryptedAccessToken = "encrypted", Status = "Active"
+        };
         var post = new ScheduledPost
         {
             GeneratedContent = content, GeneratedContentId = content.Id, Platform = Platform.Instagram,
@@ -284,7 +293,7 @@ public sealed class CampaignWorkflowTests
             IdempotencyKey = "manual-retry", CreatedByUserId = "tester", AttemptCount = 3,
             LastErrorCode = "ERROR", LastErrorMessage = "Instagram görseli işleyemedi."
         };
-        db.AddRange(content, post);
+        db.AddRange(account, content, post);
         await db.SaveChangesAsync();
         var jobs = new RecordingJobs();
         var service = new CalendarService(db, jobs, new CampaignOptions { AutoPublishEnabled = true });
@@ -292,6 +301,7 @@ public sealed class CampaignWorkflowTests
         await service.RetryPublishAsync(post.Id);
 
         Assert.Equal(ContentStatus.Scheduled, post.Status);
+        Assert.Equal(account.Id, post.SocialAccountId);
         Assert.Equal(ContentStatus.Scheduled, content.Status);
         Assert.Null(post.LastErrorCode);
         Assert.Null(post.LastErrorMessage);
@@ -310,9 +320,16 @@ public sealed class CampaignWorkflowTests
 
     private static Campaign SeedCampaign(ApplicationDbContext db, int productCount, CampaignMode mode = CampaignMode.RequireApproval)
     {
+        var account = new SocialAccount
+        {
+            Platform = Platform.Instagram, DisplayName = "Canvasia", ExternalAccountId = Guid.NewGuid().ToString(),
+            EncryptedAccessToken = "encrypted", Status = "Active"
+        };
+        db.SocialAccounts.Add(account);
         var campaign = new Campaign
         {
             Name = "Test kampanyası", Platform = Platform.Instagram, Mode = mode, Status = CampaignStatus.Preparing,
+            SocialAccount = account, SocialAccountId = account.Id,
             StartAtUtc = new DateTime(2026, 7, 22, 6, 0, 0, DateTimeKind.Utc), IntervalMinutes = 60, DailyLimit = 10,
             AllowedStartTime = new TimeOnly(9, 0), AllowedEndTime = new TimeOnly(21, 0), TimeZoneId = "Europe/Istanbul",
             TotalItems = productCount, CreatedByUserId = "tester"
