@@ -258,12 +258,18 @@ public sealed class CampaignWorkflowTests
     public async Task Manual_publish_makes_post_due_and_enqueues_only_that_post()
     {
         await using var db = CreateContext();
+        var account = new SocialAccount
+        {
+            Platform = Platform.Instagram, DisplayName = "Canvasia", ExternalAccountId = "instagram-manual",
+            EncryptedAccessToken = "encrypted", Status = "Active"
+        };
         var post = new ScheduledPost
         {
+            SocialAccount = account, SocialAccountId = account.Id,
             GeneratedContentId = Guid.NewGuid(), Platform = Platform.Instagram, Status = ContentStatus.Scheduled,
             ScheduledAtUtc = DateTime.UtcNow.AddDays(1), IdempotencyKey = "manual-enabled", CreatedByUserId = "tester"
         };
-        db.ScheduledPosts.Add(post);
+        db.AddRange(account, post);
         await db.SaveChangesAsync();
         var jobs = new RecordingJobs();
         var service = new CalendarService(db, jobs, new CampaignOptions { AutoPublishEnabled = true });
