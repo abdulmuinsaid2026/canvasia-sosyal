@@ -11,7 +11,9 @@ public sealed class DraftService(ApplicationDbContext dbContext, ICampaignServic
     public async Task<IReadOnlyList<GeneratedContentView>> GetPendingAsync(CancellationToken cancellationToken = default)
     {
         var contents = await dbContext.GeneratedContents.AsNoTracking()
-            .Where(x => x.Status == ContentStatus.Draft || x.Status == ContentStatus.AwaitingApproval)
+            .Where(x => x.Status == ContentStatus.Draft || x.Status == ContentStatus.AwaitingApproval ||
+                x.Status == ContentStatus.Approved && dbContext.CampaignItems.Any(item =>
+                    item.GeneratedContentId == x.Id && item.ScheduledPostId == null))
             .OrderByDescending(x => x.CreatedAtUtc).ToListAsync(cancellationToken);
         return contents.Select(x => new GeneratedContentView(x.Id, x.ProductCacheId, x.Platform, x.Caption,
             x.StoryText, x.CallToAction, System.Text.Json.JsonSerializer.Deserialize<string[]>(x.HashtagsJson) ?? [],
