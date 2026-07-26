@@ -1,11 +1,61 @@
+@using CanvasiaSocial.Domain.Enums
 @model CanvasiaSocial.Application.Campaigns.CampaignDetails
-@{ ViewData["Title"] = Model.Name; }
-<section class="page-heading split-heading"><div><p class="eyebrow">@Model.Platform · @Model.Mode.Turkish()</p><h1>@Model.Name</h1><p>Durum: <strong>@Model.Status.Turkish()</strong> · @Model.CompletedItems/@Model.TotalItems hazır · @Model.FailedItems başarısız</p></div><a class="secondary-button" asp-action="Details" asp-route-id="@Model.Id">İlerlemeyi yenile</a></section>
+@{
+    ViewData["Title"] = Model.Name;
+    var failedGenerationCount = Model.Items.Count(x =>
+        x.Status == ContentStatus.Failed && !x.ScheduledPostId.HasValue);
+}
+
+<section class="page-heading split-heading">
+    <div>
+        <p class="eyebrow">@Model.Platform · @Model.Mode.Turkish()</p>
+        <h1>@Model.Name</h1>
+        <p>Durum: <strong>@Model.Status.Turkish()</strong> · @Model.CompletedItems/@Model.TotalItems hazır · @Model.FailedItems başarısız</p>
+    </div>
+    <div class="button-row">
+        @if (failedGenerationCount > 0)
+        {
+            <form asp-action="RetryFailed" asp-route-id="@Model.Id" method="post">
+                <button class="primary-button compact">@failedGenerationCount hatalı içeriği tekrar dene</button>
+            </form>
+        }
+        <a class="secondary-button" asp-action="Details" asp-route-id="@Model.Id">İlerlemeyi yenile</a>
+    </div>
+</section>
+
 <div class="button-row campaign-actions">
-<form asp-action="Pause" asp-route-id="@Model.Id" method="post"><button class="secondary-button">Duraklat</button></form>
-<form asp-action="Resume" asp-route-id="@Model.Id" method="post"><button class="secondary-button">Devam ettir</button></form>
-<form asp-action="Approve" asp-route-id="@Model.Id" method="post"><button class="secondary-button">Tümünü onayla</button></form>
-<form asp-action="Schedule" asp-route-id="@Model.Id" method="post"><button class="primary-button compact">Takvime aktar</button></form>
-<form asp-action="Cancel" asp-route-id="@Model.Id" method="post"><button class="danger-button">İptal et</button></form>
+    <form asp-action="Pause" asp-route-id="@Model.Id" method="post"><button class="secondary-button">Duraklat</button></form>
+    <form asp-action="Resume" asp-route-id="@Model.Id" method="post"><button class="secondary-button">Devam ettir</button></form>
+    <form asp-action="Approve" asp-route-id="@Model.Id" method="post"><button class="secondary-button">Tümünü onayla</button></form>
+    <form asp-action="Schedule" asp-route-id="@Model.Id" method="post"><button class="primary-button compact">Takvime aktar</button></form>
+    <form asp-action="Cancel" asp-route-id="@Model.Id" method="post"><button class="danger-button">İptal et</button></form>
 </div>
-<div class="campaign-items">@foreach (var item in Model.Items) { <article class="content-card"><div><strong>@item.ProductTitle</strong><span class="status-pill">@item.Status.Turkish()</span></div>@if (!string.IsNullOrWhiteSpace(item.Caption)) { <p>@item.Caption</p> }@if (!string.IsNullOrWhiteSpace(item.Error)) { <p class="error-text">@item.Error</p>@if (item.ScheduledPostId.HasValue) { <form asp-controller="Calendar" asp-action="RetryPublish" asp-route-id="@item.ScheduledPostId" method="post"><button class="secondary-button">Yeniden yayınla</button></form> } else { <form asp-action="Retry" asp-route-itemId="@item.Id" asp-route-campaignId="@Model.Id" method="post"><button class="secondary-button">İçeriği yeniden üret</button></form> } }@if (item.ScheduledAtUtc.HasValue) { <small>@TimeZoneInfo.ConvertTimeBySystemTimeZoneId(item.ScheduledAtUtc.Value, Model.TimeZoneId).ToString("dd.MM.yyyy HH:mm")</small> }</article> }</div>
+
+<div class="campaign-items">
+    @foreach (var item in Model.Items)
+    {
+        <article class="content-card">
+            <div><strong>@item.ProductTitle</strong><span class="status-pill">@item.Status.Turkish()</span></div>
+            @if (!string.IsNullOrWhiteSpace(item.Caption))
+            {
+                <p>@item.Caption</p>
+            }
+            @if (!string.IsNullOrWhiteSpace(item.Error))
+            {
+                <p class="error-text">@item.Error</p>
+                @if (item.ScheduledPostId.HasValue)
+                {
+                    <form asp-controller="Calendar" asp-action="RetryPublish" asp-route-id="@item.ScheduledPostId" method="post"><button class="secondary-button">Yeniden yayınla</button></form>
+                }
+                else
+                {
+                    <form asp-action="Retry" asp-route-itemId="@item.Id" asp-route-campaignId="@Model.Id" method="post"><button class="secondary-button">İçeriği yeniden üret</button></form>
+                }
+            }
+            @if (item.ScheduledAtUtc.HasValue)
+            {
+                <small>@TimeZoneInfo.ConvertTimeBySystemTimeZoneId(item.ScheduledAtUtc.Value, Model.TimeZoneId).ToString("dd.MM.yyyy HH:mm")</small>
+            }
+        </article>
+    }
+</div>
